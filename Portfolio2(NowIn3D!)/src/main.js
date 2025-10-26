@@ -1,15 +1,11 @@
-import { GLTFLoader } from 'three/examples/jsm/Addons.js';
+import { GLTFLoader, OrbitControls } from 'three/examples/jsm/Addons.js';
 import './style.css'
 import * as THREE from 'three'
 
 
 const scene = new THREE.Scene();
 
-//Camera setup
-const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.set(0.2, 5.5, 5);
-// camera.lookAt(0, 0, 0);
-
+//Renderer setup
 const renderer = new THREE.WebGLRenderer({
   // canvas: document.querySelector("#background"),
   antialias: true
@@ -18,7 +14,27 @@ renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setClearColor(0x000000);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 document.body.appendChild(renderer.domElement)
+
+
+//Camera setup
+const camera = new THREE.PerspectiveCamera(20, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.set(0.2, 6, 15);
+// camera.lookAt(0, 0, 0);
+// const controls = new OrbitControls(camera, renderer.domElement);
+
+// controls.enableDamping = false;
+// controls.enablePan = false;
+// controls.minDistance = 5;
+// controls.maxDistance = 20;
+// controls.minPolarAngle = 0.5;
+// controls.maxPolarAngle = 1.5;
+// controls.autoRotate = false;
+// controls.target = new THREE.Vector3(0, 6, 2)
+// controls.update();
+
 
 const loader = new GLTFLoader().setPath('DeskModel/')
 console.log('loader initialised'); 
@@ -26,6 +42,12 @@ loader.load('portfolio2.gltf', (gltf) => { //Callback function (active when othe
   const mesh = gltf.scene;
   mesh.position.set(0, 4.2, 0);
   mesh.rotateY(-Math.PI / 2);
+  mesh.traverse((child) => {
+    child.castShadow = true;
+    child.receiveShadow = true;
+  })
+  
+
   scene.add(mesh);
 });
 
@@ -34,7 +56,7 @@ loader.load('portfolio2.gltf', (gltf) => { //Callback function (active when othe
 // const torus = new THREE.Mesh(geometry, material);
 // scene.add(torus);
 
-// //Create ground plane as a point of reference
+//Create ground plane as a point of reference
 const groundPlane = new THREE.PlaneGeometry(20, 20, 32, 32);
 groundPlane.rotateX(-Math.PI / 2);
 const groundMaterial = new THREE.MeshStandardMaterial({color: 0xffffff, side: THREE.DoubleSide, wireframe: true})
@@ -42,45 +64,17 @@ const groundMesh = new THREE.Mesh(groundPlane, groundMaterial);
 scene.add(groundMesh);
 
 //Basic Light
-const spotlight = new THREE.SpotLight(0xffffff, 1000, 100, 1, 0.5);
+const spotlight = new THREE.SpotLight(0xffffff, 2000, 100, 1, 0.5);
 spotlight.position.set(0, 25, 0);
+spotlight.castShadow = true;
+spotlight.shadow.bias = -0.0001;
 scene.add(spotlight);
 
 function animate()
 {
   requestAnimationFrame(animate);
+  // controls.update();
   renderer.render(scene, camera);
 }
 
 animate();
-
-// const scene = new THREE.Scene();
-// const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
-
-// //Renderer setup
-// const renderer = new THREE.WebGLRenderer({
-//   antialias: true
-// });
-
-// renderer.outputColorSpace = THREE.SRGBColorSpace;
-// renderer.setPixelRatio(window.devicePixelRatio);
-// renderer.setSize(window.innerWidth, window.innerHeight);
-// renderer.setClearColor(0x000000);
-// document.body.appendChild(renderer.domElement)
-
-
-// //Create ground plane as a point of reference
-// const groundPlane = new THREE.PlaneGeometry(20, 20, 32, 32);
-// groundPlane.rotateX(-Math.PI / 2);
-// const groundMaterial = new THREE.MeshStandardMaterial({color: 0x555555, side: THREE.DoubleSide})
-// const groundMesh = new THREE.Mesh(groundPlane, groundMaterial);
-// scene.add(groundMesh)
-
-// //Function that draws the scene
-// function animate()
-// {
-//   requestAnimationFrame(animate);
-//   renderer.render(scene, camera);
-// }
-
-// animate();
