@@ -24,17 +24,17 @@ const camera = new THREE.PerspectiveCamera(20, window.innerWidth / window.innerH
 camera.position.set(0.2, 6, 16);
 // camera.rotateY(20 * (Math.PI / 180))
 // camera.lookAt(5, 5, 5);
-const controls = new OrbitControls(camera, renderer.domElement);
+// const controls = new OrbitControls(camera, renderer.domElement);
 
-controls.enableDamping = false;
-controls.enablePan = false;
-controls.minDistance = 5;
-controls.maxDistance = 50;
-controls.minPolarAngle = 0.5;
-controls.maxPolarAngle = 1.5;
-controls.autoRotate = false;
-controls.target = new THREE.Vector3(0, 6, 2)
-controls.update();
+// controls.enableDamping = false;
+// controls.enablePan = false;
+// controls.minDistance = 5;
+// controls.maxDistance = 50;
+// controls.minPolarAngle = 0.5;
+// controls.maxPolarAngle = 1.5;
+// controls.autoRotate = false;
+// controls.target = new THREE.Vector3(0, 6, 2)
+// controls.update();
 
 
 const loader = new GLTFLoader().setPath('DeskModel/')
@@ -82,7 +82,7 @@ const ambLight = new THREE.AmbientLight(0x23227A, 10);
 scene.add(ambLight);
 
 //Window light
-const dirLight = new THREE.DirectionalLight(0xf0aa4f, 1);
+const dirLight = new THREE.DirectionalLight(0xe39520, 0.1);
 dirLight.position.set(2, 4, 4);
 dirLight.target.position.set(0, 3, 0);
 // dirLight.castShadow = true;
@@ -93,11 +93,11 @@ dirLight.target.position.set(0, 3, 0);
 // dirLight.shadow.bias = -0.0001;
 scene.add(dirLight);
 
-// let dirLighthelper = new THREE.DirectionalLightHelper(dirLight, 5);
-// dirLight.add(dirLighthelper);
+let dirLighthelper = new THREE.DirectionalLightHelper(dirLight, 5);
+dirLight.add(dirLighthelper);
 
 //Side Light
-const sideLight = new THREE.SpotLight(0x350dff, 1000, 70, 2, 0.5);
+const sideLight = new THREE.SpotLight(0x1f31a6, 1500, 70, 2, 0.5);
 sideLight.position.set(8, 10, 5);
 sideLight.target.position.set(0, 0, 0);
 sideLight.castShadow = true;
@@ -106,11 +106,12 @@ sideLight.shadow.mapSize.height = 2048;
 sideLight.shadow.bias = -0.0001;
 scene.add(sideLight);
 
-// let sLightHelper = new THREE.SpotLightHelper(sideLight, 0xffffff);
-// sideLight.add(sLightHelper);
+let sLightHelper = new THREE.SpotLightHelper(sideLight, 0xffffff);
+sideLight.add(sLightHelper);
+
 
 //Front light
-const frontLight = new THREE.SpotLight(0x350dff, 200, 100, 2, 0.5);
+const frontLight = new THREE.SpotLight(0x996615, 100, 100, 2, 0.5);
 frontLight.position.set(0, 6, 6);
 frontLight.target.position.set(0, 0, 0);
 frontLight.castShadow = true;
@@ -123,15 +124,15 @@ let fLightHelper = new THREE.SpotLightHelper(frontLight, 0xffffff);
 frontLight.add(fLightHelper);
 
 
-
 //Monitor Backlight
 const monitorLight = new THREE.RectAreaLight(0xffdb87, 10, 3.6, 1.8);
 monitorLight.position.set(0.04, 5.4, -2.5);
 monitorLight.rotateX(Math.PI)
 scene.add(monitorLight);
 
-let monHelper = new RectAreaLightHelper(monitorLight, 0xffdb87);
+let monHelper = new RectAreaLightHelper(monitorLight, 0xffffff);
 monitorLight.add(monHelper);
+
 
 //Laptop backlight
 const laptopLight = new THREE.RectAreaLight(0x2128b5, 10, 1.6, 0.83);
@@ -144,10 +145,38 @@ let lapHelper = new RectAreaLightHelper(laptopLight, 0xffffff);
 laptopLight.add(lapHelper);
 
 
+//Button testing
+document.addEventListener("keydown", OnKeyDown, false);
+
+function OnKeyDown(event)
+{
+  var keyCode = event.which;
+  console.log(keyCode);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function animate()
 {
   requestAnimationFrame(animate);
-  controls.update();
+  // controls.update();
   renderer.render(scene, camera);
 }
 
