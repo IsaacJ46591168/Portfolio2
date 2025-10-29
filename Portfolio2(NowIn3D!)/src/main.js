@@ -24,14 +24,18 @@ const camera = new THREE.PerspectiveCamera(20, window.innerWidth / window.innerH
 let curCamPosition = new THREE.Vector3(0, 0, 0);
 let curCamRotation = new THREE.Vector3(0, 0, 0);
 const startingPos = new THREE.Vector3(0.2, 6, 16);
+const startingRot = new THREE.Vector3(0, 0, 0);
 curCamPosition = startingPos;
+curCamRotation = startingRot;
 
 const monitorView = new THREE.Vector3(0.05, 5.4, 5.7);
 
 const laptopView = new THREE.Vector3(0.2, 4.7, 2);
-// camera.rotateY(35 * (Math.PI / 180))
+const laptopRotation = new THREE.Vector3(0, 35*(Math.PI / 180), 0);
 
 const phoneView = new THREE.Vector3(3.25, 7.5, 0.2);
+
+const phoneRotation = new THREE.Vector3(-80 * (Math.PI / 180), 0, -19 * (Math.PI / 180))
 // camera.rotateX(-80 * (Math.PI / 180))
 // camera.rotateZ(-17 * (Math.PI / 180))
 // camera.rotateY(-2 * (Math.PI / 180))
@@ -155,7 +159,21 @@ function OnKeyDown(event)
   if(keyCode == 38)
   {
     curCamPosition = monitorView;
-    console.log('a');
+    curCamRotation = startingRot;
+  } else if(keyCode == 40)
+  {
+    curCamPosition = startingPos;
+    curCamRotation = startingRot;
+  } else if(keyCode == 37)
+  {
+    curCamPosition = laptopView;
+    curCamRotation = laptopRotation;
+  } else if(keyCode == 39)
+  {
+    curCamPosition = phoneView;
+    curCamRotation = phoneRotation;
+  } else {
+    return;
   }
   console.log(keyCode);
 }
@@ -184,6 +202,7 @@ function animate()
   requestAnimationFrame(animate);
   // controls.update();
   camera.position.set(curCamPosition.x, curCamPosition.y, curCamPosition.z);
+  camera.rotation.set(curCamRotation.x, curCamRotation.y, curCamRotation.z);
   renderer.render(scene, camera);
 }
 
