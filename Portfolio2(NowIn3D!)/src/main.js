@@ -1,7 +1,7 @@
 import { GLTFLoader, OrbitControls, RectAreaLightHelper } from 'three/examples/jsm/Addons.js';
 import './style.css'
 import * as THREE from 'three'
-
+import {Tween, Group} from '@tweenjs/tween.js'
 
 const scene = new THREE.Scene();
 
@@ -36,9 +36,6 @@ const laptopRotation = new THREE.Vector3(0, 35*(Math.PI / 180), 0);
 const phoneView = new THREE.Vector3(3.25, 7.5, 0.2);
 
 const phoneRotation = new THREE.Vector3(-80 * (Math.PI / 180), 0, -19 * (Math.PI / 180))
-// camera.rotateX(-80 * (Math.PI / 180))
-// camera.rotateZ(-17 * (Math.PI / 180))
-// camera.rotateY(-2 * (Math.PI / 180))
 
 
 // const controls = new OrbitControls(camera, renderer.domElement);
@@ -66,11 +63,6 @@ loader.load('portfolio2.gltf', (gltf) => { //Callback function (active when othe
   scene.add(mesh);
 });
 
-// const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-// const material = new THREE.MeshBasicMaterial({color: 0xFF6347, wireframe: true})
-// const torus = new THREE.Mesh(geometry, material);
-// scene.add(torus);
-
 //Create ground plane as a point of reference
 const groundPlane = new THREE.PlaneGeometry(20, 20, 32, 32);
 groundPlane.rotateX(-Math.PI / 2);
@@ -86,12 +78,6 @@ scene.add(ambLight);
 const dirLight = new THREE.DirectionalLight(0xe39520, 0.1);
 dirLight.position.set(2, 4, 4);
 dirLight.target.position.set(0, 3, 0);
-// dirLight.castShadow = true;
-// dirLight.shadow.camera.left = -5;
-// dirLight.shadow.camera.right = 1;
-// dirLight.shadow.camera.top = 5;
-// dirLight.shadow.camera.bottom = -5;
-// dirLight.shadow.bias = -0.0001;
 scene.add(dirLight);
 
 let dirLighthelper = new THREE.DirectionalLightHelper(dirLight, 5);
@@ -145,30 +131,39 @@ scene.add(laptopLight);
 let lapHelper = new RectAreaLightHelper(laptopLight, 0xffffff);
 laptopLight.add(lapHelper);
 
+// requestAnimationFrame(function loop(time) {
+// group.update(time)
+// requestAnimationFrame(loop)
+// })
+
+//camera animations
+const toMonitor = new Tween(monitorLight.position)
+  .to({x: monitorView.x, y: monitorView.y, z: monitorView.z}, 6000)
+  .start();
+
+const camAnimations = new Group()
+camAnimations.add(toMonitor);
+
 
 //Button testing
 document.addEventListener("keydown", OnKeyDown, false);
 
 function OnKeyDown(event)
 {
-  //38 - uar
-  //40 - dar
-  //37 - lar
-  //39 - rar
   var keyCode = event.which;
-  if(keyCode == 38)
+  if(keyCode == 38) //uarr
   {
     curCamPosition = monitorView;
     curCamRotation = startingRot;
-  } else if(keyCode == 40)
+  } else if(keyCode == 40) //darr
   {
     curCamPosition = startingPos;
     curCamRotation = startingRot;
-  } else if(keyCode == 37)
+  } else if(keyCode == 37) //larr
   {
     curCamPosition = laptopView;
     curCamRotation = laptopRotation;
-  } else if(keyCode == 39)
+  } else if(keyCode == 39) //rarr
   {
     curCamPosition = phoneView;
     curCamRotation = phoneRotation;
@@ -178,29 +173,12 @@ function OnKeyDown(event)
   console.log(keyCode);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function animate()
 {
   requestAnimationFrame(animate);
   // controls.update();
+  camAnimations.update();
+
   camera.position.set(curCamPosition.x, curCamPosition.y, curCamPosition.z);
   camera.rotation.set(curCamRotation.x, curCamRotation.y, curCamRotation.z);
   renderer.render(scene, camera);
