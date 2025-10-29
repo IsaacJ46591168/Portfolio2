@@ -7,7 +7,7 @@ const scene = new THREE.Scene();
 
 //Renderer setup
 const renderer = new THREE.WebGLRenderer({
-  // canvas: document.querySelector("#background"),
+  canvas: document.querySelector("#mainScene"),
   antialias: true
 });
 renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -21,11 +21,23 @@ document.body.appendChild(renderer.domElement)
 
 //Camera setup
 const camera = new THREE.PerspectiveCamera(20, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.set(0.2, 6, 16);
-// camera.rotateY(20 * (Math.PI / 180))
-// camera.lookAt(5, 5, 5);
-// const controls = new OrbitControls(camera, renderer.domElement);
+let curCamPosition = new THREE.Vector3(0, 0, 0);
+let curCamRotation = new THREE.Vector3(0, 0, 0);
+const startingPos = new THREE.Vector3(0.2, 6, 16);
+curCamPosition = startingPos;
 
+const monitorView = new THREE.Vector3(0.05, 5.4, 5.7);
+
+const laptopView = new THREE.Vector3(0.2, 4.7, 2);
+// camera.rotateY(35 * (Math.PI / 180))
+
+const phoneView = new THREE.Vector3(3.25, 7.5, 0.2);
+// camera.rotateX(-80 * (Math.PI / 180))
+// camera.rotateZ(-17 * (Math.PI / 180))
+// camera.rotateY(-2 * (Math.PI / 180))
+
+
+// const controls = new OrbitControls(camera, renderer.domElement);
 // controls.enableDamping = false;
 // controls.enablePan = false;
 // controls.minDistance = 5;
@@ -61,21 +73,6 @@ groundPlane.rotateX(-Math.PI / 2);
 const groundMaterial = new THREE.MeshStandardMaterial({color: 0xffffff, side: THREE.DoubleSide, wireframe: true})
 const groundMesh = new THREE.Mesh(groundPlane, groundMaterial);
 scene.add(groundMesh);
-
-//Basic spotlight
-// const spotlight = new THREE.SpotLight(0xf0aa4f, 10, 100, 1.1, 0.5);
-// spotlight.position.set(0, 10, 0);
-// spotlight.rotateZ(-Math.PI / 2);
-// spotlight.castShadow = true;
-// spotlight.shadow.mapSize.width = 2048;
-// spotlight.shadow.mapSize.height = 2048;
-// spotlight.shadow.bias = -0.0005;
-// scene.add(spotlight);
-
-// let topLight = new THREE.SpotLightHelper(spotlight, 0xffffff);
-// spotlight.add(topLight);
-
-
 
 //Ambient light
 const ambLight = new THREE.AmbientLight(0x23227A, 10);
@@ -150,7 +147,16 @@ document.addEventListener("keydown", OnKeyDown, false);
 
 function OnKeyDown(event)
 {
+  //38 - uar
+  //40 - dar
+  //37 - lar
+  //39 - rar
   var keyCode = event.which;
+  if(keyCode == 38)
+  {
+    curCamPosition = monitorView;
+    console.log('a');
+  }
   console.log(keyCode);
 }
 
@@ -177,6 +183,7 @@ function animate()
 {
   requestAnimationFrame(animate);
   // controls.update();
+  camera.position.set(curCamPosition.x, curCamPosition.y, curCamPosition.z);
   renderer.render(scene, camera);
 }
 
