@@ -1,7 +1,7 @@
 import { GLTFLoader, OrbitControls, RectAreaLightHelper } from 'three/examples/jsm/Addons.js';
 import './style.css'
 import * as THREE from 'three'
-import {Tween, Group} from '@tweenjs/tween.js'
+import { Tween, Group } from '@tweenjs/tween.js'
 import { ToLaptop, ToPhone, ToDefault, ToMonitor } from './cameranimations';
 
 
@@ -32,7 +32,7 @@ camera.rotation.set(startingRot.x, startingRot.y, startingRot.z);
 const monitorView = new THREE.Vector3(0.05, 5.4, 5.7);
 
 const laptopView = new THREE.Vector3(0.2, 4.7, 2);
-const laptopRotation = new THREE.Vector3(0, 35*(Math.PI / 180), 0);
+const laptopRotation = new THREE.Vector3(0, 35 * (Math.PI / 180), 0);
 
 const phoneView = new THREE.Vector3(3.25, 7.5, 0.2);
 const phoneRotation = new THREE.Vector3(-80 * (Math.PI / 180), 0, -19 * (Math.PI / 180))
@@ -51,7 +51,7 @@ const phoneRotation = new THREE.Vector3(-80 * (Math.PI / 180), 0, -19 * (Math.PI
 
 
 const loader = new GLTFLoader().setPath('DeskModel/')
-console.log('loader initialised'); 
+console.log('loader initialised');
 loader.load('portfolio2.gltf', (gltf) => { //Callback function (active when other one finishes)
   const mesh = gltf.scene;
   mesh.position.set(0, 4.2, 0);
@@ -66,7 +66,7 @@ loader.load('portfolio2.gltf', (gltf) => { //Callback function (active when othe
 //Create ground plane as a point of reference
 const groundPlane = new THREE.PlaneGeometry(20, 20, 32, 32);
 groundPlane.rotateX(-Math.PI / 2);
-const groundMaterial = new THREE.MeshStandardMaterial({color: 0xffffff, side: THREE.DoubleSide, wireframe: true})
+const groundMaterial = new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.DoubleSide, wireframe: true })
 const groundMesh = new THREE.Mesh(groundPlane, groundMaterial);
 scene.add(groundMesh);
 
@@ -137,31 +137,29 @@ const camAnimations = new Group();
 //Button testing
 document.addEventListener("keydown", OnKeyDown, false);
 
-function OnKeyDown(event)
-{
+function OnKeyDown(event) {
   var keyCode = event.which;
-  if(keyCode == 38) //uarr
+  if (keyCode == 38) //uarr
   {
     // curCamPosition = monitorView;
     // curCamRotation = startingRot;
-    ToMonitor(monitorView, camera, camAnimations, 2000);
-  } else if(keyCode == 40) //darr
+    ToMonitor(monitorView, startingRot, camera, camAnimations, 2000);
+  } else if (keyCode == 40) //darr
   {
-    ToDefault(startingPos, camera, camAnimations, 2000);
-  } else if(keyCode == 37) //larr
+    ToDefault(startingPos, startingRot, camera, camAnimations, 2000);
+  } else if (keyCode == 37) //larr
   {
-    ToLaptop(laptopView, camera, camAnimations, 2000);
-  } else if(keyCode == 39) //rarr
+    ToLaptop(laptopView, laptopRotation, camera, camAnimations, 2000);
+  } else if (keyCode == 39) //rarr
   {
-    ToPhone(phoneView, camera, camAnimations, 2000);
+    ToPhone(phoneView, phoneRotation, camera, camAnimations, 2000);
   } else {
     return;
   }
   console.log(keyCode);
 }
 
-function animate()
-{
+function animate() {
   requestAnimationFrame(animate);
   // controls.update();
   camAnimations.update();
