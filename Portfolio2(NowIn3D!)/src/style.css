@@ -1,11 +1,62 @@
+body {
+  margin: 0;
+}
+
 canvas {
   position: fixed;
   top: 0;
-  left: 0; 
+  left: 0;
+  z-index: -10;
+}
+
+.contentWrapper {
+  position: absolute;
+  z-index: 1;
+  margin: 0;
+}
+
+#monitorDisplay {
+  top: 11.5em;
+  left: 15em;
+  margin: 0;
+  padding: 0;
+
+  width: 1423px;
+  height: 666px;
+
+  border: solid 3px green;
+
+  visibility: hidden;
+}
+
+#laptopDisplay {
+  top: 18.5em;
+  left: 25.7em;
+  margin: 0;
+  padding: 0;
+
+  width: 1054px;
+  height: 540px;
+
+  border: solid 3px green;
+  visibility: hidden;
+
+}
+
+#phoneDisplay {
+  top: 18.1em;
+  left: 52.3em;
+  margin: 0;
+  padding: 0;
+
+  width: 245px;
+  height: 525px;
+
+  border: solid 3px green;
+  visibility: hidden;
 }
 
 h1 {
-  position: absolute;
   z-index: 1;
-  color: white;
+  color: black;
 }

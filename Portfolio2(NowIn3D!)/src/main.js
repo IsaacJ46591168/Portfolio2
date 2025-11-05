@@ -25,17 +25,27 @@ document.body.appendChild(renderer.domElement)
 const camera = new THREE.PerspectiveCamera(20, window.innerWidth / window.innerHeight, 0.1, 1000);
 const startingPos = new THREE.Vector3(0.2, 6, 16);
 const startingRot = new THREE.Vector3(0, 0, 0);
+
+//Position and rotation setup for camera view changes
+const monitorView = new THREE.Vector3(0.05, 5.4, 5);
+
+const laptopView = new THREE.Vector3(-0.03, 4.6, 1.7);
+const laptopRotation = new THREE.Vector3(0, 35 * (Math.PI / 180), 0);
+
+const phoneView = new THREE.Vector3(3.3, 7.5, 0.23);
+const phoneRotation = new THREE.Vector3(-79.8 * (Math.PI / 180), 0, -16.5 * (Math.PI / 180))
+
+//debug starting position changes
 camera.position.set(startingPos.x, startingPos.y, startingPos.z);
 camera.rotation.set(startingRot.x, startingRot.y, startingRot.z);
 
-//Position and rotation setup for camera view changes
-const monitorView = new THREE.Vector3(0.05, 5.4, 5.7);
+// camera.position.set(monitorView.x, monitorView.y, monitorView.z);
 
-const laptopView = new THREE.Vector3(0.2, 4.7, 2);
-const laptopRotation = new THREE.Vector3(0, 35 * (Math.PI / 180), 0);
+// camera.position.set(laptopView.x, laptopView.y, laptopView.z);
+// camera.rotation.set(laptopRotation.x, laptopRotation.y, laptopRotation.z);
 
-const phoneView = new THREE.Vector3(3.25, 7.5, 0.2);
-const phoneRotation = new THREE.Vector3(-80 * (Math.PI / 180), 0, -19 * (Math.PI / 180))
+// camera.position.set(phoneView.x, phoneView.y, phoneView.z);
+// camera.rotation.set(phoneRotation.x, phoneRotation.y, phoneRotation.z);
 
 
 // const controls = new OrbitControls(camera, renderer.domElement);
@@ -112,8 +122,8 @@ frontLight.add(fLightHelper);
 
 
 //Monitor Backlight
-const monitorLight = new THREE.RectAreaLight(0xffdb87, 10, 3.6, 1.8);
-monitorLight.position.set(0.04, 5.4, -2.5);
+const monitorLight = new THREE.RectAreaLight(0xffdb87, 10, 3.65, 1.8);
+monitorLight.position.set(0.03, 5.4, -2.5);
 monitorLight.rotateX(Math.PI)
 scene.add(monitorLight);
 
@@ -122,8 +132,8 @@ monitorLight.add(monHelper);
 
 
 //Laptop backlight
-const laptopLight = new THREE.RectAreaLight(0x2128b5, 10, 1.6, 0.83);
-laptopLight.position.set(-2.66, 4.52, -2.01);
+const laptopLight = new THREE.RectAreaLight(0x2128b5, 10, 1.62, 0.83);
+laptopLight.position.set(-2.66, 4.53, -2.01);
 laptopLight.rotateX(Math.PI)
 laptopLight.rotateY(-36.2 * (Math.PI / 180))
 scene.add(laptopLight);
@@ -137,22 +147,31 @@ const camAnimations = new Group();
 //Button testing
 document.addEventListener("keydown", OnKeyDown, false);
 
+//Get individual HTML elements for turning off and on depending on where the camera is
+var monitorHTML = document.getElementById("monitorDisplay");
+var laptopHTML = document.getElementById("laptopDisplay");
+var phoneHTML = document.getElementById("phoneDisplay");
+
 function OnKeyDown(event) {
   var keyCode = event.which;
   if (keyCode == 38) //uarr
   {
-    // curCamPosition = monitorView;
-    // curCamRotation = startingRot;
-    ToMonitor(monitorView, startingRot, camera, camAnimations, 2000);
+    monitorHTML.style.visibility = "visible";
+    ToMonitor(monitorView, startingRot, camera, camAnimations, 500);
   } else if (keyCode == 40) //darr
   {
-    ToDefault(startingPos, startingRot, camera, camAnimations, 2000);
+    monitorHTML.style.visibility = "hidden";
+    laptopHTML.style.visibility = "hidden";
+    phoneHTML.style.visibility = "hidden";
+    ToDefault(startingPos, startingRot, camera, camAnimations, 500);
   } else if (keyCode == 37) //larr
   {
-    ToLaptop(laptopView, laptopRotation, camera, camAnimations, 2000);
+    laptopHTML.style.visibility = "visible";
+    ToLaptop(laptopView, laptopRotation, camera, camAnimations, 500);
   } else if (keyCode == 39) //rarr
   {
-    ToPhone(phoneView, phoneRotation, camera, camAnimations, 2000);
+    phoneHTML.style.visibility = "visible";
+    ToPhone(phoneView, phoneRotation, camera, camAnimations, 500);
   } else {
     return;
   }
