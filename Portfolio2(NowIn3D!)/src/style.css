@@ -15,6 +15,7 @@ canvas {
   margin: 0;
 }
 
+/*Monitor display CSS*/
 #monitorDisplay {
   top: 11.5em;
   left: 15em;
@@ -24,10 +25,77 @@ canvas {
   width: 1423px;
   height: 666px;
 
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+
   border: solid 3px green;
 
-  visibility: hidden;
+  visibility: visible;
 }
+
+#desktop {
+  width: 100%;
+  height: 92%;
+  border: solid 2px;
+}
+
+#projectBar {
+  width: 100%;
+  height: 8%;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  border: solid 1px;
+}
+
+.pBElement {
+  height: 100%;
+  width: 5%;
+  border: solid 1px;
+}
+
+#searchMock {
+  width: 20%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #laptopDisplay {
   top: 18.5em;

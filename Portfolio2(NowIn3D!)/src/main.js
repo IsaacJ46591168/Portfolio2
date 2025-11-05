@@ -36,10 +36,11 @@ const phoneView = new THREE.Vector3(3.3, 7.5, 0.23);
 const phoneRotation = new THREE.Vector3(-79.8 * (Math.PI / 180), 0, -16.5 * (Math.PI / 180))
 
 //debug starting position changes
-camera.position.set(startingPos.x, startingPos.y, startingPos.z);
-camera.rotation.set(startingRot.x, startingRot.y, startingRot.z);
+// camera.position.set(startingPos.x, startingPos.y, startingPos.z);
+// camera.rotation.set(startingRot.x, startingRot.y, startingRot.z);
 
-// camera.position.set(monitorView.x, monitorView.y, monitorView.z);
+camera.position.set(monitorView.x, monitorView.y, monitorView.z);
+camera.rotation.set(startingRot.x, startingRot.y, startingRot.z);
 
 // camera.position.set(laptopView.x, laptopView.y, laptopView.z);
 // camera.rotation.set(laptopRotation.x, laptopRotation.y, laptopRotation.z);
@@ -145,38 +146,38 @@ laptopLight.add(lapHelper);
 const camAnimations = new Group();
 
 //Button testing
-document.addEventListener("keydown", OnKeyDown, false);
+// document.addEventListener("keydown", OnKeyDown, false);
 
-//Get individual HTML elements for turning off and on depending on where the camera is
-var monitorHTML = document.getElementById("monitorDisplay");
-var laptopHTML = document.getElementById("laptopDisplay");
-var phoneHTML = document.getElementById("phoneDisplay");
+// //Get individual HTML elements for turning off and on depending on where the camera is
+// var monitorHTML = document.getElementById("monitorDisplay");
+// var laptopHTML = document.getElementById("laptopDisplay");
+// var phoneHTML = document.getElementById("phoneDisplay");
 
-function OnKeyDown(event) {
-  var keyCode = event.which;
-  if (keyCode == 38) //uarr
-  {
-    monitorHTML.style.visibility = "visible";
-    ToMonitor(monitorView, startingRot, camera, camAnimations, 500);
-  } else if (keyCode == 40) //darr
-  {
-    monitorHTML.style.visibility = "hidden";
-    laptopHTML.style.visibility = "hidden";
-    phoneHTML.style.visibility = "hidden";
-    ToDefault(startingPos, startingRot, camera, camAnimations, 500);
-  } else if (keyCode == 37) //larr
-  {
-    laptopHTML.style.visibility = "visible";
-    ToLaptop(laptopView, laptopRotation, camera, camAnimations, 500);
-  } else if (keyCode == 39) //rarr
-  {
-    phoneHTML.style.visibility = "visible";
-    ToPhone(phoneView, phoneRotation, camera, camAnimations, 500);
-  } else {
-    return;
-  }
-  console.log(keyCode);
-}
+// function OnKeyDown(event) {
+//   var keyCode = event.which;
+//   if (keyCode == 38) //uarr
+//   {
+//     monitorHTML.style.visibility = "visible";
+//     ToMonitor(monitorView, startingRot, camera, camAnimations, 500);
+//   } else if (keyCode == 40) //darr
+//   {
+//     monitorHTML.style.visibility = "hidden";
+//     laptopHTML.style.visibility = "hidden";
+//     phoneHTML.style.visibility = "hidden";
+//     ToDefault(startingPos, startingRot, camera, camAnimations, 500);
+//   } else if (keyCode == 37) //larr
+//   {
+//     laptopHTML.style.visibility = "visible";
+//     ToLaptop(laptopView, laptopRotation, camera, camAnimations, 500);
+//   } else if (keyCode == 39) //rarr
+//   {
+//     phoneHTML.style.visibility = "visible";
+//     ToPhone(phoneView, phoneRotation, camera, camAnimations, 500);
+//   } else {
+//     return;
+//   }
+//   console.log(keyCode);
+// }
 
 function animate() {
   requestAnimationFrame(animate);
