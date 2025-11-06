@@ -57,7 +57,7 @@ camera.rotation.set(startingRot.x, startingRot.y, startingRot.z);
 // controls.minPolarAngle = 0.5;
 // controls.maxPolarAngle = 1.5;
 // controls.autoRotate = false;
-// controls.target = new THREE.Vector3(0, 6, 2)
+// controls.target = new THREE.Vector3(0, 6, 0)
 // controls.update();
 
 
@@ -141,6 +141,23 @@ scene.add(laptopLight);
 
 const lapHelper = new RectAreaLightHelper(laptopLight, 0xffffff);
 laptopLight.add(lapHelper);
+
+
+//Phone backlight
+const phoneLight = new THREE.RectAreaLight(0xffdb87, 10, 0.277, 0.53);
+phoneLight.position.set(3.2925, 4.054, -0.356);
+phoneLight.rotateX(Math.PI / 2);
+phoneLight.rotateZ(16.3 * (Math.PI / 180))
+scene.add(phoneLight);
+
+const phoneHelper = new RectAreaLightHelper(phoneLight, 0xffffff);
+phoneLight.add(phoneHelper);
+
+
+
+
+
+
 
 //camera animations
 const camAnimations = new Group();
