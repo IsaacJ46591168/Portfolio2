@@ -1,10 +1,21 @@
 import * as THREE from 'three'
 import { Tween, Group } from '@tweenjs/tween.js'
 
+//Get individual HTML elements for turning off and on depending on where the camera is
+var monitorHTML = document.getElementById("monitorDisplay");
+var laptopHTML = document.getElementById("laptopDisplay");
+var phoneHTML = document.getElementById("phoneDisplay");
+
+export var currentlyAnim = false;
 
 export function ToMonitor(targetPosition, targetRotation, camera, animGroup, duration) {
     var curCamPosition = new THREE.Vector3().copy(camera.position);
     var curCamRotation = new THREE.Vector3().copy(camera.rotation);
+
+    laptopHTML.style.visibility = "hidden";
+    phoneHTML.style.visibility = "hidden";
+
+    currentlyAnim = true;
 
     const toMonitor = new Tween(curCamPosition)
         .to(targetPosition, duration)
@@ -13,6 +24,8 @@ export function ToMonitor(targetPosition, targetRotation, camera, animGroup, dur
         })
         .onComplete(function () {
             camera.position.set(targetPosition.x, targetPosition.y, targetPosition.z);
+            monitorHTML.style.visibility = "visible";
+            currentlyAnim = false;
         })
         .start();
     animGroup.add(toMonitor);
@@ -34,6 +47,11 @@ export function ToLaptop(targetPosition, targetRotation, camera, animGroup, dura
     var curCamPosition = new THREE.Vector3().copy(camera.position);
     var curCamRotation = new THREE.Vector3().copy(camera.rotation);
 
+    monitorHTML.style.visibility = "hidden";
+    phoneHTML.style.visibility = "hidden";
+
+    currentlyAnim = true;
+
     const toLaptop = new Tween(curCamPosition)
         .to(targetPosition, duration)
         .onUpdate(function () {
@@ -41,6 +59,8 @@ export function ToLaptop(targetPosition, targetRotation, camera, animGroup, dura
         })
         .onComplete(function () {
             camera.position.set(targetPosition.x, targetPosition.y, targetPosition.z);
+            laptopHTML.style.visibility = "visible"
+            currentlyAnim = false;
         })
         .start();
     animGroup.add(toLaptop);
@@ -62,6 +82,11 @@ export function ToPhone(targetPosition, targetRotation, camera, animGroup, durat
     var curCamPosition = new THREE.Vector3().copy(camera.position);
     var curCamRotation = new THREE.Vector3().copy(camera.rotation);
 
+    monitorHTML.style.visibility = "hidden";
+    laptopHTML.style.visibility = "hidden";
+
+    currentlyAnim = true;
+
     const toPhone = new Tween(curCamPosition)
         .to(targetPosition, duration)
         .onUpdate(function () {
@@ -69,6 +94,8 @@ export function ToPhone(targetPosition, targetRotation, camera, animGroup, durat
         })
         .onComplete(function () {
             camera.position.set(targetPosition.x, targetPosition.y, targetPosition.z);
+            phoneHTML.style.visibility = "visible"
+            currentlyAnim = false;
         })
         .start();
     animGroup.add(toPhone);
@@ -90,6 +117,12 @@ export function ToDefault(targetPosition, targetRotation, camera, animGroup, dur
     var curCamPosition = new THREE.Vector3().copy(camera.position);
     var curCamRotation = new THREE.Vector3().copy(camera.rotation);
 
+    monitorHTML.style.visibility = "hidden";
+    laptopHTML.style.visibility = "hidden";
+    phoneHTML.style.visibility = "hidden";
+
+    currentlyAnim = true;
+
     const toDefault = new Tween(curCamPosition)
         .to(targetPosition, duration)
         .onUpdate(function () {
@@ -97,6 +130,7 @@ export function ToDefault(targetPosition, targetRotation, camera, animGroup, dur
         })
         .onComplete(function () {
             camera.position.set(targetPosition.x, targetPosition.y, targetPosition.z);
+            currentlyAnim = false;
         })
         .start();
     animGroup.add(toDefault);
