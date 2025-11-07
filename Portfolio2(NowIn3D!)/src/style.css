@@ -37,7 +37,30 @@ canvas {
 #desktopScreen {
   width: 100%;
   height: 92%;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: flex-start;
   border: solid 2px;
+}
+
+#topBar {
+  width: 100%;
+  height: 5%;
+  background-color: gray;
+}
+
+.projectInfos {
+  width: 50%;
+  height: 75%;
+  background-color: blue;
+}
+
+#gallery {
+  width: 100%;
+  height: 20%;
+  background-color: brown;
 }
 
 #projectBar {
@@ -100,9 +123,7 @@ canvas {
   border-radius: 5px;
 }
 
-
-
-
+/*Phone display CSS*/
 #phoneDisplay {
   top: 20.6em;
   left: 52.5em;
