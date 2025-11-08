@@ -108,6 +108,53 @@ canvas {
   height: 100%;
 }
 
+.abElement {
+  position: absolute;
+
+  left: 50%;
+
+  margin: auto;
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+.appTopBar {
+  width: 100%;
+  height: 7%;
+  border: solid 1px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#introduction {
+  top: 2%;
+  transform: translateX(-60%);
+
+  width: 75%;
+  height: 75%;
+}
+
+#skills-experience {
+  top: 2%;
+  transform: translateX(-50%);
+
+  width: 85%;
+  height: 85%;
+}
+
+#funFacts {
+  top: 15%;
+  transform: translateX(-45%);
+
+  width: 65%;
+  height: 70%;
+}
+
+
+
+
+
+
 #aboutMeBar {
   position: absolute;
   left: 50%;
