@@ -160,28 +160,46 @@ const camAnimations = new Group();
 
 
 //region Website Functionality
+var projects = [
+  {
+    "Name": "P1",
+    "Open": function () {
+      console.log("Opening P1 Project Info");
+    }
+  },
+  {
+    "Name": "BSC",
+    "Open": function () {
+      console.log("Opening BSC Project Info");
+    }
+  }
+]
+
+
+
 var projectBarButtons = document.getElementsByClassName("pBElement");
 for (var i = 0; i < projectBarButtons.length; i++) {
-  projectBarButtons[i].addEventListener('click', activateProject);
+  projectBarButtons[i].addEventListener('click', openProject);
 }
 
 var phoneButtons = document.getElementsByClassName("contactApp");
 for (var i = 0; i < phoneButtons.length; i++) {
   phoneButtons[i].addEventListener('click', openLink);
-  console.log(phoneButtons);
 }
 
-
-
-
-
-function activateProject() {
-
+function openProject() {
   console.log(this.id);
+  for (i = 0; i < projects.length; i++) {
+    if (this.id == projects[i].Name) {
+      console.log("found matching project name");
+      projects[i].Open();
+      break;
+    }
+  }
 }
 
 function openLink() {
-  console.log(this.id);
+
 }
 
 
