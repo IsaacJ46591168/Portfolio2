@@ -11,6 +11,7 @@
 <body>
   <canvas id="mainScene"></canvas>
   <script type="module" src="/src/main.js"></script>
+
   <section class="contentWrapper" id="monitorDisplay">
     <div id="desktopScreen">
       <div id="topBar"></div>
@@ -19,7 +20,7 @@
       <div id="gallery"></div>
     </div>
     <div id="projectBar">
-      <div class="pBElement" id="home"></div>
+      <div class="pBElement" id="pHome"></div>
       <div class="pBElement" id="searchMock"></div>
       <div class="pBElement" id="P1"></div>
       <div class="pBElement" id="BSC"></div>
@@ -30,29 +31,25 @@
     </div>
   </section>
 
-
   <section class="contentWrapper" id="laptopDisplay">
     <div id="laptopScreen">
-      <div class="abElement" id="introduction">
+      <div class="abWindow" id="introduction">
         <div class="appTopBar"></div>
       </div>
-      <div class="abElement" id="skills-experience">
+      <div class="abWindow" id="skills-experience">
         <div class="appTopBar"></div>
       </div>
-      <div class="abElement" id="funFacts">
+      <div class="abWindow" id="funFacts">
         <div class="appTopBar"></div>
       </div>
     </div>
-    <div id="aboutMeBar"></div>
+    <div id="aboutMeBar">
+      <div class="abBarElement" id="abHome"></div>
+      <div class="abBarElement" id="introBar"></div>
+      <div class="abBarElement" id="sk-exBar"></div>
+      <div class="abBarElement" id="fFBar"></div>
+    </div>
   </section>
-
-
-
-
-
-
-
-
 
   <section class="contentWrapper" id="phoneDisplay">
     <div id="phoneScreen">

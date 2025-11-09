@@ -39,11 +39,11 @@ const phoneRotation = new THREE.Vector3(-79.8 * (Math.PI / 180), 0, -16.5 * (Mat
 // camera.position.set(startingPos.x, startingPos.y, startingPos.z);
 // camera.rotation.set(startingRot.x, startingRot.y, startingRot.z);
 
-camera.position.set(monitorView.x, monitorView.y, monitorView.z);
-camera.rotation.set(startingRot.x, startingRot.y, startingRot.z);
+// camera.position.set(monitorView.x, monitorView.y, monitorView.z);
+// camera.rotation.set(startingRot.x, startingRot.y, startingRot.z);
 
-// camera.position.set(laptopView.x, laptopView.y, laptopView.z);
-// camera.rotation.set(laptopRotation.x, laptopRotation.y, laptopRotation.z);
+camera.position.set(laptopView.x, laptopView.y, laptopView.z);
+camera.rotation.set(laptopRotation.x, laptopRotation.y, laptopRotation.z);
 
 // camera.position.set(phoneView.x, phoneView.y, phoneView.z);
 // camera.rotation.set(phoneRotation.x, phoneRotation.y, phoneRotation.z);
@@ -162,6 +162,12 @@ const camAnimations = new Group();
 //#region Website Functionality
 var projects = [
   {
+    "Name": "pHome",
+    "Open": function () {
+      console.log("Opening Project Home");
+    }
+  },
+  {
     "Name": "P1",
     "Open": function () {
       console.log("Opening P1 Project Info");
@@ -195,6 +201,33 @@ var projects = [
     "Name": "OTH",
     "Open": function () {
       console.log("Opening OTH Project Info");
+    }
+  }
+]
+
+var aboutWindows = [
+  {
+    "Name": "abHome",
+    "Open": function () {
+      console.log("Opening About Home");
+    }
+  },
+  {
+    "Name": "introBar",
+    "Open": function () {
+      console.log("Opening Introduction");
+    }
+  },
+  {
+    "Name": "sk-exBar",
+    "Open": function () {
+      console.log("Opening Skills-Ex");
+    }
+  },
+  {
+    "Name": "fFBar",
+    "Open": function () {
+      console.log("Opening Fun Facts");
     }
   }
 ]
@@ -235,6 +268,11 @@ for (var i = 0; i < projectBarButtons.length; i++) {
   projectBarButtons[i].addEventListener('click', openProject);
 }
 
+var aboutButtons = document.getElementsByClassName("abBarElement");
+for (var i = 0; i < aboutButtons.length; i++) {
+  aboutButtons[i].addEventListener('click', openAbout);
+}
+
 var phoneButtons = document.getElementsByClassName("contactApp");
 for (var i = 0; i < phoneButtons.length; i++) {
   phoneButtons[i].addEventListener('click', openLink);
@@ -246,6 +284,17 @@ function openProject() {
     if (this.id == projects[i].Name) {
       console.log("found matching project name");
       projects[i].Open();
+      break;
+    }
+  }
+}
+
+function openAbout() {
+  console.log(this.id);
+  for (i = 0; i < aboutButtons.length; i++) {
+    if (this.id == aboutWindows[i].Name) {
+      console.log("found matching about name");
+      aboutWindows[i].Open();
       break;
     }
   }
