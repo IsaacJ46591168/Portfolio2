@@ -159,7 +159,7 @@ const camAnimations = new Group();
 
 
 
-//region Website Functionality
+//#region Website Functionality
 var projects = [
   {
     "Name": "P1",
@@ -172,10 +172,63 @@ var projects = [
     "Open": function () {
       console.log("Opening BSC Project Info");
     }
+  },
+  {
+    "Name": "SPC",
+    "Open": function () {
+      console.log("Opening SPC Project Info");
+    }
+  },
+  {
+    "Name": "ANT",
+    "Open": function () {
+      console.log("Opening ANT Project Info");
+    }
+  },
+  {
+    "Name": "BSM",
+    "Open": function () {
+      console.log("Opening BSM Project Info");
+    }
+  },
+  {
+    "Name": "OTH",
+    "Open": function () {
+      console.log("Opening OTH Project Info");
+    }
   }
 ]
 
-
+var contactLinks = [
+  {
+    "Name": "LI",
+    "Open": function () {
+      console.log("Opening LinkedIn");
+      window.open("https://www.linkedin.com/in/isaac-james-932553297/", '_blank').focus();
+    }
+  },
+  {
+    "Name": "GT",
+    "Open": function () {
+      console.log("Opening Github");
+      window.open("https://github.com/IsaacJ46591168", '_blank').focus();
+    }
+  },
+  {
+    "Name": "EM",
+    "Open": function () {
+      console.log("Opening Email");
+      window.open("mailto:isaacjames4580@gmail.com?Subject=Hello%20User").focus();
+    }
+  },
+  {
+    "Name": "BS",
+    "Open": function () {
+      console.log("Opening Bluesky");
+      window.open("https://bsky.app/profile/squidcicle12.bsky.social", '_blank').focus();
+    }
+  }
+]
 
 var projectBarButtons = document.getElementsByClassName("pBElement");
 for (var i = 0; i < projectBarButtons.length; i++) {
@@ -199,8 +252,16 @@ function openProject() {
 }
 
 function openLink() {
-
+  console.log(this.id);
+  for (i = 0; i < contactLinks.length; i++) {
+    if (this.id == contactLinks[i].Name) {
+      console.log("found matching contact option");
+      contactLinks[i].Open();
+      break;
+    }
+  }
 }
+//#endregion
 
 
 
