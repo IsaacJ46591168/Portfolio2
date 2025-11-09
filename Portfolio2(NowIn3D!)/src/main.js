@@ -4,7 +4,7 @@ import * as THREE from 'three'
 import { Tween, Group } from '@tweenjs/tween.js'
 import { ToLaptop, ToPhone, ToDefault, ToMonitor, currentlyAnim } from './cameranimations';
 
-
+//#region ThreeJS Setup
 const scene = new THREE.Scene();
 
 //Renderer setup
@@ -36,11 +36,11 @@ const phoneView = new THREE.Vector3(3.3, 7.5, 0.23);
 const phoneRotation = new THREE.Vector3(-79.8 * (Math.PI / 180), 0, -16.5 * (Math.PI / 180))
 
 //debug starting position changes
-camera.position.set(startingPos.x, startingPos.y, startingPos.z);
-camera.rotation.set(startingRot.x, startingRot.y, startingRot.z);
-
-// camera.position.set(monitorView.x, monitorView.y, monitorView.z);
+// camera.position.set(startingPos.x, startingPos.y, startingPos.z);
 // camera.rotation.set(startingRot.x, startingRot.y, startingRot.z);
+
+camera.position.set(monitorView.x, monitorView.y, monitorView.z);
+camera.rotation.set(startingRot.x, startingRot.y, startingRot.z);
 
 // camera.position.set(laptopView.x, laptopView.y, laptopView.z);
 // camera.rotation.set(laptopRotation.x, laptopRotation.y, laptopRotation.z);
@@ -153,16 +153,79 @@ scene.add(phoneLight);
 const phoneHelper = new RectAreaLightHelper(phoneLight, 0xffffff);
 phoneLight.add(phoneHelper);
 
-
-
-
-
-
-
 //camera animations
 const camAnimations = new Group();
+//#endregion
 
-//Button testing
+
+
+//region Website Functionality
+var projectBarButtons = document.getElementsByClassName("pBElement");
+for (var i = 0; i < projectBarButtons.length; i++) {
+  projectBarButtons[i].addEventListener('click', activateProject);
+}
+
+var phoneButtons = document.getElementsByClassName("contactApp");
+for (var i = 0; i < phoneButtons.length; i++) {
+  phoneButtons[i].addEventListener('click', openLink);
+  console.log(phoneButtons);
+}
+
+
+
+
+
+function activateProject() {
+
+  console.log(this.id);
+}
+
+function openLink() {
+  console.log(this.id);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Key testing
 document.addEventListener("keydown", OnKeyDown, false);
 
 function OnKeyDown(event) {
@@ -186,6 +249,7 @@ function OnKeyDown(event) {
     console.log(keyCode);
   }
 }
+
 
 function animate() {
   requestAnimationFrame(animate);

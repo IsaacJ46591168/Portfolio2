@@ -15,6 +15,8 @@ canvas {
   margin: 0;
 }
 
+
+
 /*Monitor display CSS*/
 #monitorDisplay {
   top: 11.5em;
@@ -22,14 +24,12 @@ canvas {
   margin: 0;
   padding: 0;
 
-  width: 1423px;
-  height: 666px;
+  width: 1429px;
+  height: 671px;
 
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
-
-  border: solid 3px green;
 
   visibility: hidden;
 }
@@ -42,7 +42,6 @@ canvas {
   flex-wrap: wrap;
   flex-direction: row;
   align-content: flex-start;
-  border: solid 2px;
 }
 
 #topBar {
@@ -71,7 +70,7 @@ canvas {
   flex-direction: row;
   flex-wrap: nowrap;
 
-  border: solid 1px;
+  background-color: rgb(240, 211, 183);
 }
 
 .pBElement {
@@ -79,6 +78,11 @@ canvas {
   width: 5%;
   border: solid 1px;
 }
+
+.pBElement:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
 
 #searchMock {
   width: 20%;
