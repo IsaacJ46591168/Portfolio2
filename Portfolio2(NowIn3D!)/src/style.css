@@ -44,10 +44,23 @@ canvas {
   align-content: flex-start;
 }
 
-#topBar {
+.mTopBar {
   width: 100%;
   height: 5%;
+
+  display: flex;
+  align-items: center;
+  justify-content: end;
+
   background-color: gray;
+}
+
+.mWindowClose {
+  width: 4%;
+  height: 100%;
+
+  border: solid 1px;
+  background-color: rgba(255, 0, 0, 1);
 }
 
 .projectInfos {
@@ -125,10 +138,26 @@ canvas {
 .appTopBar {
   width: 100%;
   height: 7%;
+
+  display: flex;
+  align-items: center;
+  justify-content: end;
+
   border: solid 1px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: rgba(181, 181, 181, 1);
+}
+
+.lWindowClose {
+  margin-right: 1.5em;
+
+  width: 12px;
+  height: 12px;
+
+  border: solid 1px;
+  border-radius: 50px;
+  background-color: rgba(255, 0, 0, 1);
 }
 
 #introduction {
@@ -137,6 +166,9 @@ canvas {
 
   width: 75%;
   height: 75%;
+
+  z-index: 10;
+  visibility: hidden;
 }
 
 #skills-experience {
@@ -145,6 +177,9 @@ canvas {
 
   width: 85%;
   height: 85%;
+
+  z-index: 10;
+  visibility: hidden;
 }
 
 #funFacts {
@@ -153,6 +188,9 @@ canvas {
 
   width: 65%;
   height: 70%;
+
+  z-index: 10;
+  visibility: hidden;
 }
 
 #aboutMeBar {
@@ -160,7 +198,6 @@ canvas {
   left: 50%;
   transform: translateX(-50%);
   bottom: 0;
-
   margin: auto;
 
   display: flex;
@@ -180,7 +217,6 @@ canvas {
   width: 5%;
   height: 80%;
 
-
   border: solid 1px;
   border-radius: 10px;
 }
@@ -188,14 +224,13 @@ canvas {
 /*Phone display CSS*/
 #phoneDisplay {
   top: 20.6em;
-  left: 52.5em;
+  left: 52.7em;
   margin: 0;
   padding: 0;
 
   width: 238px;
   height: 445px;
 
-  border: solid 3px green;
   visibility: hidden;
 }
 
@@ -206,11 +241,20 @@ canvas {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 2em;
 }
 
 .contactApp {
-  width: 40%;
-  height: 40%;
+  width: 35%;
+  height: 17%;
   border: solid 1px;
+  border-radius: 15px;
   gap: 1em;
+}
+
+.contactApp:hover {
+  background-color: rgba(31, 31, 31, 0.7);
 }
