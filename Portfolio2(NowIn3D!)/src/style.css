@@ -43,7 +43,7 @@ canvas {
   flex-direction: row;
   align-content: flex-start;
 
-  visibility: hi;
+  visibility: hidden;
 }
 
 .mTopBar {
@@ -143,7 +143,6 @@ canvas {
   width: 1054px;
   height: 540px;
 
-  border: solid 3px green;
   visibility: hidden;
 }
 

@@ -37,11 +37,11 @@ const phoneView = new THREE.Vector3(3.3, 7.5, 0.23);
 const phoneRotation = new THREE.Vector3(-79.8 * (Math.PI / 180), 0, -16.5 * (Math.PI / 180))
 
 //debug starting position changes
-// camera.position.set(startingPos.x, startingPos.y, startingPos.z);
-// camera.rotation.set(startingRot.x, startingRot.y, startingRot.z);
-
-camera.position.set(monitorView.x, monitorView.y, monitorView.z);
+camera.position.set(startingPos.x, startingPos.y, startingPos.z);
 camera.rotation.set(startingRot.x, startingRot.y, startingRot.z);
+
+// camera.position.set(monitorView.x, monitorView.y, monitorView.z);
+// camera.rotation.set(startingRot.x, startingRot.y, startingRot.z);
 
 // camera.position.set(laptopView.x, laptopView.y, laptopView.z);
 // camera.rotation.set(laptopRotation.x, laptopRotation.y, laptopRotation.z);
