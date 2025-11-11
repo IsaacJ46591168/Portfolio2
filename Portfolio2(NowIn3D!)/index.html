@@ -12,13 +12,35 @@
   <canvas id="mainScene"></canvas>
   <script type="module" src="/src/main.js"></script>
 
+  <!-- Use innertext for changing text with js -->
   <section class="contentWrapper" id="monitorDisplay">
-    <div id="desktopScreen">
+    <div id="projectDisplay">
       <div class="mTopBar">
-        <div class="mWindowClose"></div>
+        <p id="windowName">Project.txt</p>
+        <div id="mWindowClose">
+          <p>X</p>
+        </div>
       </div>
-      <div class="projectInfos" id="headlines"></div>
-      <div class="projectInfos" id="activities"></div>
+      <div class="projectInfos" id="projHeadlines">
+        <h1 id="pName"></h1>
+        <h2 id="develop"></h2>
+        <h2 id="release"></h2>
+        <h2 id="available"></h2>
+      </div>
+      <div class="projectInfos" id="projDetails">
+        <div class="pDetailsItem" id="shortDesc">
+          <h2>About this project</h2>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla accusantium voluptatibus totam nihil odio
+            facere vitae inventore dolores, aperiam molestiae dolorem tempora ipsum minus hic soluta, quis omnis. Quasi,
+            inventore!</p>
+        </div>
+        <div class="pDetailsItem" id="roles-activities">
+          <h2>What I did</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum totam nulla necessitatibus, laborum error
+            vero, aliquid magni nobis minus corporis illo. Dolorum nesciunt iusto aspernatur alias cumque, animi quas
+            deserunt.</p>
+        </div>
+      </div>
       <div id="gallery"></div>
     </div>
     <div id="projectBar">
@@ -37,17 +59,17 @@
     <div id="laptopScreen">
       <div class="abWindow" id="introduction">
         <div class="appTopBar">
-          <div class="lWindowClose"></div>
+          <div class="lWindowClose" id="inClose"></div>
         </div>
       </div>
       <div class="abWindow" id="skills-experience">
         <div class="appTopBar">
-          <div class="lWindowClose"></div>
+          <div class="lWindowClose" id="seClose"></div>
         </div>
       </div>
       <div class="abWindow" id="funFacts">
         <div class="appTopBar">
-          <div class="lWindowClose"></div>
+          <div class="lWindowClose" id="ffClose"></div>
         </div>
       </div>
     </div>

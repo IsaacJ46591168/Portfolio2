@@ -1,45 +1,48 @@
 export var projects = [
     {
-        "Name": "pHome",
-        "Open": function () {
-            console.log("Opening Project Home");
-        }
+        "id": "P1",
+        "Name": "Phoenix One",
+        "Developers": "L Stands for Winner Studios",
+        "Release": "Demo available November 2023",
+        "Link": "https://lstandsforwinner.itch.io/phoenix-one-demo"
     },
     {
-        "Name": "P1",
-        "Open": function () {
-            console.log("Opening P1 Project Info");
-        }
+        "id": "P1",
+        "Name": "Phoenix One",
+        "Developers": "Developed with: L Stands for Winner Studios",
+        "Release": "Released: November 2023",
+        "Link": "https://lstandsforwinner.itch.io/phoenix-one-demo"
     },
     {
-        "Name": "BSC",
-        "Open": function () {
-            console.log("Opening BSC Project Info");
-        }
+        "id": "BSC",
+        "Name": "Beachside Campfire",
+        "Developers": "Developed with: G27",
+        "Release": "Released: November 2023",
+        "Link": "https://www.meta.com/en-gb/experiences/liminal-relax-unwind-engage-explore/3158342884265828/"
     },
     {
-        "Name": "SPC",
-        "Open": function () {
-            console.log("Opening SPC Project Info");
-        }
+        "id": "SPC",
+        "Name": "Personal Space",
+        "Developers": "Developed with: L Stands for Winner Studios",
+        "Release": "Released: 2023",
+        "Link": "https://lstandsforwinner.itch.io/personal-space"
     },
     {
-        "Name": "ANT",
-        "Open": function () {
-            console.log("Opening ANT Project Info");
-        }
+        "id": "ANT",
+        "Name": "The Very Hungry Antepillar",
+        "Developers": "Developed with: L Stands for Winner Studios",
+        "Release": "Released: 2024",
+        "Link": "https://lstandsforwinner.itch.io/the-very-hungry-anterpillar"
     },
     {
-        "Name": "BSM",
-        "Open": function () {
-            console.log("Opening BSM Project Info");
-        }
+        "id": "BSM",
+        "Name": "Basement Game",
+        "Developers": "Developed with: L Stands for Winner Studios",
+        "Release": "Released: 2023",
+        "Link": "https://lstandsforwinner.itch.io/basement-game"
     },
     {
-        "Name": "OTH",
-        "Open": function () {
-            console.log("Opening OTH Project Info");
-        }
+        "id": "OTH"
     }
 ]
 

@@ -162,36 +162,59 @@ const camAnimations = new Group();
 
 //#region Website Functionality
 
+//Adding click events to all buttons
+//Buttons that will bring up project info
 var projectBarButtons = document.getElementsByClassName("pBElement");
 for (var i = 0; i < projectBarButtons.length; i++) {
-  projectBarButtons[i].addEventListener('click', openProject);
+  projectBarButtons[i].addEventListener('click', OpenProject);
 }
 
+//Buttons that bring up info about self
 var aboutButtons = document.getElementsByClassName("abBarElement");
 for (var i = 0; i < aboutButtons.length; i++) {
-  aboutButtons[i].addEventListener('click', openAbout);
+  aboutButtons[i].addEventListener('click', OpenAbout);
 }
 
+//Buttons that close the individual self-info windows
+var abWindowCloseButtons = document.getElementsByClassName("lWindowClose");
+for (var i = 0; i < abWindowCloseButtons.length; i++) {
+  abWindowCloseButtons[i].addEventListener('click', CloseAbout);
+}
+
+//Buttons that send user to contact links
 var phoneButtons = document.getElementsByClassName("contactApp");
 for (var i = 0; i < phoneButtons.length; i++) {
-  phoneButtons[i].addEventListener('click', openLink);
+  phoneButtons[i].addEventListener('click', OpenLink);
 }
 
-function openProject() {
-  console.log(this.id);
+//button to close project info window 
+var monWinClose = document.getElementById("mWindowClose");
+monWinClose.addEventListener('click', HideProject);
+
+var projDisplay = document.getElementById("projectDisplay");
+function OpenProject() {
+  projDisplay.style.visibility = "visible";
+
+  var projName = document.getElementById("pName");
+  var projDevelop = document.getElementById("develop");
+  var projRelease = document.getElementById("release");
+  var projAvailable = document.getElementById("available");
+
   for (i = 0; i < projectBarButtons.length; i++) {
-    if (this.id == projects[i].Name) {
-      console.log("found matching project name");
-      projects[i].Open();
+    if (this.id == projects[i].id) {
+      projName.innerText = projects[i].Name;
+      projDevelop.innerText = projects[i].Developers;
+      projRelease.innerText = projects[i].Release;
+      projAvailable.innerText = projects[i].Link;
+      break;
     }
   }
 }
 
-function openAbout() {
+function OpenAbout() {
   for (i = 0; i < aboutButtons.length; i++) {
     var curButton = aboutWindows[i].Open
     var curWindow = document.getElementById(curButton);
-    // curWindow.style.visibility = "hidden";
     curWindow.style.zIndex = 9;
     if (this.id == aboutWindows[i].Name) {
       curWindow.style.visibility = "visible";
@@ -200,7 +223,14 @@ function openAbout() {
   }
 }
 
-function openLink() {
+function CloseAbout() {
+  for (i = 0; i < abWindowCloseButtons.length; i++) {
+    var curWindow = document.getElementById(this.id).parentElement.parentElement;
+    curWindow.style.visibility = "hidden";
+  }
+}
+
+function OpenLink() {
   console.log(this.id);
   for (i = 0; i < phoneButtons.length; i++) {
     if (this.id == contactLinks[i].Name) {
@@ -209,6 +239,10 @@ function openLink() {
       break;
     }
   }
+}
+
+function HideProject() {
+  projDisplay.style.visibility = "hidden";
 }
 //#endregion
 
