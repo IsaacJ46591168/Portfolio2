@@ -111,7 +111,7 @@ canvas {
   flex-direction: row;
   flex-wrap: nowrap;
 
-  background-color: rgb(240, 211, 183);
+  background-color: rgb(252, 234, 217);
 }
 
 .pBElement {
@@ -129,7 +129,6 @@ canvas {
 #searchMock {
   width: 20%;
 }
-
 
 
 
@@ -192,6 +191,24 @@ canvas {
   cursor: pointer;
 }
 
+.abText {
+  width: 100%;
+  height: 100%;
+}
+
+.lWindowContent {
+  width: 100%;
+  height: 92.2%;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: solid 1px;
+}
+
 #introduction {
   top: 2%;
   transform: translateX(-60%);
@@ -201,6 +218,27 @@ canvas {
 
   z-index: 10;
   visibility: hidden;
+}
+
+#introInfo {}
+
+#infoSide {
+  width: 20%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.infoSideElement {
+  width: 100%;
+  height: 20%;
+  border: solid 1px;
+}
+
+#infoMain {
+  flex-grow: 1;
+  height: 100%;
 }
 
 #skills-experience {
@@ -214,15 +252,74 @@ canvas {
   visibility: hidden;
 }
 
+#seInfo {}
+
+.seCol {
+  height: 100%;
+  border: solid 1px;
+}
+
+#sName {
+  width: 20%;
+  border-bottom-left-radius: 10px;
+}
+
+#sProf {
+  width: 30%;
+}
+
+#sExp {
+  flex-grow: 1;
+  border-bottom-right-radius: 10px;
+}
+
+.colHead {
+  width: 100%;
+  height: 5%;
+  border: solid 1px;
+}
+
+.colElement {
+  width: 100%;
+  height: 20%;
+  border: solid 1px;
+}
+
+
 #funFacts {
   top: 15%;
   transform: translateX(-45%);
 
-  width: 65%;
+  width: 50%;
   height: 70%;
 
   z-index: 10;
   visibility: hidden;
+}
+
+#fFInfo {}
+
+.moveButton {
+  width: 6%;
+  height: 100%;
+
+  cursor: pointer;
+  border: solid 1px;
+}
+
+#backButton {
+  border-bottom-left-radius: 10px;
+}
+
+#forwardButton {
+  border-bottom-right-radius: 10px;
+}
+
+#fFText {
+  height: 100%;
+  flex-grow: 1;
+
+  border: solid 1px;
 }
 
 #aboutMeBar {
