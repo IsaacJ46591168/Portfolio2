@@ -1,3 +1,26 @@
+import { ToTarget, currentlyAnim } from './cameranimations';
+import { startingPos, startingRot, monitorView, laptopView, laptopRotation, phoneView, phoneRotation } from './main';
+export var navigationButtons = [
+    {
+        "id": "monNav",
+        "MoveTo": function (cam, group, duration) {
+            ToTarget("monitorDisplay", monitorView, startingRot, cam, group, duration);
+        }
+    },
+    {
+        "id": "lapNav",
+        "MoveTo": function (cam, group, duration) {
+            ToTarget("laptopDisplay", laptopView, laptopRotation, cam, group, duration);
+        }
+    },
+    {
+        "id": "phnNav",
+        "MoveTo": function (cam, group, duration) {
+            ToTarget("phoneDisplay", phoneRotation, phoneRotation, cam, group, duration);
+        }
+    }
+]
+
 export var projects = [
     {
         "id": "P1",

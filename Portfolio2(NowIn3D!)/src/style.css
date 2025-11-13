@@ -9,11 +9,54 @@ canvas {
   z-index: -10;
 }
 
-.contentWrapper {
+#navButtonWrapper {
   position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.navButton {
+  cursor: pointer;
+  border: solid 1px green;
+}
+
+#monNav {
+  position: absolute;
+  top: 28.5em;
+  left: 38.7em;
+
+  width: 625px;
+  height: 320px;
+}
+
+#lapNav {
+  position: absolute;
+  top: 43em;
+  left: 22em;
+
+  width: 260px;
+  height: 180px;
+}
+
+#phnNav {
+  position: absolute;
+  top: 52em;
+  left: 91.5em;
+
+  width: 115px;
+  height: 80px;
+}
+
+.contentWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+
   z-index: 1;
   margin: 0;
 }
+
+
 
 
 
@@ -156,6 +199,7 @@ canvas {
   position: absolute;
 
   left: 50%;
+  /*make sure to change to em*/
 
   margin: auto;
   border: 1px solid;
@@ -220,7 +264,7 @@ canvas {
   visibility: hidden;
 }
 
-#introInfo {}
+/* #introInfo {} */
 
 #infoSide {
   width: 20%;
@@ -252,7 +296,7 @@ canvas {
   visibility: hidden;
 }
 
-#seInfo {}
+/* #seInfo {} */
 
 .seCol {
   height: 100%;
@@ -297,7 +341,7 @@ canvas {
   visibility: hidden;
 }
 
-#fFInfo {}
+/* #fFInfo {} */
 
 .moveButton {
   width: 6%;

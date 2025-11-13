@@ -8,29 +8,49 @@ var phoneHTML = document.getElementById("phoneDisplay");
 
 export var currentlyAnim = false;
 
-export function ToMonitor(targetPosition, targetRotation, camera, animGroup, duration) {
+export function ToTarget(targetName, targetPosition, targetRotation, camera, animGroup, duration) {
     var curCamPosition = new THREE.Vector3().copy(camera.position);
     var curCamRotation = new THREE.Vector3().copy(camera.rotation);
 
-    laptopHTML.style.visibility = "hidden";
-    phoneHTML.style.visibility = "hidden";
+    if (targetName == monitorHTML.id) {
+        laptopHTML.style.visibility = "hidden";
+        phoneHTML.style.visibility = "hidden";
+    } else if (targetName == laptopHTML.id) {
+        monitorHTML.style.visibility = "hidden";
+        phoneHTML.style.visibility = "hidden";
+    } else if (targetName == phoneHTML.id) {
+        monitorHTML.style.visibility = "hidden";
+        laptopHTML.style.visibility = "hidden";
+    } else {
+        monitorHTML.style.visibility = "hidden";
+        laptopHTML.style.visibility = "hidden";
+        phoneHTML.style.visibility = "hidden";
+    }
 
     currentlyAnim = true;
 
-    const toMonitor = new Tween(curCamPosition)
+    const toTarget = new Tween(curCamPosition)
         .to(targetPosition, duration)
         .onUpdate(function () {
             camera.position.set(curCamPosition.x, curCamPosition.y, curCamPosition.z);
         })
         .onComplete(function () {
             camera.position.set(targetPosition.x, targetPosition.y, targetPosition.z);
-            monitorHTML.style.visibility = "visible";
+            if (targetName == monitorHTML.id) {
+                monitorHTML.style.visibility = "visible"
+            } else if (targetName == laptopHTML.id) {
+                monitorHTML.style.visibility = "visible"
+            } else if (targetName == phoneHTML.id) {
+                monitorHTML.style.visibility = "visible"
+            } else {
+
+            }
             currentlyAnim = false;
         })
         .start();
-    animGroup.add(toMonitor);
+    animGroup.add(toTarget);
 
-    const toMonitorRot = new Tween(curCamRotation)
+    const toTargetRot = new Tween(curCamRotation)
         .to(targetRotation, duration)
         .onUpdate(function () {
             camera.rotation.set(curCamRotation.x, curCamRotation.y, curCamRotation.z);
@@ -40,110 +60,110 @@ export function ToMonitor(targetPosition, targetRotation, camera, animGroup, dur
         })
         .start();
 
-    animGroup.add(toMonitorRot);
+    animGroup.add(toTargetRot);
 }
 
-export function ToLaptop(targetPosition, targetRotation, camera, animGroup, duration) {
-    var curCamPosition = new THREE.Vector3().copy(camera.position);
-    var curCamRotation = new THREE.Vector3().copy(camera.rotation);
+// export function ToLaptop(targetPosition, targetRotation, camera, animGroup, duration) {
+//     var curCamPosition = new THREE.Vector3().copy(camera.position);
+//     var curCamRotation = new THREE.Vector3().copy(camera.rotation);
 
-    monitorHTML.style.visibility = "hidden";
-    phoneHTML.style.visibility = "hidden";
+//     monitorHTML.style.visibility = "hidden";
+//     phoneHTML.style.visibility = "hidden";
 
-    currentlyAnim = true;
+//     currentlyAnim = true;
 
-    const toLaptop = new Tween(curCamPosition)
-        .to(targetPosition, duration)
-        .onUpdate(function () {
-            camera.position.set(curCamPosition.x, curCamPosition.y, curCamPosition.z);
-        })
-        .onComplete(function () {
-            camera.position.set(targetPosition.x, targetPosition.y, targetPosition.z);
-            laptopHTML.style.visibility = "visible"
-            currentlyAnim = false;
-        })
-        .start();
-    animGroup.add(toLaptop);
+//     const toLaptop = new Tween(curCamPosition)
+//         .to(targetPosition, duration)
+//         .onUpdate(function () {
+//             camera.position.set(curCamPosition.x, curCamPosition.y, curCamPosition.z);
+//         })
+//         .onComplete(function () {
+//             camera.position.set(targetPosition.x, targetPosition.y, targetPosition.z);
+//             laptopHTML.style.visibility = "visible"
+//             currentlyAnim = false;
+//         })
+//         .start();
+//     animGroup.add(toLaptop);
 
-    const toLaptopRot = new Tween(curCamRotation)
-        .to(targetRotation, duration)
-        .onUpdate(function () {
-            camera.rotation.set(curCamRotation.x, curCamRotation.y, curCamRotation.z);
-        })
-        .onComplete(function () {
-            camera.rotation.set(targetRotation.x, targetRotation.y, targetRotation.z);
-        })
-        .start();
+//     const toLaptopRot = new Tween(curCamRotation)
+//         .to(targetRotation, duration)
+//         .onUpdate(function () {
+//             camera.rotation.set(curCamRotation.x, curCamRotation.y, curCamRotation.z);
+//         })
+//         .onComplete(function () {
+//             camera.rotation.set(targetRotation.x, targetRotation.y, targetRotation.z);
+//         })
+//         .start();
 
-    animGroup.add(toLaptopRot);
-}
+//     animGroup.add(toLaptopRot);
+// }
 
-export function ToPhone(targetPosition, targetRotation, camera, animGroup, duration) {
-    var curCamPosition = new THREE.Vector3().copy(camera.position);
-    var curCamRotation = new THREE.Vector3().copy(camera.rotation);
+// export function ToPhone(targetPosition, targetRotation, camera, animGroup, duration) {
+//     var curCamPosition = new THREE.Vector3().copy(camera.position);
+//     var curCamRotation = new THREE.Vector3().copy(camera.rotation);
 
-    monitorHTML.style.visibility = "hidden";
-    laptopHTML.style.visibility = "hidden";
+//     monitorHTML.style.visibility = "hidden";
+//     laptopHTML.style.visibility = "hidden";
 
-    currentlyAnim = true;
+//     currentlyAnim = true;
 
-    const toPhone = new Tween(curCamPosition)
-        .to(targetPosition, duration)
-        .onUpdate(function () {
-            camera.position.set(curCamPosition.x, curCamPosition.y, curCamPosition.z);
-        })
-        .onComplete(function () {
-            camera.position.set(targetPosition.x, targetPosition.y, targetPosition.z);
-            phoneHTML.style.visibility = "visible"
-            currentlyAnim = false;
-        })
-        .start();
-    animGroup.add(toPhone);
+//     const toPhone = new Tween(curCamPosition)
+//         .to(targetPosition, duration)
+//         .onUpdate(function () {
+//             camera.position.set(curCamPosition.x, curCamPosition.y, curCamPosition.z);
+//         })
+//         .onComplete(function () {
+//             camera.position.set(targetPosition.x, targetPosition.y, targetPosition.z);
+//             phoneHTML.style.visibility = "visible"
+//             currentlyAnim = false;
+//         })
+//         .start();
+//     animGroup.add(toPhone);
 
-    const toPhoneRot = new Tween(curCamRotation)
-        .to(targetRotation, duration)
-        .onUpdate(function () {
-            camera.rotation.set(curCamRotation.x, curCamRotation.y, curCamRotation.z);
-        })
-        .onComplete(function () {
-            camera.rotation.set(targetRotation.x, targetRotation.y, targetRotation.z);
-        })
-        .start();
+//     const toPhoneRot = new Tween(curCamRotation)
+//         .to(targetRotation, duration)
+//         .onUpdate(function () {
+//             camera.rotation.set(curCamRotation.x, curCamRotation.y, curCamRotation.z);
+//         })
+//         .onComplete(function () {
+//             camera.rotation.set(targetRotation.x, targetRotation.y, targetRotation.z);
+//         })
+//         .start();
 
-    animGroup.add(toPhoneRot);
-}
+//     animGroup.add(toPhoneRot);
+// }
 
-export function ToDefault(targetPosition, targetRotation, camera, animGroup, duration) {
-    var curCamPosition = new THREE.Vector3().copy(camera.position);
-    var curCamRotation = new THREE.Vector3().copy(camera.rotation);
+// export function ToDefault(targetPosition, targetRotation, camera, animGroup, duration) {
+//     var curCamPosition = new THREE.Vector3().copy(camera.position);
+//     var curCamRotation = new THREE.Vector3().copy(camera.rotation);
 
-    monitorHTML.style.visibility = "hidden";
-    laptopHTML.style.visibility = "hidden";
-    phoneHTML.style.visibility = "hidden";
+//     monitorHTML.style.visibility = "hidden";
+//     laptopHTML.style.visibility = "hidden";
+//     phoneHTML.style.visibility = "hidden";
 
-    currentlyAnim = true;
+//     currentlyAnim = true;
 
-    const toDefault = new Tween(curCamPosition)
-        .to(targetPosition, duration)
-        .onUpdate(function () {
-            camera.position.set(curCamPosition.x, curCamPosition.y, curCamPosition.z);
-        })
-        .onComplete(function () {
-            camera.position.set(targetPosition.x, targetPosition.y, targetPosition.z);
-            currentlyAnim = false;
-        })
-        .start();
-    animGroup.add(toDefault);
+//     const toDefault = new Tween(curCamPosition)
+//         .to(targetPosition, duration)
+//         .onUpdate(function () {
+//             camera.position.set(curCamPosition.x, curCamPosition.y, curCamPosition.z);
+//         })
+//         .onComplete(function () {
+//             camera.position.set(targetPosition.x, targetPosition.y, targetPosition.z);
+//             currentlyAnim = false;
+//         })
+//         .start();
+//     animGroup.add(toDefault);
 
-    const toDefaultRot = new Tween(curCamRotation)
-        .to(targetRotation, duration)
-        .onUpdate(function () {
-            camera.rotation.set(curCamRotation.x, curCamRotation.y, curCamRotation.z);
-        })
-        .onComplete(function () {
-            camera.rotation.set(targetRotation.x, targetRotation.y, targetRotation.z);
-        })
-        .start();
+//     const toDefaultRot = new Tween(curCamRotation)
+//         .to(targetRotation, duration)
+//         .onUpdate(function () {
+//             camera.rotation.set(curCamRotation.x, curCamRotation.y, curCamRotation.z);
+//         })
+//         .onComplete(function () {
+//             camera.rotation.set(targetRotation.x, targetRotation.y, targetRotation.z);
+//         })
+//         .start();
 
-    animGroup.add(toDefaultRot);
-}
+//     animGroup.add(toDefaultRot);
+// }

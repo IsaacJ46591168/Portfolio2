@@ -2,8 +2,8 @@ import { GLTFLoader, OrbitControls, RectAreaLightHelper } from 'three/examples/j
 import './style.css'
 import * as THREE from 'three'
 import { Tween, Group } from '@tweenjs/tween.js'
-import { ToLaptop, ToPhone, ToDefault, ToMonitor, currentlyAnim } from './cameranimations';
-import { projects, aboutWindows, contactLinks } from './buttonarrays';
+import { ToTarget, currentlyAnim } from './cameranimations';
+import { projects, aboutWindows, contactLinks, navigationButtons } from './buttonarrays';
 
 //#region ThreeJS Setup
 const scene = new THREE.Scene();
@@ -24,17 +24,17 @@ document.body.appendChild(renderer.domElement)
 
 //Camera setup
 const camera = new THREE.PerspectiveCamera(20, window.innerWidth / window.innerHeight, 0.1, 1000);
-const startingPos = new THREE.Vector3(0.2, 6, 16);
-const startingRot = new THREE.Vector3(0, 0, 0);
+export const startingPos = new THREE.Vector3(0.2, 6, 16);
+export const startingRot = new THREE.Vector3(0, 0, 0);
 
 //Position and rotation setup for camera view changes
-const monitorView = new THREE.Vector3(0.05, 5.4, 5);
+export const monitorView = new THREE.Vector3(0.05, 5.4, 5);
 
-const laptopView = new THREE.Vector3(-0.03, 4.6, 1.7);
-const laptopRotation = new THREE.Vector3(0, 35 * (Math.PI / 180), 0);
+export const laptopView = new THREE.Vector3(-0.03, 4.6, 1.7);
+export const laptopRotation = new THREE.Vector3(0, 35 * (Math.PI / 180), 0);
 
-const phoneView = new THREE.Vector3(3.3, 7.5, 0.23);
-const phoneRotation = new THREE.Vector3(-79.8 * (Math.PI / 180), 0, -16.5 * (Math.PI / 180))
+export const phoneView = new THREE.Vector3(3.3, 7.5, 0.23);
+export const phoneRotation = new THREE.Vector3(-79.8 * (Math.PI / 180), 0, -16.5 * (Math.PI / 180))
 
 //debug starting position changes
 camera.position.set(startingPos.x, startingPos.y, startingPos.z);
@@ -163,6 +163,12 @@ const camAnimations = new Group();
 //#region Website Functionality
 
 //Adding click events to all buttons
+//Buttons to move around the website
+var navButtons = document.getElementsByClassName("navButton");
+for (var i = 0; i < navButtons.length; i++) {
+  navButtons[i].addEventListener('click', MoveCamera);
+}
+
 //Buttons that will bring up project info
 var projectBarButtons = document.getElementsByClassName("pBElement");
 for (var i = 0; i < projectBarButtons.length; i++) {
@@ -244,6 +250,20 @@ function OpenLink() {
 function HideProject() {
   projDisplay.style.visibility = "hidden";
 }
+
+function HideElement() {
+  this.style.visibility = "hidden";
+}
+
+function MoveCamera() {
+  for (i = 0; i < navigationButtons.length; i++) {
+    if (this.id == navigationButtons[i].id) {
+      navigationButtons[i].MoveTo(camera, camAnimations, 500);
+    }
+  }
+}
+
+
 //#endregion
 
 
@@ -295,16 +315,16 @@ function OnKeyDown(event) {
   if (!currentlyAnim) {
     if (keyCode == 38) //uarr
     {
-      ToMonitor(monitorView, startingRot, camera, camAnimations, 500);
+      ToTarget("monitorDisplay", monitorView, startingRot, camera, camAnimations, 500);
     } else if (keyCode == 40) //darr
     {
-      ToDefault(startingPos, startingRot, camera, camAnimations, 500);
+      ToTarget("default", startingPos, startingRot, camera, camAnimations, 500);
     } else if (keyCode == 37) //larr
     {
-      ToLaptop(laptopView, laptopRotation, camera, camAnimations, 500);
+      ToTarget("laptopDisplay", laptopView, laptopRotation, camera, camAnimations, 500);
     } else if (keyCode == 39) //rarr
     {
-      ToPhone(phoneView, phoneRotation, camera, camAnimations, 500);
+      ToTarget("phoneDisplay", phoneView, phoneRotation, camera, camAnimations, 500);
     } else {
       return;
     }
