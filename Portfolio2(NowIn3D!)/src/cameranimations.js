@@ -39,9 +39,9 @@ export function ToTarget(targetName, targetPosition, targetRotation, camera, ani
             if (targetName == monitorHTML.id) {
                 monitorHTML.style.visibility = "visible"
             } else if (targetName == laptopHTML.id) {
-                monitorHTML.style.visibility = "visible"
+                laptopHTML.style.visibility = "visible"
             } else if (targetName == phoneHTML.id) {
-                monitorHTML.style.visibility = "visible"
+                phoneHTML.style.visibility = "visible"
             } else {
 
             }
