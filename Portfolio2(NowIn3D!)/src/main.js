@@ -265,14 +265,18 @@ function MoveCamera() {
   for (i = 0; i < navButtons.length; i++) {
     if (this.id == navigationButtonsArr[i].id) {
       if (!currentlyAnim) {
-        navButtons[i].style.visibility = "hidden";
         navigationButtonsArr[i].MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML);
-        break;
+        // navButtons[i].style.visibility = "hidden";
       }
+    } else {
+      console.log(navButtons[i]);
+      navButtons[i].style.top = navigationButtonsArr[i].SmallFormTPos + 'em';
+      navButtons[i].style.left = navigationButtonsArr[i].SmallFormLPos + 'em';
+      navButtons[i].style.width = navigationButtonsArr[i].SmallFormWidth + 'px';
+      navButtons[i].style.height = navigationButtonsArr[i].SmallFormHeight + 'px';
     }
   }
 }
-
 
 //#endregion
 

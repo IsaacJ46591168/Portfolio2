@@ -6,21 +6,6 @@ export function ToTarget(targetPosition, targetRotation, camera, animGroup, dura
     var curCamPosition = new THREE.Vector3().copy(camera.position);
     var curCamRotation = new THREE.Vector3().copy(camera.rotation);
 
-    // if (targetName == monitorHTML.id) {
-    //     laptopHTML.style.visibility = "hidden";
-    //     phoneHTML.style.visibility = "hidden";
-    // } else if (targetName == laptopHTML.id) {
-    //     monitorHTML.style.visibility = "hidden";
-    //     phoneHTML.style.visibility = "hidden";
-    // } else if (targetName == phoneHTML.id) {
-    //     monitorHTML.style.visibility = "hidden";
-    //     laptopHTML.style.visibility = "hidden";
-    // } else {
-    //     monitorHTML.style.visibility = "hidden";
-    //     laptopHTML.style.visibility = "hidden";
-    //     phoneHTML.style.visibility = "hidden";
-    // }
-
     currentlyAnim = true;
 
     const toTarget = new Tween(curCamPosition)

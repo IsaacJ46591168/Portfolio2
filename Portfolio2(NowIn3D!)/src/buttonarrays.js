@@ -1,5 +1,5 @@
-import { ToTarget, currentlyAnim } from './cameranimations';
-import { startingPos, startingRot, monitorView, laptopView, laptopRotation, phoneView, phoneRotation } from './main';
+import { ToTarget } from './cameranimations';
+import { startingPos, startingRot, monitorView, laptopView, laptopRotation, phoneView, phoneRotation, } from './main';
 export var navigationButtonsArr = [
     {
         "id": "monNav",
@@ -7,7 +7,11 @@ export var navigationButtonsArr = [
             ToTarget(monitorView, startingRot, cam, group, duration, monHTML);
             lapHTML.style.visibility = "hidden";
             phnHTML.style.visibility = "hidden";
-        }
+        },
+        "SmallFormTPos": 15,
+        "SmallFormLPos": 15,
+        "SmallFormWidth": 20,
+        "SmallFormHeight": 20
     },
     {
         "id": "lapNav",
@@ -16,6 +20,10 @@ export var navigationButtonsArr = [
             monHTML.style.visibility = "hidden";
             phnHTML.style.visibility = "hidden";
         },
+        "SmallFormTPos": 15,
+        "SmallFormLPos": 15,
+        "SmallFormWidth": 20,
+        "SmallFormHeight": 20
     },
     {
         "id": "phnNav",
@@ -23,7 +31,11 @@ export var navigationButtonsArr = [
             ToTarget(phoneView, phoneRotation, cam, group, duration, phnHTML);
             monHTML.style.visibility = "hidden";
             lapHTML.style.visibility = "hidden";
-        }
+        },
+        "SmallFormTPos": 15,
+        "SmallFormLPos": 15,
+        "SmallFormWidth": 20,
+        "SmallFormHeight": 20
     }
 ]
 
