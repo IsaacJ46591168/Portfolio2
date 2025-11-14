@@ -1,27 +1,33 @@
 import { ToTarget, currentlyAnim } from './cameranimations';
 import { startingPos, startingRot, monitorView, laptopView, laptopRotation, phoneView, phoneRotation } from './main';
-export var navigationButtons = [
+export var navigationButtonsArr = [
     {
         "id": "monNav",
-        "MoveTo": function (cam, group, duration) {
-            ToTarget("monitorDisplay", monitorView, startingRot, cam, group, duration);
+        "MoveTo": function (cam, group, duration, monHTML, lapHTML, phnHTML) {
+            ToTarget(monitorView, startingRot, cam, group, duration, monHTML);
+            lapHTML.style.visibility = "hidden";
+            phnHTML.style.visibility = "hidden";
         }
     },
     {
         "id": "lapNav",
-        "MoveTo": function (cam, group, duration) {
-            ToTarget("laptopDisplay", laptopView, laptopRotation, cam, group, duration);
-        }
+        "MoveTo": function (cam, group, duration, monHTML, lapHTML, phnHTML) {
+            ToTarget(laptopView, laptopRotation, cam, group, duration, lapHTML);
+            monHTML.style.visibility = "hidden";
+            phnHTML.style.visibility = "hidden";
+        },
     },
     {
         "id": "phnNav",
-        "MoveTo": function (cam, group, duration) {
-            ToTarget("phoneDisplay", phoneRotation, phoneRotation, cam, group, duration);
+        "MoveTo": function (cam, group, duration, monHTML, lapHTML, phnHTML) {
+            ToTarget(phoneView, phoneRotation, cam, group, duration, phnHTML);
+            monHTML.style.visibility = "hidden";
+            lapHTML.style.visibility = "hidden";
         }
     }
 ]
 
-export var projects = [
+export var projectsArr = [
     {
         "id": "P1",
         "Name": "Phoenix One",
@@ -69,7 +75,7 @@ export var projects = [
     }
 ]
 
-export var aboutWindows = [
+export var aboutWindowsArr = [
     // {
     //     "Name": "abHome",
     //     "Open": "home"
@@ -88,7 +94,7 @@ export var aboutWindows = [
     }
 ]
 
-export var contactLinks = [
+export var contactLinksArr = [
     {
         "Name": "LI",
         "Open": function () {

@@ -3,7 +3,7 @@ import './style.css'
 import * as THREE from 'three'
 import { Tween, Group } from '@tweenjs/tween.js'
 import { ToTarget, currentlyAnim } from './cameranimations';
-import { projects, aboutWindows, contactLinks, navigationButtons } from './buttonarrays';
+import { projectsArr, aboutWindowsArr, contactLinksArr, navigationButtonsArr } from './buttonarrays';
 
 //#region ThreeJS Setup
 const scene = new THREE.Scene();
@@ -207,7 +207,7 @@ function OpenProject() {
   var projAvailable = document.getElementById("available");
 
   for (i = 0; i < projectBarButtons.length; i++) {
-    if (this.id == projects[i].id) {
+    if (this.id == projectsArr[i].id) {
       projName.innerText = projects[i].Name;
       projDevelop.innerText = projects[i].Developers;
       projRelease.innerText = projects[i].Release;
@@ -222,7 +222,7 @@ function OpenAbout() {
     var curButton = aboutWindows[i].Open
     var curWindow = document.getElementById(curButton);
     curWindow.style.zIndex = 9;
-    if (this.id == aboutWindows[i].Name) {
+    if (this.id == aboutWindowsArr[i].Name) {
       curWindow.style.visibility = "visible";
       curWindow.style.zIndex = 10;
     }
@@ -239,7 +239,7 @@ function CloseAbout() {
 function OpenLink() {
   console.log(this.id);
   for (i = 0; i < phoneButtons.length; i++) {
-    if (this.id == contactLinks[i].Name) {
+    if (this.id == contactLinksArr[i].Name) {
       console.log("found matching contact option");
       contactLinks[i].Open();
       break;
@@ -255,57 +255,26 @@ function HideElement() {
   this.style.visibility = "hidden";
 }
 
+
+//Get individual HTML elements for turning off and on depending on where the camera is
+var monitorHTML = document.getElementById("monitorDisplay");
+var laptopHTML = document.getElementById("laptopDisplay");
+var phoneHTML = document.getElementById("phoneDisplay");
+
 function MoveCamera() {
-  for (i = 0; i < navigationButtons.length; i++) {
-    if (this.id == navigationButtons[i].id) {
-      navigationButtons[i].MoveTo(camera, camAnimations, 500);
+  for (i = 0; i < navButtons.length; i++) {
+    if (this.id == navigationButtonsArr[i].id) {
+      if (!currentlyAnim) {
+        navButtons[i].style.visibility = "hidden";
+        navigationButtonsArr[i].MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML);
+        break;
+      }
     }
   }
 }
 
 
 //#endregion
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //Key testing
 document.addEventListener("keydown", OnKeyDown, false);
@@ -315,16 +284,16 @@ function OnKeyDown(event) {
   if (!currentlyAnim) {
     if (keyCode == 38) //uarr
     {
-      ToTarget("monitorDisplay", monitorView, startingRot, camera, camAnimations, 500);
+      ToTarget(monitorView, startingRot, camera, camAnimations, 500, monitorHTML);
     } else if (keyCode == 40) //darr
     {
-      ToTarget("default", startingPos, startingRot, camera, camAnimations, 500);
+      ToTarget(startingPos, startingRot, camera, camAnimations, 500, monitorHTML);
     } else if (keyCode == 37) //larr
     {
-      ToTarget("laptopDisplay", laptopView, laptopRotation, camera, camAnimations, 500);
+      ToTarget(laptopView, laptopRotation, camera, camAnimations, 500, laptopHTML);
     } else if (keyCode == 39) //rarr
     {
-      ToTarget("phoneDisplay", phoneView, phoneRotation, camera, camAnimations, 500);
+      ToTarget(phoneView, phoneRotation, camera, camAnimations, 500, phoneHTML);
     } else {
       return;
     }

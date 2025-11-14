@@ -38,6 +38,20 @@ canvas {
   height: 180px;
 }
 
+.monFromLap {}
+
+.monFromPhn {}
+
+.lapFromMon {}
+
+.lapFromPhn {}
+
+.phnFromMon {}
+
+.phnFromLap {}
+
+
+
 #phnNav {
   position: absolute;
   top: 52em;
