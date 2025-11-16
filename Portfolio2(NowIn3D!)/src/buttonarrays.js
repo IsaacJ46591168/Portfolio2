@@ -8,10 +8,11 @@ export var navigationButtonsArr = [
             lapHTML.style.visibility = "hidden";
             phnHTML.style.visibility = "hidden";
         },
-        "SmallFormTPos": 15,
-        "SmallFormLPos": 15,
-        "SmallFormWidth": 20,
-        "SmallFormHeight": 20
+        "SmallFormTPos": 0,
+        "SmallFormLPos": 0,
+        "SmallFormLPosonLap": 110.2,
+        "SmallFormWidth": 150,
+        "SmallFormHeight": 400
     },
     {
         "id": "lapNav",
@@ -20,10 +21,10 @@ export var navigationButtonsArr = [
             monHTML.style.visibility = "hidden";
             phnHTML.style.visibility = "hidden";
         },
-        "SmallFormTPos": 15,
-        "SmallFormLPos": 15,
-        "SmallFormWidth": 20,
-        "SmallFormHeight": 20
+        "SmallFormTPos": 43,
+        "SmallFormLPos": 0,
+        "SmallFormWidth": 170,
+        "SmallFormHeight": 345
     },
     {
         "id": "phnNav",
@@ -32,10 +33,10 @@ export var navigationButtonsArr = [
             monHTML.style.visibility = "hidden";
             lapHTML.style.visibility = "hidden";
         },
-        "SmallFormTPos": 15,
-        "SmallFormLPos": 15,
-        "SmallFormWidth": 20,
-        "SmallFormHeight": 20
+        "SmallFormTPos": 54,
+        "SmallFormLPos": 113.5,
+        "SmallFormWidth": 100,
+        "SmallFormHeight": 160
     }
 ]
 
