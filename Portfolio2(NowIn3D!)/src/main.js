@@ -270,14 +270,14 @@ function MoveCamera() {
       }
     } else {
       console.log(navButtons[i]);
-      navButtons[i].style.top = navigationButtonsArr[i].SmallFormTPos + 'em';
+      navButtons[i].style.top = navigationButtonsArr[i].SmallFormTPos;
       if (this.id == "lapNav" && navigationButtonsArr[i].id == "monNav") {
-        navButtons[i].style.left = navigationButtonsArr[i].SmallFormLPosonLap + 'em';
+        navButtons[i].style.left = navigationButtonsArr[i].SmallFormLPosAlt;
       } else {
-        navButtons[i].style.left = navigationButtonsArr[i].SmallFormLPos + 'em';
+        navButtons[i].style.left = navigationButtonsArr[i].SmallFormLPos;
       }
-      navButtons[i].style.width = navigationButtonsArr[i].SmallFormWidth + 'px';
-      navButtons[i].style.height = navigationButtonsArr[i].SmallFormHeight + 'px';
+      navButtons[i].style.width = navigationButtonsArr[i].SmallFormWidth;
+      navButtons[i].style.height = navigationButtonsArr[i].SmallFormHeight;
     }
   }
 }

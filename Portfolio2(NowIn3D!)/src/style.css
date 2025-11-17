@@ -24,6 +24,7 @@ canvas {
   position: absolute;
   top: 28.5em;
   left: 38.7em;
+  right: 0;
 
   width: 625px;
   height: 320px;
@@ -42,6 +43,7 @@ canvas {
   position: absolute;
   top: 52em;
   left: 91.5em;
+  right: 0;
 
   width: 115px;
   height: 80px;
