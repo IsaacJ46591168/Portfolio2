@@ -1,4 +1,4 @@
-import { ToTarget } from './cameranimations';
+import { ToDefault, ToTarget } from './cameranimations';
 import { startingPos, startingRot, monitorView, laptopView, laptopRotation, phoneView, phoneRotation, } from './main';
 export var navigationButtonsArr = [
     {
@@ -37,6 +37,19 @@ export var navigationButtonsArr = [
         "SmallFormLPos": "auto",
         "SmallFormWidth": 100 + 'px',
         "SmallFormHeight": 160 + 'px'
+    },
+    {
+        "id": "defaultNav",
+        "MoveTo": function (cam, group, duration, monHTML, lapHTML, phnHTML) {
+            ToDefault(startingPos, startingRot, cam, group, duration);
+            monHTML.style.visibility = "hidden";
+            lapHTML.style.visibility = "hidden";
+            phnHTML.style.visibility = "hidden";
+        },
+        "SmallFormTPos": 'auto',
+        "SmallFormLPos": 50 + '%',
+        "SmallFormWidth": 1200 + 'px',
+        "SmallFormHeight": 150 + 'px'
     }
 ]
 

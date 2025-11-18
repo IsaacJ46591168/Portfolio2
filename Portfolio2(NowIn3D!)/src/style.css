@@ -49,6 +49,19 @@ canvas {
   height: 80px;
 }
 
+#defaultNav {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 1200px;
+  height: 150px;
+
+  visibility: hidden;
+}
+
 .contentWrapper {
   position: fixed;
   top: 0;
