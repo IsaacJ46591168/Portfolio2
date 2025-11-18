@@ -266,10 +266,12 @@ function MoveCamera() {
     if (this.id == navigationButtonsArr[i].id) {
       if (!currentlyAnim) {
         navigationButtonsArr[i].MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML);
+        navButtons[i].style.visibility = 'hidden';
         // navButtons[i].style.visibility = "hidden";
       }
     } else {
       console.log(navButtons[i]);
+      navButtons[i].style.visibility = 'visible';
       navButtons[i].style.top = navigationButtonsArr[i].SmallFormTPos;
       if (this.id == "lapNav" && navigationButtonsArr[i].id == "monNav") {
         navButtons[i].style.left = navigationButtonsArr[i].SmallFormLPosAlt;
