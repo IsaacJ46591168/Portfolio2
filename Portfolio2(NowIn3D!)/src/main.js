@@ -3,7 +3,7 @@ import './style.css'
 import * as THREE from 'three'
 import { Tween, Group } from '@tweenjs/tween.js'
 import { ToTarget, currentlyAnim } from './cameranimations';
-import { projectsArr, aboutWindowsArr, contactLinksArr, navigationButtonsArr } from './buttonarrays';
+import { projectsArr, aboutWindowsArr, contactLinksArr, navButtonsOBJsArr } from './buttonarrays';
 
 //#region ThreeJS Setup
 const scene = new THREE.Scene();
@@ -166,7 +166,7 @@ const camAnimations = new Group();
 //Buttons to move around the website
 var navButtons = document.getElementsByClassName("navButton");
 for (var i = 0; i < navButtons.length; i++) {
-  navButtons[i].addEventListener('click', MoveCamera);
+  navButtons[i].addEventListener('click', NavButtonClick);
 }
 
 //Buttons that will bring up project info
@@ -251,36 +251,45 @@ function HideProject() {
   projDisplay.style.visibility = "hidden";
 }
 
-function HideElement() {
-  this.style.visibility = "hidden";
-}
-
 
 //Get individual HTML elements for turning off and on depending on where the camera is
 var monitorHTML = document.getElementById("monitorDisplay");
 var laptopHTML = document.getElementById("laptopDisplay");
 var phoneHTML = document.getElementById("phoneDisplay");
 
-function MoveCamera() {
+function NavButtonClick() {
   for (i = 0; i < navButtons.length; i++) {
-    if (this.id == navigationButtonsArr[i].id) {
-      if (!currentlyAnim) {
-        navigationButtonsArr[i].MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML);
-        navButtons[i].style.visibility = 'hidden';
-        // navButtons[i].style.visibility = "hidden";
+    if (this.id == navButtonsOBJsArr[i].id) {
+      navButtonsOBJsArr[i].MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML);
+      navButtons[i].style.visibility = 'hidden';
+      if (this.id == "defaultNav") {
+        ResetNavButtons(navButtons, navButtonsOBJsArr);
+        break;
       }
     } else {
-      console.log(navButtons[i]);
-      navButtons[i].style.visibility = 'visible';
-      navButtons[i].style.top = navigationButtonsArr[i].SmallFormTPos;
-      if (this.id == "lapNav" && navigationButtonsArr[i].id == "monNav") {
-        navButtons[i].style.left = navigationButtonsArr[i].SmallFormLPosAlt;
-      } else {
-        navButtons[i].style.left = navigationButtonsArr[i].SmallFormLPos;
-      }
-      navButtons[i].style.width = navigationButtonsArr[i].SmallFormWidth;
-      navButtons[i].style.height = navigationButtonsArr[i].SmallFormHeight;
+      ChangeButtonVis(this.id, navButtons[i], navButtonsOBJsArr[i]);
     }
+  }
+}
+//TODO: Make more efficient (Doesn't need to be called every time as only one of the 4 buttons actually move between locations)
+function ChangeButtonVis(activeButton, curButtonHTML, curButtonObj) {
+  curButtonHTML.style.visibility = 'visible';
+  curButtonHTML.style.top = curButtonObj.SmallFormTPos;
+  if (activeButton == "lapNav" && curButtonObj.id == "monNav") {
+    curButtonHTML.style.left = curButtonObj.SmallFormLPosAlt;
+  } else {
+    curButtonHTML.style.left = curButtonObj.SmallFormLPos;
+  }
+  curButtonHTML.style.width = curButtonObj.SmallFormWidth;
+  curButtonHTML.style.height = curButtonObj.SmallFormHeight;
+}
+
+function ResetNavButtons(buttonsHTML, buttonOBJs) {
+  for (i = 0; i < buttonsHTML.length; i++) {
+    buttonsHTML[i].style.top = buttonOBJs[i].DefaultTPos;
+    buttonsHTML[i].style.left = buttonOBJs[i].DefaultLPos;
+    buttonsHTML[i].style.width = buttonOBJs[i].DefaultWidth;
+    buttonsHTML[i].style.height = buttonOBJs[i].DefaultHeight;
   }
 }
 

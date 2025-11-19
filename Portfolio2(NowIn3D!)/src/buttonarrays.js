@@ -1,6 +1,6 @@
 import { ToDefault, ToTarget } from './cameranimations';
 import { startingPos, startingRot, monitorView, laptopView, laptopRotation, phoneView, phoneRotation, } from './main';
-export var navigationButtonsArr = [
+export var navButtonsOBJsArr = [
     {
         "id": "monNav",
         "MoveTo": function (cam, group, duration, monHTML, lapHTML, phnHTML) {
@@ -12,7 +12,12 @@ export var navigationButtonsArr = [
         "SmallFormLPos": 0 + 'em',
         "SmallFormLPosAlt": "auto",
         "SmallFormWidth": 150 + 'px',
-        "SmallFormHeight": 400 + 'px'
+        "SmallFormHeight": 400 + 'px',
+
+        "DefaultTPos": 28.5 + 'em',
+        "DefaultLPos": 38.7 + 'em',
+        "DefaultWidth": 625 + 'px',
+        "DefaultHeight": 320 + 'px'
     },
     {
         "id": "lapNav",
@@ -24,7 +29,12 @@ export var navigationButtonsArr = [
         "SmallFormTPos": 43 + 'em',
         "SmallFormLPos": 0 + 'em',
         "SmallFormWidth": 170 + 'px',
-        "SmallFormHeight": 345 + 'px'
+        "SmallFormHeight": 345 + 'px',
+
+        "DefaultTPos": 43 + 'em',
+        "DefaultLPos": 22 + 'em',
+        "DefaultWidth": 260 + 'px',
+        "DefaultHeight": 180 + 'px'
     },
     {
         "id": "phnNav",
@@ -36,7 +46,12 @@ export var navigationButtonsArr = [
         "SmallFormTPos": 54 + 'em',
         "SmallFormLPos": "auto",
         "SmallFormWidth": 100 + 'px',
-        "SmallFormHeight": 160 + 'px'
+        "SmallFormHeight": 160 + 'px',
+
+        "DefaultTPos": 52 + 'em',
+        "DefaultLPos": 91.5 + 'em',
+        "DefaultWidth": 115 + 'px',
+        "DefaultHeight": 80 + 'px'
     },
     {
         "id": "defaultNav",
@@ -49,7 +64,7 @@ export var navigationButtonsArr = [
         "SmallFormTPos": 'auto',
         "SmallFormLPos": 50 + '%',
         "SmallFormWidth": 1200 + 'px',
-        "SmallFormHeight": 150 + 'px'
+        "SmallFormHeight": 150 + 'px',
     }
 ]
 
