@@ -3,7 +3,7 @@ import './style.css'
 import * as THREE from 'three'
 import { Tween, Group } from '@tweenjs/tween.js'
 import { ToTarget, currentlyAnim } from './cameranimations';
-import { projectsArr, aboutWindowsArr, contactLinksArr, navButtonsOBJsArr } from './buttonarrays';
+import { projectOBJs, aboutWindowsOBJs, contactLinkOBJs, navButtonOBJs } from './buttonarrays';
 
 //#region ThreeJS Setup
 const scene = new THREE.Scene();
@@ -208,10 +208,10 @@ function OpenProject() {
 
   for (i = 0; i < projectBarButtons.length; i++) {
     if (this.id == projectsArr[i].id) {
-      projName.innerText = projects[i].Name;
-      projDevelop.innerText = projects[i].Developers;
-      projRelease.innerText = projects[i].Release;
-      projAvailable.innerText = projects[i].Link;
+      projName.innerText = projectOBJs[i].Name;
+      projDevelop.innerText = projectOBJs[i].Developers;
+      projRelease.innerText = projectOBJs[i].Release;
+      projAvailable.innerText = projectOBJs[i].Link;
       break;
     }
   }
@@ -219,10 +219,10 @@ function OpenProject() {
 
 function OpenAbout() {
   for (i = 0; i < aboutButtons.length; i++) {
-    var curButton = aboutWindows[i].Open
+    var curButton = aboutWindowsOBJs[i].Open
     var curWindow = document.getElementById(curButton);
     curWindow.style.zIndex = 9;
-    if (this.id == aboutWindowsArr[i].Name) {
+    if (this.id == aboutWindowsOBJs[i].Name) {
       curWindow.style.visibility = "visible";
       curWindow.style.zIndex = 10;
     }
@@ -239,7 +239,7 @@ function CloseAbout() {
 function OpenLink() {
   console.log(this.id);
   for (i = 0; i < phoneButtons.length; i++) {
-    if (this.id == contactLinksArr[i].Name) {
+    if (this.id == contactLinkOBJs[i].Name) {
       console.log("found matching contact option");
       contactLinks[i].Open();
       break;
@@ -259,15 +259,15 @@ var phoneHTML = document.getElementById("phoneDisplay");
 
 function NavButtonClick() {
   for (i = 0; i < navButtons.length; i++) {
-    if (this.id == navButtonsOBJsArr[i].id) {
-      navButtonsOBJsArr[i].MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML);
+    if (this.id == navButtonOBJs[i].id) {
+      navButtonOBJs[i].MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML);
       navButtons[i].style.visibility = 'hidden';
       if (this.id == "defaultNav") {
-        ResetNavButtons(navButtons, navButtonsOBJsArr);
+        ResetNavButtons(navButtons, navButtonOBJs);
         break;
       }
     } else {
-      ChangeButtonVis(this.id, navButtons[i], navButtonsOBJsArr[i]);
+      ChangeButtonVis(this.id, navButtons[i], navButtonOBJs[i]);
     }
   }
 }

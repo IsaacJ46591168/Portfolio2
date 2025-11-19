@@ -1,6 +1,6 @@
 import { ToDefault, ToTarget } from './cameranimations';
 import { startingPos, startingRot, monitorView, laptopView, laptopRotation, phoneView, phoneRotation, } from './main';
-export var navButtonsOBJsArr = [
+export var navButtonOBJs = [
     {
         "id": "monNav",
         "MoveTo": function (cam, group, duration, monHTML, lapHTML, phnHTML) {
@@ -68,7 +68,7 @@ export var navButtonsOBJsArr = [
     }
 ]
 
-export var projectsArr = [
+export var projectOBJs = [
     {
         "id": "P1",
         "Name": "Phoenix One",
@@ -116,7 +116,7 @@ export var projectsArr = [
     }
 ]
 
-export var aboutWindowsArr = [
+export var aboutWindowsOBJs = [
     // {
     //     "Name": "abHome",
     //     "Open": "home"
@@ -135,7 +135,7 @@ export var aboutWindowsArr = [
     }
 ]
 
-export var contactLinksArr = [
+export var contactLinkOBJs = [
     {
         "Name": "LI",
         "Open": function () {
