@@ -295,8 +295,16 @@ canvas {
   border: solid 1px;
 }
 
+.iSEhead {
+  font-size: 15px;
+}
+
+.iSEpara {
+  font-size: 10px;
+}
+
 #infoMain {
-  flex-grow: 1;
+  max-width: 80%;
   height: 100%;
 }
 
