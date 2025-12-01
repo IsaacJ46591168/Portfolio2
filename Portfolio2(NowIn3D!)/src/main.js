@@ -207,7 +207,7 @@ function OpenProject() {
   var projAvailable = document.getElementById("available");
 
   for (i = 0; i < projectBarButtons.length; i++) {
-    if (this.id == projectsArr[i].id) {
+    if (this.id == projectOBJs.id) {
       projName.innerText = projectOBJs[i].Name;
       projDevelop.innerText = projectOBJs[i].Developers;
       projRelease.innerText = projectOBJs[i].Release;
@@ -241,7 +241,7 @@ function OpenLink() {
   for (i = 0; i < phoneButtons.length; i++) {
     if (this.id == contactLinkOBJs[i].Name) {
       console.log("found matching contact option");
-      contactLinks[i].Open();
+      contactLinkOBJs[i].Open();
       break;
     }
   }

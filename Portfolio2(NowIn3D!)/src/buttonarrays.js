@@ -5,7 +5,12 @@ export var navButtonOBJs = [
         "id": "monNav",
         "MoveTo": function (cam, group, duration, monHTML, lapHTML, phnHTML) {
             ToTarget(monitorView, startingRot, cam, group, duration, monHTML);
+            var lapWindows = document.getElementsByClassName("abWindow");
             lapHTML.style.visibility = "hidden";
+            for (var i = 0; i < lapWindows.length; i++) {
+                lapWindows[i].style.visibility = "hidden";
+            }
+
             phnHTML.style.visibility = "hidden";
         },
         "SmallFormTPos": 0 + 'em',
@@ -24,6 +29,8 @@ export var navButtonOBJs = [
         "MoveTo": function (cam, group, duration, monHTML, lapHTML, phnHTML) {
             ToTarget(laptopView, laptopRotation, cam, group, duration, lapHTML);
             monHTML.style.visibility = "hidden";
+            document.querySelector("#" + monHTML.id + "> div").style.visibility = "hidden";
+
             phnHTML.style.visibility = "hidden";
         },
         "SmallFormTPos": 43 + 'em',
@@ -41,7 +48,13 @@ export var navButtonOBJs = [
         "MoveTo": function (cam, group, duration, monHTML, lapHTML, phnHTML) {
             ToTarget(phoneView, phoneRotation, cam, group, duration, phnHTML);
             monHTML.style.visibility = "hidden";
+            document.querySelector("#" + monHTML.id + "> div").style.visibility = "hidden";
+
+            var lapWindows = document.getElementsByClassName("abWindow");
             lapHTML.style.visibility = "hidden";
+            for (var i = 0; i < lapWindows.length; i++) {
+                lapWindows[i].style.visibility = "hidden";
+            }
         },
         "SmallFormTPos": 54 + 'em',
         "SmallFormLPos": "auto",
@@ -58,7 +71,14 @@ export var navButtonOBJs = [
         "MoveTo": function (cam, group, duration, monHTML, lapHTML, phnHTML) {
             ToDefault(startingPos, startingRot, cam, group, duration);
             monHTML.style.visibility = "hidden";
+            document.querySelector("#" + monHTML.id + "> div").style.visibility = "hidden";
+
+            var lapWindows = document.getElementsByClassName("abWindow");
             lapHTML.style.visibility = "hidden";
+            for (var i = 0; i < lapWindows.length; i++) {
+                lapWindows[i].style.visibility = "hidden";
+            }
+
             phnHTML.style.visibility = "hidden";
         },
         "SmallFormTPos": 'auto',
