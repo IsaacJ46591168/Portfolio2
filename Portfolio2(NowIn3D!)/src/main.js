@@ -259,7 +259,7 @@ var phoneHTML = document.getElementById("phoneDisplay");
 
 function NavButtonClick() {
   for (i = 0; i < navButtons.length; i++) {
-    if (this.id == navButtonOBJs[i].id) {
+    if (this.id == navButtonOBJs[i].id && !currentlyAnim) {
       navButtonOBJs[i].MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML);
       navButtons[i].style.visibility = 'hidden';
       if (this.id == "defaultNav") {
