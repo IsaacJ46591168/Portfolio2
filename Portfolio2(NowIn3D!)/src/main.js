@@ -170,7 +170,7 @@ for (var i = 0; i < navButtons.length; i++) {
 }
 
 //Buttons that will bring up project info
-var projectBarButtons = document.getElementsByClassName("pBElement");
+var projectBarButtons = document.getElementsByClassName("project");
 for (var i = 0; i < projectBarButtons.length; i++) {
   projectBarButtons[i].addEventListener('click', OpenProject);
 }
@@ -207,7 +207,7 @@ function OpenProject() {
   var projAvailable = document.getElementById("available");
 
   for (i = 0; i < projectBarButtons.length; i++) {
-    if (this.id == projectOBJs.id) {
+    if (this.id == projectOBJs[i].id) {
       projName.innerText = projectOBJs[i].Name;
       projDevelop.innerText = projectOBJs[i].Developers;
       projRelease.innerText = projectOBJs[i].Release;
