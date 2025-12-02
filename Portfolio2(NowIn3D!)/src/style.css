@@ -469,13 +469,23 @@ canvas {
 .colHead {
   width: 100%;
   height: 5%;
+
+  background-color: rgba(244, 244, 244, 1);
   border: solid 1px;
 }
 
 .colElement {
   width: 100%;
-  height: 20%;
+  height: 10%;
   border: solid 1px;
+}
+
+.colMain {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.colAlt {
+  background-color: rgba(244, 244, 244, 1);
 }
 
 
