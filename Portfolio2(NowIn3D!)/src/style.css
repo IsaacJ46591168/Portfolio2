@@ -161,6 +161,132 @@ canvas {
   background-color: brown;
 }
 
+#smallProjectFinder {
+  position: absolute;
+  align-self: center;
+  top: 30%;
+  transform: translateY(-30%);
+
+  width: 70%;
+  height: 70%;
+
+  display: flex;
+  flex-direction: column;
+
+  border: solid 1px;
+}
+
+#finderContent {
+  width: 100%;
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.finderElement {
+  border: solid 1px;
+}
+
+#path {
+  width: 60%;
+  height: 5%;
+
+  margin-left: 5em;
+}
+
+#searchFolder {
+  width: 28%;
+  height: 5%;
+
+  margin-left: 1em;
+}
+
+#folderList {
+  width: 15%;
+  height: 95%;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.fListOption {
+  width: 100%;
+  height: 6%;
+  border: solid 1px;
+}
+
+#smallProjectsList {
+  flex-grow: 1;
+  height: 95%;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.smallProject {
+  width: 20%;
+  height: 20%;
+
+  margin-top: 1em;
+  margin-left: 1em;
+
+  border: solid 1px;
+}
+
+#smallProjectProperties {
+  width: 30%;
+  height: 85%;
+
+  position: absolute;
+  align-self: center;
+  top: 25%;
+  transform: translateY(-25%);
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+
+  border: solid 1px;
+}
+
+#sPropertiesContainer {
+  width: 100%;
+  flex-grow: 1;
+
+  background-color: rgba(200, 200, 200, 1);
+}
+
+#sPropertiesContent {
+  width: 90%;
+  height: 85%;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: flex-start;
+
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.sProperty {
+  width: 100%;
+  min-height: 20%;
+
+  border-bottom: solid 1px;
+}
+
 #projectBar {
   width: 100%;
   height: 8%;

@@ -205,6 +205,8 @@ function OpenProject() {
   var projDevelop = document.getElementById("develop");
   var projRelease = document.getElementById("release");
   var projAvailable = document.getElementById("available");
+  var projAbout = document.getElementById("descText");
+  var projRole = document.getElementById("roleText");
 
   for (i = 0; i < projectBarButtons.length; i++) {
     if (this.id == projectOBJs[i].id) {
@@ -212,6 +214,8 @@ function OpenProject() {
       projDevelop.innerText = projectOBJs[i].Developers;
       projRelease.innerText = projectOBJs[i].Release;
       projAvailable.innerText = projectOBJs[i].Link;
+      projAbout.innerText = projectOBJs[i].About;
+      projRole.innerText = projectOBJs[i].RoleAct;
       break;
     }
   }

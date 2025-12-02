@@ -94,42 +94,45 @@ export var projectOBJs = [
         "Name": "Phoenix One",
         "Developers": "L Stands for Winner Studios",
         "Release": "Demo available November 2023",
-        "Link": "https://lstandsforwinner.itch.io/phoenix-one-demo"
-    },
-    {
-        "id": "P1",
-        "Name": "Phoenix One",
-        "Developers": "Developed with: L Stands for Winner Studios",
-        "Release": "Released: November 2023",
-        "Link": "https://lstandsforwinner.itch.io/phoenix-one-demo"
+        "Link": "https://lstandsforwinner.itch.io/phoenix-one-demo",
+        "About": "A 2D Run-and-Gun Game combining puzzle, quick thinking and action. Run, Jump, Glide, Dash and Shoot your way through numerous puzzling and high-octane alien encounters, as you rush to salvage the fate of the Phoenix One mission and preserve hope for humanity.",
+        "RoleAct": ""
     },
     {
         "id": "BSC",
         "Name": "Beachside Campfire",
         "Developers": "Developed with: G27",
         "Release": "Released: November 2023",
-        "Link": "https://www.meta.com/en-gb/experiences/liminal-relax-unwind-engage-explore/3158342884265828/"
+        "Link": "https://www.meta.com/en-gb/experiences/liminal-relax-unwind-engage-explore/3158342884265828/",
+        "About": "A unique VR experience designed to assist a user in getting ready for sleep. Relax and doze off as you 'watch' the comforting lightshow of a beach-side campfire in front of you, listening to a carefully constructed sleep-inducing soundscape.",
+        "RoleAct": ""
     },
     {
         "id": "SPC",
         "Name": "Personal Space",
         "Developers": "Developed with: L Stands for Winner Studios",
         "Release": "Released: 2023",
-        "Link": "https://lstandsforwinner.itch.io/personal-space"
+        "Link": "https://lstandsforwinner.itch.io/personal-space",
+        "About": "A 3D Top-Down Game combining situational awareness and tight movement. Fly around in the depths of space while avoiding the spaceships trying to 're-enter' your atmosphere and avoid 're-entering' all the other planets while you're at it.",
+        "RoleAct": ""
     },
     {
         "id": "ANT",
         "Name": "The Very Hungry Antepillar",
         "Developers": "Developed with: L Stands for Winner Studios",
         "Release": "Released: 2024",
-        "Link": "https://lstandsforwinner.itch.io/the-very-hungry-anterpillar"
+        "Link": "https://lstandsforwinner.itch.io/the-very-hungry-anterpillar",
+        "About": "A 2.5D Game at a small scale! Crawl and Weave your way through numerous obstacles and collect as much bread as you can to avoid running out of energy, and avoid getting squashed by the boot!",
+        "RoleAct": ""
     },
     {
         "id": "BSM",
         "Name": "Basement Game",
         "Developers": "Developed with: L Stands for Winner Studios",
         "Release": "Released: 2023",
-        "Link": "https://lstandsforwinner.itch.io/basement-game"
+        "Link": "https://lstandsforwinner.itch.io/basement-game",
+        "About": "A 2.5D Automation Game set in the shadows of a basement. Combine, Produce, Sell and Submit different elements from the periodic table via purchasing and contructing a complex network of small alchemy machines.",
+        "RoleAct": ""
     },
     {
         "id": "OTH"
