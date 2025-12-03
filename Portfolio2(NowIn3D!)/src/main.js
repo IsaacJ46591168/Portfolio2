@@ -163,17 +163,26 @@ const camAnimations = new Group();
 //#region Website Functionality
 
 //Adding click events to all buttons
+
 //Buttons to move around the website
 var navButtons = document.getElementsByClassName("navButton");
 for (var i = 0; i < navButtons.length; i++) {
   navButtons[i].addEventListener('click', NavButtonClick);
 }
 
+//Button to remove all content from monitor
+var monitorHome = document.getElementById("pHome");
+monitorHome.addEventListener('click', HideMonContent);
+
 //Buttons that will bring up project info
 var projectBarButtons = document.getElementsByClassName("project");
 for (var i = 0; i < projectBarButtons.length; i++) {
   projectBarButtons[i].addEventListener('click', OpenProject);
 }
+
+//Button that brings up the small project finder window
+var smallProjectBarButton = document.getElementById("smallProjBar");
+smallProjectBarButton.addEventListener('click', OpenSmallProjectFinder);
 
 //Buttons that will bring up small project info
 var smallProjectButtons = document.getElementsByClassName("smallProject");
@@ -201,7 +210,7 @@ for (var i = 0; i < phoneButtons.length; i++) {
 
 //button to close project info window 
 var monWinClose = document.getElementById("mWindowClose");
-monWinClose.addEventListener('click', HideProject);
+monWinClose.addEventListener('click', HideMonContent);
 
 var projDisplay = document.getElementById("projectDisplay");
 function OpenProject() {
@@ -227,9 +236,15 @@ function OpenProject() {
   }
 }
 
-var smallProjDisplay = document.getElementById("smallProjectProperties")
+var smallProjFinder = document.getElementById("smallProjectFinder");
+function OpenSmallProjectFinder() {
+  smallProjFinder.style.visibility = "visible";
+}
+
+
+var smallProjDisplay = document.getElementById("smallProjectProperties");
 function OpenSmallProject() {
-  smallProjDisplay.style.visibility = 'visible';
+  smallProjDisplay.style.visibility = "visible";
 
   var sProjName = document.getElementById("sProjName");
   var sProjType = document.getElementById("sProjType");
@@ -275,8 +290,14 @@ function OpenLink() {
   }
 }
 
-function HideProject() {
-  projDisplay.style.visibility = "hidden";
+function HideMonContent() {
+  if (this.id == "mWindowClose") {
+    projDisplay.style.visibility = "hidden";
+  } else {
+    projDisplay.style.visibility = "hidden";
+    smallProjDisplay.style.visibility = "hidden";
+    smallProjFinder.style.visibility = "hidden";
+  }
 }
 
 
@@ -289,7 +310,7 @@ function NavButtonClick() {
   for (i = 0; i < navButtons.length; i++) {
     if (this.id == navButtonOBJs[i].id && !currentlyAnim) {
       navButtonOBJs[i].MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML);
-      navButtons[i].style.visibility = 'hidden';
+      navButtons[i].style.visibility = "hidden";
       if (this.id == "defaultNav") {
         ResetNavButtons(navButtons, navButtonOBJs);
         break;
@@ -301,7 +322,7 @@ function NavButtonClick() {
 }
 //TODO: Make more efficient (Doesn't need to be called every time as only one of the 4 buttons actually move between locations)
 function ChangeButtonVis(activeButton, curButtonHTML, curButtonObj) {
-  curButtonHTML.style.visibility = 'visible';
+  curButtonHTML.style.visibility = "visible";
   curButtonHTML.style.top = curButtonObj.SmallFormTPos;
   if (activeButton == "lapNav" && curButtonObj.id == "monNav") {
     curButtonHTML.style.left = curButtonObj.SmallFormLPosAlt;

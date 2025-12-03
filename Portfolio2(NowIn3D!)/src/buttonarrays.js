@@ -28,8 +28,11 @@ export var navButtonOBJs = [
         "id": "lapNav",
         "MoveTo": function (cam, group, duration, monHTML, lapHTML, phnHTML) {
             ToTarget(laptopView, laptopRotation, cam, group, duration, lapHTML);
+            var monWindows = document.getElementsByClassName("monWindows")
             monHTML.style.visibility = "hidden";
-            document.querySelector("#" + monHTML.id + "> div").style.visibility = "hidden";
+            for (var i = 0; i < monWindows.length; i++) {
+                monWindows[i].style.visibility = "hidden";
+            }
 
             phnHTML.style.visibility = "hidden";
         },
@@ -47,8 +50,11 @@ export var navButtonOBJs = [
         "id": "phnNav",
         "MoveTo": function (cam, group, duration, monHTML, lapHTML, phnHTML) {
             ToTarget(phoneView, phoneRotation, cam, group, duration, phnHTML);
+            var monWindows = document.getElementsByClassName("monWindows")
             monHTML.style.visibility = "hidden";
-            document.querySelector("#" + monHTML.id + "> div").style.visibility = "hidden";
+            for (var i = 0; i < monWindows.length; i++) {
+                monWindows[i].style.visibility = "hidden";
+            }
 
             var lapWindows = document.getElementsByClassName("abWindow");
             lapHTML.style.visibility = "hidden";
@@ -70,8 +76,11 @@ export var navButtonOBJs = [
         "id": "defaultNav",
         "MoveTo": function (cam, group, duration, monHTML, lapHTML, phnHTML) {
             ToDefault(startingPos, startingRot, cam, group, duration);
+            var monWindows = document.getElementsByClassName("monWindows")
             monHTML.style.visibility = "hidden";
-            document.querySelector("#" + monHTML.id + "> div").style.visibility = "hidden";
+            for (var i = 0; i < monWindows.length; i++) {
+                monWindows[i].style.visibility = "hidden";
+            }
 
             var lapWindows = document.getElementsByClassName("abWindow");
             lapHTML.style.visibility = "hidden";
