@@ -3,7 +3,7 @@ import './style.css'
 import * as THREE from 'three'
 import { Tween, Group } from '@tweenjs/tween.js'
 import { ToTarget, currentlyAnim } from './cameranimations';
-import { projectOBJs, aboutWindowsOBJs, contactLinkOBJs, navButtonOBJs } from './buttonarrays';
+import { projectOBJs, smallProjectOBJs, aboutWindowsOBJs, contactLinkOBJs, navButtonOBJs } from './buttonarrays';
 
 //#region ThreeJS Setup
 const scene = new THREE.Scene();
@@ -175,6 +175,12 @@ for (var i = 0; i < projectBarButtons.length; i++) {
   projectBarButtons[i].addEventListener('click', OpenProject);
 }
 
+//Buttons that will bring up small project info
+var smallProjectButtons = document.getElementsByClassName("smallProject");
+for (var i = 0; i < smallProjectButtons.length; i++) {
+  smallProjectButtons[i].addEventListener('click', OpenSmallProject);
+}
+
 //Buttons that bring up info about self
 var aboutButtons = document.getElementsByClassName("abBarElement");
 for (var i = 0; i < aboutButtons.length; i++) {
@@ -216,6 +222,24 @@ function OpenProject() {
       projAvailable.innerText = projectOBJs[i].Link;
       projAbout.innerText = projectOBJs[i].About;
       projRole.innerText = projectOBJs[i].RoleAct;
+      break;
+    }
+  }
+}
+
+var smallProjDisplay = document.getElementById("smallProjectProperties")
+function OpenSmallProject() {
+  smallProjDisplay.style.visibility = 'visible';
+
+  var sProjName = document.getElementById("sProjName");
+  var sProjType = document.getElementById("sProjType");
+  var sProjDesc = document.getElementById("sProjDesc");
+
+  for (i = 0; i < smallProjectButtons.length; i++) {
+    if (this.id == smallProjectOBJs[i].id) {
+      sProjName.innerText = smallProjectOBJs[i].Name;
+      sProjType.innerText = smallProjectOBJs[i].Type;
+      sProjDesc.innerText = smallProjectOBJs[i].Desc;
       break;
     }
   }

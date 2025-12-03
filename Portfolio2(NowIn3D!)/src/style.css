@@ -239,6 +239,10 @@ canvas {
   border: solid 1px;
 }
 
+.smallProject:hover {
+  cursor: pointer;
+}
+
 #smallProjectProperties {
   width: 30%;
   height: 85%;
@@ -254,6 +258,7 @@ canvas {
   align-content: flex-start;
 
   border: solid 1px;
+  visibility: hidden;
 }
 
 #sPropertiesContainer {
@@ -406,7 +411,6 @@ canvas {
 }
 
 /* #introInfo {} */
-
 #infoSide {
   width: 20%;
   height: 100%;
