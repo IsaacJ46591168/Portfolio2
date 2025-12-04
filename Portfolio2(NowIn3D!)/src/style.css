@@ -316,12 +316,11 @@ canvas {
   overflow-x: scroll;
 }
 
-.galleryContainer {
+#spgWrapper {
   width: 600%;
   height: 100%;
   display: flex;
   gap: 1em;
-  overflow: auto;
 }
 
 .sGalleryElement {
@@ -561,11 +560,25 @@ canvas {
   border-bottom-right-radius: 10px;
 }
 
-#fFText {
+#fFGalleryWrapper {
   height: 100%;
   flex-grow: 1;
 
+  overflow-x: scroll;
   border: solid 1px;
+}
+
+#fFGallery {
+  width: 300%;
+  height: 100%;
+  display: flex;
+  gap: 1em;
+}
+
+.fFElement {
+  width: 100%;
+  height: 100%;
+  background-color: brown;
 }
 
 #aboutMeBar {
