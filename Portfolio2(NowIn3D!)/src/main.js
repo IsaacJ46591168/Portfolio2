@@ -3,7 +3,7 @@ import './style.css'
 import * as THREE from 'three'
 import { Tween, Group } from '@tweenjs/tween.js'
 import { ToTarget, currentlyAnim } from './cameranimations';
-import { projectOBJs, smallProjectOBJs, aboutWindowsOBJs, contactLinkOBJs, navButtonOBJs } from './buttonarrays';
+import { projectOBJs, smallProjectOBJs, aboutWindowsOBJs, contactLinkOBJs, navButtonOBJs, galleryButtonOBJs } from './buttonarrays';
 
 //#region ThreeJS Setup
 const scene = new THREE.Scene();
@@ -196,7 +196,13 @@ for (var i = 0; i < aboutButtons.length; i++) {
   aboutButtons[i].addEventListener('click', OpenAbout);
 }
 
-//Buttons that close the individual self-info windows
+//Buttons that scroll the galleries
+var fFbuttons = document.getElementsByClassName("fFButton");
+for (var i = 0; i < fFbuttons.length; i++) {
+  fFbuttons[i].addEventListener('click', ChangeGallery);
+}
+
+//Buttons that closes the individual self-info windows
 var abWindowCloseButtons = document.getElementsByClassName("lWindowClose");
 for (var i = 0; i < abWindowCloseButtons.length; i++) {
   abWindowCloseButtons[i].addEventListener('click', CloseAbout);
@@ -297,6 +303,17 @@ function HideMonContent() {
     projDisplay.style.visibility = "hidden";
     smallProjDisplay.style.visibility = "hidden";
     smallProjFinder.style.visibility = "hidden";
+  }
+}
+
+
+function ChangeGallery() {
+  for (i = 0; i < fFbuttons.length; i++) {
+    if (this.id == galleryButtonOBJs[i].id) {
+      var curGallery = document.getElementById(galleryButtonOBJs[i].gallery);
+      console.log(curGallery);
+      curGallery.scrollLeft += galleryButtonOBJs[i].scrollDistance;
+    }
   }
 }
 

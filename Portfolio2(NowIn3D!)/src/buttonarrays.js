@@ -203,6 +203,19 @@ export var aboutWindowsOBJs = [
     }
 ]
 
+export var galleryButtonOBJs = [
+    {
+        "id": "fFForward",
+        "gallery": "fFGalleryWrapper",
+        "scrollDistance": 450
+    },
+    {
+        "id": "fFBack",
+        "gallery": "fFGalleryWrapper",
+        "scrollDistance": -450
+    },
+]
+
 export var contactLinkOBJs = [
     {
         "Name": "LI",
