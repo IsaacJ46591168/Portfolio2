@@ -207,12 +207,12 @@ export var galleryButtonOBJs = [
     {
         "id": "fFForward",
         "gallery": "fFGalleryWrapper",
-        "scrollDistance": 450
+        "scrollDirection": "right"
     },
     {
         "id": "fFBack",
         "gallery": "fFGalleryWrapper",
-        "scrollDistance": -450
+        "scrollDirection": "left"
     },
 ]
 

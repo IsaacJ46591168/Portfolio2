@@ -311,8 +311,13 @@ function ChangeGallery() {
   for (i = 0; i < fFbuttons.length; i++) {
     if (this.id == galleryButtonOBJs[i].id) {
       var curGallery = document.getElementById(galleryButtonOBJs[i].gallery);
-      console.log(curGallery);
-      curGallery.scrollLeft += galleryButtonOBJs[i].scrollDistance;
+      var curGalleryWidth = curGallery.offsetWidth;
+
+      if (galleryButtonOBJs[i].scrollDirection == "left") {
+        curGallery.scrollLeft -= curGalleryWidth;
+      } else {
+        curGallery.scrollLeft += curGalleryWidth;
+      }
     }
   }
 }
