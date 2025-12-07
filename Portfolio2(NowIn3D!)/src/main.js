@@ -190,16 +190,23 @@ for (var i = 0; i < smallProjectButtons.length; i++) {
   smallProjectButtons[i].addEventListener('click', OpenSmallProject);
 }
 
+//Mouse listeners to allow for horizontal drag scrolling of small project gallery
+var scrollParent = document.getElementById("sProjGallery");
+scrollParent.addEventListener("mousemove");
+scrollParent.addEventListener("mousedown");
+scrollParent.addEventListener("mouseup");
+scrollParent.addEventListener("mouseleave");
+
 //Buttons that bring up info about self
 var aboutButtons = document.getElementsByClassName("abBarElement");
 for (var i = 0; i < aboutButtons.length; i++) {
   aboutButtons[i].addEventListener('click', OpenAbout);
 }
 
-//Buttons that scroll the galleries
+//Buttons that scroll the facts gallery
 var fFbuttons = document.getElementsByClassName("fFButton");
 for (var i = 0; i < fFbuttons.length; i++) {
-  fFbuttons[i].addEventListener('click', ChangeGallery);
+  fFbuttons[i].addEventListener('click', ChangeButtonGallery);
 }
 
 //Buttons that closes the individual self-info windows
@@ -307,7 +314,12 @@ function HideMonContent() {
 }
 
 
-function ChangeGallery() {
+
+
+
+
+
+function ChangeButtonGallery() {
   for (i = 0; i < fFbuttons.length; i++) {
     if (this.id == galleryButtonOBJs[i].id) {
       var curGallery = document.getElementById(galleryButtonOBJs[i].gallery);
