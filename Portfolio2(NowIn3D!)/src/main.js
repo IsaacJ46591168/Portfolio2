@@ -192,10 +192,10 @@ for (var i = 0; i < smallProjectButtons.length; i++) {
 
 //Mouse listeners to allow for horizontal drag scrolling of small project gallery
 var scrollParent = document.getElementById("sProjGallery");
-scrollParent.addEventListener("mousemove");
-scrollParent.addEventListener("mousedown");
-scrollParent.addEventListener("mouseup");
-scrollParent.addEventListener("mouseleave");
+scrollParent.addEventListener("mousemove", RunDrag);
+scrollParent.addEventListener("mousedown", DragStart);
+scrollParent.addEventListener("mouseup", DragStop);
+scrollParent.addEventListener("mouseleave", DragStop);
 
 //Buttons that bring up info about self
 var aboutButtons = document.getElementsByClassName("abBarElement");
@@ -314,9 +314,27 @@ function HideMonContent() {
 }
 
 
+var mouseClicked = false;
+var mouseStartPos = 0;
+var scrollProgress = 0;
+function DragStart(event) {
+  mouseClicked = true;
+  mouseStartPos = event.pageX - scrollParent.offsetLeft;
+  scrollProgress = scrollParent.scrollLeft;
+}
 
+function DragStop(event) {
+  mouseClicked = false;
+}
 
-
+function RunDrag(event) {
+  if (!mouseClicked) {
+    return;
+  }
+  var curX = event.pageX - scrollParent.offsetLeft;
+  var curScrollValue = curX - mouseStartPos;
+  scrollParent.scrollLeft = scrollProgress - curScrollValue
+}
 
 
 function ChangeButtonGallery() {
