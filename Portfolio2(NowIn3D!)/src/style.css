@@ -310,7 +310,7 @@ canvas {
 
 #sProjGallery {
   height: 40%;
-  overflow-x: scroll;
+  overflow: hidden;
 }
 
 #spgWrapper {

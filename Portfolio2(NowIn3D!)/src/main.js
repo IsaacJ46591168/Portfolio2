@@ -319,6 +319,7 @@ var mouseClicked = false;
 var mouseStartPos = 0;
 var scrollProgress = 0;
 function DragStart(event) {
+  console.log("mousepressed");
   scrollGallery.style.cursor = "grabbing";
   mouseClicked = true;
   mouseStartPos = event.pageX - scrollParent.offsetLeft;
@@ -331,12 +332,14 @@ function DragStop() {
 }
 
 function RunDrag(event) {
-  if (mouseClicked) {
-    event.preventDefault();
-    var curX = event.pageX - scrollParent.offsetLeft;
-    var curScrollValue = (curX - mouseStartPos) * 3; //Adjusting the scroll speed
-    scrollParent.scrollLeft = scrollProgress - curScrollValue
+  if (!mouseClicked) {
+    return;
   }
+  event.preventDefault();
+  var curX = event.pageX - scrollParent.offsetLeft;
+  var curScrollValue = (curX - mouseStartPos) * 3; //Adjusting the scroll speed
+  scrollParent.scrollLeft = scrollProgress - curScrollValue
+  console.log(curScrollValue);
 }
 
 
@@ -430,7 +433,7 @@ function animate() {
   // controls.update();
   camAnimations.update();
   renderer.render(scene, camera);
-  console.log(mouseClicked);
+  // console.log(mouseClicked);
 }
 
 animate();
