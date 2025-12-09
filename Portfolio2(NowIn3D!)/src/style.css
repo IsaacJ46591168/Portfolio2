@@ -127,6 +127,7 @@ canvas {
   height: 100%;
 
   background-color: rgba(0, 0, 0, 1);
+  cursor: pointer;
 }
 
 #mWindowClose p {
@@ -137,7 +138,6 @@ canvas {
 
 #mWindowClose:hover {
   background-color: rgba(255, 0, 0, 1);
-  cursor: pointer;
 }
 
 .projectInfos {
@@ -256,9 +256,6 @@ canvas {
   margin-left: 1em;
 
   border: solid 1px;
-}
-
-.smallProject:hover {
   cursor: pointer;
 }
 
@@ -320,6 +317,8 @@ canvas {
   width: 600%;
   height: 100%;
   display: flex;
+
+  cursor: grab
 }
 
 .sGalleryElement {
@@ -344,11 +343,11 @@ canvas {
   width: 5%;
   height: 100%;
   border: solid 1px;
+  cursor: pointer;
 }
 
 .pBElement:hover {
   background-color: rgba(255, 255, 255, 0.6);
-  cursor: pointer;
 }
 
 
@@ -412,9 +411,6 @@ canvas {
   border: solid 1px;
   border-radius: 50px;
   background-color: rgba(255, 0, 0, 1);
-}
-
-.lWindowClose:hover {
   cursor: pointer;
 }
 
@@ -616,9 +612,6 @@ canvas {
 
   border: solid 1px;
   border-radius: 10px;
-}
-
-.abBarElement:hover {
   cursor: pointer;
 }
 
@@ -654,9 +647,9 @@ canvas {
   border: solid 1px;
   border-radius: 15px;
   gap: 1em;
+  cursor: pointer;
 }
 
 .contactApp:hover {
   background-color: rgba(31, 31, 31, 0.3);
-  cursor: pointer;
 }

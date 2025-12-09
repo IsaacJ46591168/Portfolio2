@@ -192,6 +192,7 @@ for (var i = 0; i < smallProjectButtons.length; i++) {
 
 //Mouse listeners to allow for horizontal drag scrolling of small project gallery
 var scrollParent = document.getElementById("sProjGallery");
+var scrollGallery = document.getElementById("spgWrapper");
 scrollParent.addEventListener("mousemove", RunDrag);
 scrollParent.addEventListener("mousedown", DragStart);
 scrollParent.addEventListener("mouseup", DragStop);
@@ -318,22 +319,24 @@ var mouseClicked = false;
 var mouseStartPos = 0;
 var scrollProgress = 0;
 function DragStart(event) {
+  scrollGallery.style.cursor = "grabbing";
   mouseClicked = true;
   mouseStartPos = event.pageX - scrollParent.offsetLeft;
   scrollProgress = scrollParent.scrollLeft;
 }
 
-function DragStop(event) {
+function DragStop() {
   mouseClicked = false;
+  scrollGallery.style.cursor = "grab";
 }
 
 function RunDrag(event) {
-  if (!mouseClicked) {
-    return;
+  if (mouseClicked) {
+    event.preventDefault();
+    var curX = event.pageX - scrollParent.offsetLeft;
+    var curScrollValue = (curX - mouseStartPos) * 3; //Adjusting the scroll speed
+    scrollParent.scrollLeft = scrollProgress - curScrollValue
   }
-  var curX = event.pageX - scrollParent.offsetLeft;
-  var curScrollValue = curX - mouseStartPos;
-  scrollParent.scrollLeft = scrollProgress - curScrollValue
 }
 
 
@@ -427,6 +430,7 @@ function animate() {
   // controls.update();
   camAnimations.update();
   renderer.render(scene, camera);
+  console.log(mouseClicked);
 }
 
 animate();
