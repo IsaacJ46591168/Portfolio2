@@ -105,7 +105,7 @@ export var projectOBJs = [
         "Release": "Demo available November 2023",
         "Link": "https://lstandsforwinner.itch.io/phoenix-one-demo",
         "About": "A 2D Run-and-Gun Game combining puzzle, quick thinking and action. Run, Jump, Glide, Dash and Shoot your way through numerous puzzling and high-octane alien encounters, as you rush to salvage the fate of the Phoenix One mission and preserve hope for humanity.",
-        "RoleAct": "For this project, I was both a developer and designer, focusing on the character's movement system and the design of the levels."
+        "RoleAct": "For this project, I was both a developer and designer, focusing on the character's movement system and the design of the levels. The movement and the levels had to be designed in a way that complemented each other and that allowed the game to achieve the fast-paced and fluid to play. Because of this, I spent a lot of time refining each compontent of the player's moveset so that it felt quick and responsive, such as the left-right movement having very little acceleration and decelleration times to allow for quick direction changes, and little-to-no end-lag being implemented on the character's moveset so multiple movement options could be chained together. Similar was done to the design of the levels as well; I designed them encounter-by-encounter, resulting in a variety of different challenges for the player in one level, whilst also keeping to the same theme and difficulty. This helped to create a cohesive and engaging level, of whose elements gelled well together."
     },
     {
         "id": "BSC",
@@ -114,7 +114,7 @@ export var projectOBJs = [
         "Release": "Released: November 2023",
         "Link": "https://www.meta.com/en-gb/experiences/liminal-relax-unwind-engage-explore/3158342884265828/",
         "About": "A unique VR experience designed to assist a user in getting ready for sleep. Relax and doze off as you 'watch' the comforting lightshow of a beach-side campfire in front of you, listening to a carefully constructed sleep-inducing soundscape.",
-        "RoleAct": "My roles for this project were developer and audio engineer. "
+        "RoleAct": "My roles for this project were developer and audio engineer. This was definitely the most unique project I've ever been part of; a VR project about preparing the user for sleep, which they would use with their eyes closed. My most significant contributions were via the development of the audio playing system, which was quite basic in implementation, as it was only regulating when and how many tracks were playing at once, as well as recording, mixing and implementing various audio tracks that combined together to create a non-intrusive, subtle audioscape that aimed to make the user feel relaxed enough to feel sleepy. This included sounds such as ocean noises without the crashing of waves, fire sounds without the peaking and crackling of the fire, subtle narration and chatting that allowed the user to feel comforted without feeling distracted by the sounds."
     },
     {
         "id": "SPC",
@@ -141,7 +141,7 @@ export var projectOBJs = [
         "Release": "Released: 2023",
         "Link": "https://lstandsforwinner.itch.io/basement-game",
         "About": "A 2.5D Automation Game set in the shadows of a basement. Combine, Produce, Sell and Submit different elements from the periodic table via purchasing and contructing a complex network of small alchemy machines.",
-        "RoleAct": "As this was a 2.5D automation game, all the models had to be quite small in order to make sure that, in the inevitable situation where there were many models on the screen at once, they weren't too obstructive. To match the theme of this game, which was all about pretending to be an alchemist by using rickety, old, discount, do-it-yourself machines, I tried to replicate this using basic objects and designs to make them look 'primitive'."
+        "RoleAct": "My role for this project was 3D artist. As this was a 2.5D automation game, all the models had to be quite small in order to make sure that, in the inevitable situation where there were many models on the screen at once, they weren't too obstructive. To match the theme of this game, which was all about pretending to be an alchemist by using rickety, old, discount, do-it-yourself machines, I tried to replicate this using basic objects and designs to make them look 'primitive'."
     }
 ]
 
@@ -150,37 +150,37 @@ export var smallProjectOBJs = [
         "id": "MTV",
         "Name": "Mountain Valley",
         "Type": "3D Model",
-        "Description": "Demo available November 2023"
+        "Desc": "Finished July 2018"
     },
     {
         "id": "VPW",
         "Name": "VaporWave",
         "Type": "3D Animation",
-        "Description": "Demo available November 2023"
+        "Desc": "Finished April 2019"
     },
     {
         "id": "WII",
         "Name": "Wii u",
         "Type": "3D Model",
-        "Description": "Demo available November 2023"
+        "Desc": "Finished August 2024"
     },
     {
         "id": "TRN",
         "Name": "Train Station",
         "Type": "3D Model",
-        "Description": "Demo available November 2023"
+        "Desc": "Finished August 2024"
     },
     {
         "id": "MVC",
         "Name": "Moving Cube",
         "Type": "3D Animation",
-        "Description": "Demo available November 2023"
+        "Desc": "Finished available November 2023"
     },
     {
         "id": "DPB",
         "Name": "Departure Board",
         "Type": "3D Animation",
-        "Description": "Demo available November 2023"
+        "Desc": "Finished April 2025"
     },
 ]
 

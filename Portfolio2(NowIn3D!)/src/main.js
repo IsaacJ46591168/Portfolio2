@@ -198,6 +198,12 @@ scrollParent.addEventListener("mousedown", DragStart);
 scrollParent.addEventListener("mouseup", DragStop);
 scrollParent.addEventListener("mouseleave", DragStop);
 
+//buttons to close monitor windows 
+var monWinCloseButtons = document.getElementsByClassName("mWindowClose");
+for (var i = 0; i < monWinCloseButtons.length; i++) {
+  monWinCloseButtons[i].addEventListener('click', HideMonContent);
+}
+
 //Buttons that bring up info about self
 var aboutButtons = document.getElementsByClassName("abBarElement");
 for (var i = 0; i < aboutButtons.length; i++) {
@@ -221,10 +227,6 @@ var phoneButtons = document.getElementsByClassName("contactApp");
 for (var i = 0; i < phoneButtons.length; i++) {
   phoneButtons[i].addEventListener('click', OpenLink);
 }
-
-//button to close project info window 
-var monWinClose = document.getElementById("mWindowClose");
-monWinClose.addEventListener('click', HideMonContent);
 
 var projDisplay = document.getElementById("projectDisplay");
 function OpenProject() {
@@ -305,12 +307,17 @@ function OpenLink() {
 }
 
 function HideMonContent() {
-  if (this.id == "mWindowClose") {
-    projDisplay.style.visibility = "hidden";
-  } else {
-    projDisplay.style.visibility = "hidden";
-    smallProjDisplay.style.visibility = "hidden";
-    smallProjFinder.style.visibility = "hidden";
+  // if (this.id == "mWindowClose") {
+  //   projDisplay.style.visibility = "hidden";
+  // } else {
+  //   projDisplay.style.visibility = "hidden";
+  //   smallProjDisplay.style.visibility = "hidden";
+  //   smallProjFinder.style.visibility = "hidden";
+  // }
+  for (i = 0; i < monWinCloseButtons.length; i++) {
+    var curWindow = document.getElementById(this.id).parentElement.parentElement;
+    console.log(curWindow);
+    curWindow.style.visibility = "hidden";
   }
 }
 
