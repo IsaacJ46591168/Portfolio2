@@ -142,45 +142,60 @@ export var projectOBJs = [
         "Link": "https://lstandsforwinner.itch.io/basement-game",
         "About": "A 2.5D Automation Game set in the shadows of a basement. Combine, Produce, Sell and Submit different elements from the periodic table via purchasing and contructing a complex network of small alchemy machines.",
         "RoleAct": "My role for this project was 3D artist. As this was a 2.5D automation game, all the models had to be quite small in order to make sure that, in the inevitable situation where there were many models on the screen at once, they weren't too obstructive. To match the theme of this game, which was all about pretending to be an alchemist by using rickety, old, discount, do-it-yourself machines, I tried to replicate this using basic objects and designs to make them look 'primitive'."
+    },
+    {
+        "id": "PLN",
+        "Name": "Thread the Ring",
+        "Developers": "Developed with: Myself (Solo Project!)",
+        "Release": "Finished: 2020",
+        "Link": "",
+        "About": "A 3D Game putting your flight skills to the test!. Twist, Turn and soar your way around around the stage, flying through all of the rings in order to make it to the finish line!",
+        "RoleAct": "My first, and so far only, solo project which I made for my final assignment for my industrial tech class in Year 12. Developing it solo was a huge learning curve, given that I was responsible for almost everything that went into it, and especially as I had never programmed anything before at the time. In general though, I tried to keep the flying mechanics to a more arcade-y level, as my inspiration was Pilotwings on the NES, and trying to make realistic plane physics with no prior progamming experience would not have ended well. "
     }
 ]
 
 export var smallProjectOBJs = [
     {
         "id": "MTV",
-        "Name": "Mountain Valley",
-        "Type": "3D Model",
-        "Desc": "Finished July 2018"
+        "Name": "Project Name: Mountain Valley",
+        "Type": "Type of project: 3D Model",
+        "Finish": "Finished July 2018",
+        "Desc": "One of my very first modelling projects were these snow-covered mountains. I was followig a tutorial pretty much word-for-word and action-for-action, but I was still quite proud of it at the time. Unfortunately, with it being done a long time ago, I don't remember much of the actual modelling process, but I do know that it was pretty much the absolute limit of what my laptop could handle."
     },
     {
         "id": "VPW",
         "Name": "VaporWave",
-        "Type": "3D Animation",
-        "Desc": "Finished April 2019"
+        "Type": "Type of project: 3D Animation",
+        "Finish": "Finished April 2019",
+        "Desc": "My first experiment with randomly-generating terrain combined with an interest in the vaporwave aesthetic resulted in this scene, which was also done on my old Macbook Pro. Outside of this picture I also turned this into an animation using by turning the generated mesh into an array and then just moving the camera though everything, and then resetting the camera back to its original point when it got to the end of the array so it looked infinite."
     },
     {
         "id": "WII",
-        "Name": "Wii u",
-        "Type": "3D Model",
-        "Desc": "Finished August 2024"
+        "Name": "Project Name: Wii u",
+        "Type": "Type of project: 3D Model",
+        "Finish": "Finished August 2024",
+        "Desc": "Not too much thought went into this one other than at the time, my role for L Stands for Winner was focused more on 3D art, and so I thought I'd model stuff in my room as practice for all the game jams we were doing. This was one such example!"
     },
     {
         "id": "TRN",
-        "Name": "Train Station",
-        "Type": "3D Model",
-        "Desc": "Finished August 2024"
+        "Name": "Project Name: Train Station",
+        "Type": "Type of project: 3D Model",
+        "Finish": "Finished August 2024",
+        "Desc": "A lot of this was made while following a tutorial, but it was still good practice for ongoing game jam projects with L Stands for Winner. This small project involved a lot of experimentation with modifiers, such as array, mirror, skin, etc, and was also my first time trying out reflective/see-through textures and a return to global lighting for the first time in a while."
     },
     {
         "id": "MVC",
-        "Name": "Moving Cube",
-        "Type": "3D Animation",
-        "Desc": "Finished available November 2023"
+        "Name": "Project Name: Moving Cube",
+        "Type": "Type of project: 3D Animation",
+        "Finish": "Finished available November 2023",
+        "Desc": "My first attempt at combining 3D animation with simulation in another instance of practice for game jams. I'm not sure what exactly made my mind settle on creating this exact animation, and it was my first time really trying to get to grips with Blender's animation tab, which included everything from the dope sheet to the action tab to the graph editor. Whilst not really expecting much, I was rather happy with how it turned out."
     },
     {
         "id": "DPB",
-        "Name": "Departure Board",
-        "Type": "3D Animation",
-        "Desc": "Finished April 2025"
+        "Name": "Project Name: Departure Board",
+        "Type": "Type of project: 3D Animation",
+        "Finish": "Finished April 2025",
+        "Desc": "This is my second go at animating a 3D object, and my first attempt with geometry nodes. As I have a small replica of one of these things in my house, I thought it would be cool to try and see if I could replicate a similar thing in Blender. I had some initial ideas on how to do it, but some sort researching later showed that geometry nodes were the way to go. Very complicated, but very interesting. Funnily enough, this project was only supposed to be the board itself, but after finishing it, I thought it would be nice to give it its own scene to make the whole render look better, and so that's where the rest of the station and the grey morning sky comes from. While I couldn't completely replicate it, the scene is based on a real station that exists somewhere!"
     },
 ]
 

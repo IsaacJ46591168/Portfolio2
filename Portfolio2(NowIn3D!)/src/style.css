@@ -303,13 +303,13 @@ canvas {
 
 .sProperty {
   width: 100%;
-  min-height: 20%;
+  min-height: 10%;
 
   border-bottom: solid 1px;
 }
 
 #sProjGallery {
-  height: 40%;
+  height: 50%;
   overflow: hidden;
 }
 

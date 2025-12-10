@@ -270,6 +270,7 @@ function OpenSmallProject() {
     if (this.id == smallProjectOBJs[i].id) {
       sProjName.innerText = smallProjectOBJs[i].Name;
       sProjType.innerText = smallProjectOBJs[i].Type;
+      sProjFinish.innerText = smallProjectOBJs[i].Finish;
       sProjDesc.innerText = smallProjectOBJs[i].Desc;
       break;
     }
@@ -316,7 +317,6 @@ function HideMonContent() {
   // }
   for (i = 0; i < monWinCloseButtons.length; i++) {
     var curWindow = document.getElementById(this.id).parentElement.parentElement;
-    console.log(curWindow);
     curWindow.style.visibility = "hidden";
   }
 }
