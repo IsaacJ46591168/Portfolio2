@@ -3,7 +3,7 @@ import './style.css'
 import * as THREE from 'three'
 import { Tween, Group } from '@tweenjs/tween.js'
 import { ToTarget, currentlyAnim } from './cameranimations';
-import { projectOBJs, smallProjectOBJs, aboutWindowsOBJs, contactLinkOBJs, navButtonOBJs, galleryButtonOBJs } from './buttonarrays';
+import { projectOBJs, smallProjectOBJs, aboutWindowsOBJs, contactLinkOBJs, navButtonOBJs, galleryButtonOBJs } from './objectarrays';
 
 //#region ThreeJS Setup
 const scene = new THREE.Scene();
@@ -247,6 +247,11 @@ function OpenProject() {
       projAvailable.innerText = projectOBJs[i].Link;
       projAbout.innerText = projectOBJs[i].About;
       projRole.innerText = projectOBJs[i].RoleAct;
+
+      var galleryElements = document.getElementsByClassName("monGalleryElement");
+      for (var k = 0; k < projectOBJs[i].Gallery.length; k++) {
+        galleryElements[k].style.backgroundImage = "url(/src/Images/" + projectOBJs[i].Gallery[k] + ")";
+      }
       break;
     }
   }
@@ -272,6 +277,11 @@ function OpenSmallProject() {
       sProjType.innerText = smallProjectOBJs[i].Type;
       sProjFinish.innerText = smallProjectOBJs[i].Finish;
       sProjDesc.innerText = smallProjectOBJs[i].Desc;
+
+      var galleryElements = document.getElementsByClassName("sGalleryElement");
+      for (var k = 0; k < smallProjectOBJs[i].Gallery.length; k++) {
+        galleryElements[k].style.backgroundImage = "url(/src/Images/" + smallProjectOBJs[i].Gallery[k] + ")";
+      }
       break;
     }
   }
@@ -308,16 +318,15 @@ function OpenLink() {
 }
 
 function HideMonContent() {
-  // if (this.id == "mWindowClose") {
-  //   projDisplay.style.visibility = "hidden";
-  // } else {
-  //   projDisplay.style.visibility = "hidden";
-  //   smallProjDisplay.style.visibility = "hidden";
-  //   smallProjFinder.style.visibility = "hidden";
-  // }
-  for (i = 0; i < monWinCloseButtons.length; i++) {
-    var curWindow = document.getElementById(this.id).parentElement.parentElement;
-    curWindow.style.visibility = "hidden";
+  if (this.id == "pHome") {
+    projDisplay.style.visibility = "hidden";
+    smallProjDisplay.style.visibility = "hidden";
+    smallProjFinder.style.visibility = "hidden";
+  } else {
+    for (i = 0; i < monWinCloseButtons.length; i++) {
+      var curWindow = document.getElementById(this.id).parentElement.parentElement;
+      curWindow.style.visibility = "hidden";
+    }
   }
 }
 
@@ -344,7 +353,7 @@ function RunDrag(event) {
   }
   event.preventDefault();
   var curX = event.pageX - scrollParent.offsetLeft;
-  var curScrollValue = (curX - mouseStartPos) * 3; //Adjusting the scroll speed
+  var curScrollValue = (curX - mouseStartPos) * 2; //Adjusting the scroll speed
   scrollParent.scrollLeft = scrollProgress - curScrollValue
   console.log(curScrollValue);
 }
