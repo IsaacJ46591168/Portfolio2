@@ -95,6 +95,30 @@ canvas {
   visibility: hidden;
 }
 
+#modalImageWindow {
+  position: absolute;
+  align-self: center;
+
+  width: 80%;
+  height: 90%;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  visibility: hidden;
+}
+
+#modalImage {
+  flex-grow: 1;
+  border: solid 1px;
+}
+
+.modal {
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+}
+
 #projectDisplay {
   width: 100%;
   height: 92%;

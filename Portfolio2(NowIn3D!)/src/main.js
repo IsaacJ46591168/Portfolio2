@@ -174,6 +174,12 @@ for (var i = 0; i < navButtons.length; i++) {
 var monitorHome = document.getElementById("pHome");
 monitorHome.addEventListener('click', HideMonContent);
 
+//Buttons that bring up the modal image screen
+var modalImages = document.getElementsByClassName("modal");
+for (var i = 0; i < modalImages.length; i++) {
+  modalImages[i].addEventListener('click', OpenModalImage);
+}
+
 //Buttons that will bring up project info
 var projectBarButtons = document.getElementsByClassName("project");
 for (var i = 0; i < projectBarButtons.length; i++) {
@@ -285,6 +291,13 @@ function OpenSmallProject() {
       break;
     }
   }
+}
+
+var modalImageWindow = document.getElementById("modalImageWindow");
+var curModalImage = document.getElementById("modalImage");
+function OpenModalImage() {
+  modalImageWindow.style.visibility = "visible "
+  curModalImage.style.backgroundImage = this.style.backgroundImage;
 }
 
 function OpenAbout() {
