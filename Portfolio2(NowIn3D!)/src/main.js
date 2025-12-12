@@ -177,7 +177,7 @@ monitorHome.addEventListener('click', HideMonContent);
 //Buttons that bring up the modal image screen
 var modalImages = document.getElementsByClassName("modal");
 for (var i = 0; i < modalImages.length; i++) {
-  modalImages[i].addEventListener('click', OpenModalImage);
+  modalImages[i].addEventListener('click', OpenModalMedia);
 }
 
 //Buttons that will bring up project info
@@ -286,7 +286,12 @@ function OpenSmallProject() {
 
       var galleryElements = document.getElementsByClassName("sGalleryElement");
       for (var k = 0; k < smallProjectOBJs[i].Gallery.length; k++) {
-        galleryElements[k].style.backgroundImage = "url(/src/Images/" + smallProjectOBJs[i].Gallery[k] + ")";
+        var string = smallProjectOBJs[i].Gallery[k];
+        if (string.substring(string.length - 4) == "webm") {
+          document.getElementById("sGalleryVideo").setAttribute("src", "/src/Videos/" + smallProjectOBJs[i].Gallery[k]);
+        } else {
+          galleryElements[k].style.backgroundImage = "url(/src/Images/" + smallProjectOBJs[i].Gallery[k] + ")";
+        }
       }
       break;
     }
@@ -295,9 +300,14 @@ function OpenSmallProject() {
 
 var modalImageWindow = document.getElementById("modalImageWindow");
 var curModalImage = document.getElementById("modalImage");
-function OpenModalImage() {
-  modalImageWindow.style.visibility = "visible "
-  curModalImage.style.backgroundImage = this.style.backgroundImage;
+var modalVideoDisplay = document.getElementById("modalVideo");
+function OpenModalMedia() {
+  if (this.firstElementChild.nodeName == "VIDEO") {
+    modalVideoDisplay.setAttribute("src", this.firstElementChild.src);
+  } else {
+    curModalImage.style.backgroundImage = this.style.backgroundImage;
+  }
+  modalImageWindow.style.visibility = "visible ";
 }
 
 function OpenAbout() {

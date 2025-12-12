@@ -190,7 +190,7 @@ export var smallProjectOBJs = [
         "Finish": "Finished April 2019",
         "Desc": "My first experiment with randomly-generating terrain combined with an interest in the vaporwave aesthetic resulted in this scene, which was also done on my old Macbook Pro. Outside of this picture I also turned this into an animation using by turning the generated mesh into an array and then just moving the camera though everything, and then resetting the camera back to its original point when it got to the end of the array so it looked infinite.",
         "Gallery": [
-            "ttrtitle.webp", "vaporwave2.webp", "vaporwave3.webp", "vaporwave4.webp", "vaporwave5.webp", "vaporwave6.webp", "vaporwave7.webp"
+            "vaporwave.webm", "vaporwave2.webp", "vaporwave3.webp", "vaporwave4.webp", "vaporwave5.webp", "vaporwave6.webp", "vaporwave7.webp"
         ]
     },
     {
@@ -220,7 +220,7 @@ export var smallProjectOBJs = [
         "Finish": "Finished available November 2023",
         "Desc": "My first attempt at combining 3D animation with simulation in another instance of practice for game jams. I'm not sure what exactly made my mind settle on creating this exact animation, and it was my first time really trying to get to grips with Blender's animation tab, which included everything from the dope sheet to the action tab to the graph editor. Whilst not really expecting much, I was rather happy with how it turned out.",
         "Gallery": [
-            "ttrtitle.webp", "cubepic1.webp", "cubepic2.webp", "cubepic3.webp", "cubepic4.webp", "cubepic5.webp", "cubepic6.webp"
+            "cube.webm", "cubepic1.webp", "cubepic2.webp", "cubepic3.webp", "cubepic4.webp", "cubepic5.webp", "cubepic6.webp"
         ]
     },
     {
@@ -230,7 +230,7 @@ export var smallProjectOBJs = [
         "Finish": "Finished April 2025",
         "Desc": "This is my second go at animating a 3D object, and my first attempt with geometry nodes. As I have a small replica of one of these things in my house, I thought it would be cool to try and see if I could replicate a similar thing in Blender. I had some initial ideas on how to do it, but some sort researching later showed that geometry nodes were the way to go. Very complicated, but very interesting. Funnily enough, this project was only supposed to be the board itself, but after finishing it, I thought it would be nice to give it its own scene to make the whole render look better, and so that's where the rest of the station and the grey morning sky comes from. While I couldn't completely replicate it, the scene is based on a real station that exists somewhere!",
         "Gallery": [
-            "ttrtitle.webp", "board1.webp", "board2.webp", "board3.webp", "board4.webp", "board5.webp", "board6.webp"
+            "board.webm", "board1.webp", "board2.webp", "board3.webp", "board4.webp", "board5.webp", "board6.webp"
         ]
     },
 ]
