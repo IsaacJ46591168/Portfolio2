@@ -235,8 +235,13 @@ for (var i = 0; i < phoneButtons.length; i++) {
 }
 
 var projDisplay = document.getElementById("projectDisplay");
+var smallProjFinder = document.getElementById("smallProjectFinder");
+var smallProjDisplay = document.getElementById("smallProjectProperties");
 function OpenProject() {
   projDisplay.style.visibility = "visible";
+  projDisplay.style.zIndex = 10;
+  smallProjFinder.style.zIndex = 9;
+  smallProjDisplay.style.zIndex = 9;
 
   var projName = document.getElementById("pName");
   var projDevelop = document.getElementById("develop");
@@ -263,16 +268,19 @@ function OpenProject() {
   }
 }
 
-var smallProjFinder = document.getElementById("smallProjectFinder");
 function OpenSmallProjectFinder() {
   smallProjFinder.style.visibility = "visible";
+  projDisplay.style.zIndex = 9;
+  smallProjFinder.style.zIndex = 10;
+  smallProjDisplay.style.zIndex = 9;
 }
 
-
-var smallProjDisplay = document.getElementById("smallProjectProperties");
 var sGalleryVideo = document.getElementById("sGalleryVideo");
 function OpenSmallProject() {
   smallProjDisplay.style.visibility = "visible";
+  projDisplay.style.zIndex = 9;
+  smallProjFinder.style.zIndex = 9;
+  smallProjDisplay.style.zIndex = 10;
 
   var sProjName = document.getElementById("sProjName");
   var sProjType = document.getElementById("sProjType");

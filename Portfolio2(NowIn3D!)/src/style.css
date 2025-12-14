@@ -138,6 +138,7 @@ canvas {
   align-content: flex-start;
 
   visibility: hidden;
+  z-index: 10;
 }
 
 .mTopBar {
@@ -228,6 +229,7 @@ canvas {
 
   border: solid 1px;
   visibility: hidden;
+  z-index: 10;
 }
 
 #finderContent {
@@ -312,6 +314,7 @@ canvas {
 
   border: solid 1px;
   visibility: hidden;
+  z-index: 10;
 }
 
 #sPropertiesContainer {
