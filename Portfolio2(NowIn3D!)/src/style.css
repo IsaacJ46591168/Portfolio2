@@ -228,7 +228,6 @@ canvas {
   display: flex;
   flex-direction: column;
 
-  border: solid 1px;
   visibility: hidden;
   background-color: rgba(255, 255, 255, 1);
   z-index: 10;
@@ -236,16 +235,12 @@ canvas {
 
 #finderContent {
   width: 100%;
-  flex-grow: 1;
+  height: 94%;
 
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-content: flex-start;
-}
-
-.finderElement {
-  border: solid 1px;
 }
 
 #path {
@@ -274,7 +269,19 @@ canvas {
 .fListOption {
   width: 100%;
   height: 6%;
+
+  display: flex;
+
+  align-items: center;
   border: solid 1px;
+}
+
+.fListOption:Hover {
+  background-color: rgba(201, 228, 255, 1);
+}
+
+.fListOption p {
+  font-size: 15px;
 }
 
 #smallProjectsList {
@@ -554,25 +561,29 @@ canvas {
   border-bottom-right-radius: 10px;
 }
 
+.colElement {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  border: solid 1px;
+}
+
 .colHead {
   width: 100%;
   height: 5%;
 
   background-color: rgba(244, 244, 244, 1);
-  border: solid 1px;
-}
-
-.colElement {
-  width: 100%;
-  height: 10%;
-  border: solid 1px;
 }
 
 .colMain {
+  height: 10%;
   background-color: rgba(255, 255, 255, 1);
 }
 
 .colAlt {
+  height: 10%;
   background-color: rgba(244, 244, 244, 1);
 }
 
