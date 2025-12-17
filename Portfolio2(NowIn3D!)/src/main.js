@@ -317,10 +317,12 @@ function OpenSmallProject() {
 var curModalImage = document.getElementById("modalContent");
 var modalVideoDisplay = document.getElementById("modalVideo");
 function OpenModalMedia() {
-  if (!this.firstElementChild) {
+  if (!this.firstElementChild || this.firstElementChild.getAttribute("src") == "") {
     modalVideoDisplay.setAttribute("src", "");
     curModalImage.style.backgroundImage = this.style.backgroundImage;
+    console.log('a');
   } else {
+    console.log(this.firstElementChild.src);
     curModalImage.style.backgroundImage = "";
     modalVideoDisplay.setAttribute("src", this.firstElementChild.getAttribute("src"));
   }

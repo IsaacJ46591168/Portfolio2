@@ -228,7 +228,7 @@ export var smallProjectOBJs = [
         "Name": "Project Name: Departure Board",
         "Type": "Type of project: 3D Animation",
         "Finish": "Finished April 2025",
-        "Desc": "This is my second go at animating a 3D object, and my first attempt with geometry nodes. As I have a small replica of one of these things in my house, I thought it would be cool to try and see if I could replicate a similar thing in Blender. I had some initial ideas on how to do it, but some sort researching later showed that geometry nodes were the way to go. Very complicated, but very interesting. Funnily enough, this project was only supposed to be the board itself, but after finishing it, I thought it would be nice to give it its own scene to make the whole render look better, and so that's where the rest of the station and the grey morning sky comes from. While I couldn't completely replicate it, the scene is based on a real station that exists somewhere!",
+        "Desc": "This is my second go at animating a 3D object, and my first attempt with geometry nodes. Very complicated, but very interesting. Funnily enough, this project was only supposed to be the board itself, but after finishing it, I thought it would be nice to give it its own scene to make the whole render look better, and so that's where the rest of the station and the grey morning sky comes from. While I couldn't completely replicate it, the scene is based on a real station that exists somewhere!",
         "Gallery": [
             "board.webm", "board1.webp", "board2.webp", "board3.webp", "board4.webp", "board5.webp", "board6.webp"
         ]
