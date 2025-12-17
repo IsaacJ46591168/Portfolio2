@@ -237,11 +237,13 @@ for (var i = 0; i < phoneButtons.length; i++) {
 var projDisplay = document.getElementById("projectDisplay");
 var smallProjFinder = document.getElementById("smallProjectFinder");
 var smallProjDisplay = document.getElementById("smallProjectProperties");
+var modalContentWindow = document.getElementById("modalContentWindow");
 function OpenProject() {
   projDisplay.style.visibility = "visible";
   projDisplay.style.zIndex = 10;
   smallProjFinder.style.zIndex = 9;
   smallProjDisplay.style.zIndex = 9;
+  modalContentWindow.style.zIndex = 9;
 
   var projName = document.getElementById("pName");
   var projDevelop = document.getElementById("develop");
@@ -273,6 +275,7 @@ function OpenSmallProjectFinder() {
   projDisplay.style.zIndex = 9;
   smallProjFinder.style.zIndex = 10;
   smallProjDisplay.style.zIndex = 9;
+  modalContentWindow.style.zIndex = 9;
 }
 
 var sGalleryVideo = document.getElementById("sGalleryVideo");
@@ -281,6 +284,7 @@ function OpenSmallProject() {
   projDisplay.style.zIndex = 9;
   smallProjFinder.style.zIndex = 9;
   smallProjDisplay.style.zIndex = 10;
+  modalContentWindow.style.zIndex = 9;
 
   var sProjName = document.getElementById("sProjName");
   var sProjType = document.getElementById("sProjType");
@@ -299,6 +303,7 @@ function OpenSmallProject() {
       for (var k = 0; k < smallProjectOBJs[i].Gallery.length; k++) {
         var string = smallProjectOBJs[i].Gallery[k];
         if (string.substring(string.length - 4) == "webm" && smallProjectOBJs[i].id == this.id) {
+          galleryElements[k].style.backgroundImage = "";
           sGalleryVideo.setAttribute("src", "/src/Videos/" + smallProjectOBJs[i].Gallery[k]);
         } else {
           galleryElements[k].style.backgroundImage = "url(/src/Images/" + smallProjectOBJs[i].Gallery[k] + ")";
@@ -309,16 +314,21 @@ function OpenSmallProject() {
   }
 }
 
-var modalImageWindow = document.getElementById("modalImageWindow");
-var curModalImage = document.getElementById("modalImage");
+var curModalImage = document.getElementById("modalContent");
 var modalVideoDisplay = document.getElementById("modalVideo");
 function OpenModalMedia() {
   if (!this.firstElementChild) {
+    modalVideoDisplay.setAttribute("src", "");
     curModalImage.style.backgroundImage = this.style.backgroundImage;
   } else {
+    curModalImage.style.backgroundImage = "";
     modalVideoDisplay.setAttribute("src", this.firstElementChild.getAttribute("src"));
   }
-  modalImageWindow.style.visibility = "visible ";
+  modalContentWindow.style.visibility = "visible ";
+  projDisplay.style.zIndex = 9;
+  smallProjFinder.style.zIndex = 9;
+  smallProjDisplay.style.zIndex = 9;
+  modalContentWindow.style.zIndex = 10;
 }
 
 function OpenAbout() {
