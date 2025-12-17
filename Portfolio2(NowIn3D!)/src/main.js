@@ -191,7 +191,7 @@ var smallProjectBarButton = document.getElementById("smallProjBar");
 smallProjectBarButton.addEventListener('click', OpenSmallProjectFinder);
 
 //Buttons that will bring up small project info
-var smallProjectButtons = document.getElementsByClassName("smallProject");
+var smallProjectButtons = document.getElementsByClassName("smallProjectContainer");
 for (var i = 0; i < smallProjectButtons.length; i++) {
   smallProjectButtons[i].addEventListener('click', OpenSmallProject);
 }
