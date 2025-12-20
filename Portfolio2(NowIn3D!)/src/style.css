@@ -282,6 +282,8 @@ canvas {
   width: 15%;
   height: 95%;
 
+  margin-top: 20px;
+
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -294,20 +296,28 @@ canvas {
   display: flex;
 
   align-items: center;
-  border: solid 1px;
+  border-right: solid 1px;
 }
 
 .fListOption:Hover {
   background-color: rgba(201, 228, 255, 1);
 }
 
+.fListOption h2 {
+  font-size: 15px;
+  margin-left: 5px;
+}
+
 .fListOption p {
   font-size: 15px;
+  margin-left: 15px;
 }
 
 #smallProjectsList {
   width: 85%;
   height: 95%;
+
+  margin-top: 20px;
 
   display: flex;
   flex-direction: row;
@@ -326,6 +336,7 @@ canvas {
 #listTitle p {
   color: blue;
   font-size: 18px;
+  margin-left: 10px;
 }
 
 #listTitle hr {
