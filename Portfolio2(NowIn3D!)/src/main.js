@@ -317,10 +317,13 @@ function OpenSmallProject() {
 var curModalImage = document.getElementById("modalContent");
 var modalVideoDisplay = document.getElementById("modalVideo");
 function OpenModalMedia() {
+  console.log(curScrollValue);
+  if (curScrollValue != 0) {
+    return
+  }
   if (!this.firstElementChild || this.firstElementChild.getAttribute("src") == "") {
     modalVideoDisplay.setAttribute("src", "");
     curModalImage.style.backgroundImage = this.style.backgroundImage;
-    console.log('a');
   } else {
     console.log(this.firstElementChild.src);
     curModalImage.style.backgroundImage = "";
@@ -380,12 +383,14 @@ function HideMonContent() {
 var mouseClicked = false;
 var mouseStartPos = 0;
 var scrollProgress = 0;
+var curScrollValue = 0;
 function DragStart(event) {
   console.log("mousepressed");
   scrollGallery.style.cursor = "grabbing";
   mouseClicked = true;
   mouseStartPos = event.pageX - scrollParent.offsetLeft;
   scrollProgress = scrollParent.scrollLeft;
+  curScrollValue = 0;
 }
 
 function DragStop() {
@@ -393,13 +398,14 @@ function DragStop() {
   scrollGallery.style.cursor = "grab";
 }
 
+
 function RunDrag(event) {
   if (!mouseClicked) {
     return;
   }
   event.preventDefault();
   var curX = event.pageX - scrollParent.offsetLeft;
-  var curScrollValue = (curX - mouseStartPos) * 2; //Adjusting the scroll speed
+  curScrollValue = (curX - mouseStartPos) * 2; //Adjusting the scroll speed
   scrollParent.scrollLeft = scrollProgress - curScrollValue
   console.log(curScrollValue);
 }

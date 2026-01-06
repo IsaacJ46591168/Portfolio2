@@ -174,21 +174,26 @@ canvas {
 }
 
 .mWindowClose {
-  width: 4%;
+  width: 50px;
   height: 100%;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   background-color: rgba(0, 0, 0, 1);
+  transition: background-color 0.08s linear;
   cursor: pointer;
 }
 
 .mWindowClose p {
   color: white;
   margin: auto;
-  text-align: center;
 }
 
 .mWindowClose:hover {
   background-color: rgba(255, 0, 0, 1);
+  transition: background-color 0.08s linear;
 }
 
 .projectInfos {
