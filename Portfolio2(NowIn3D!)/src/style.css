@@ -188,7 +188,6 @@ canvas {
 
 .mWindowClose p {
   color: white;
-  margin: auto;
 }
 
 .mWindowClose:hover {
@@ -603,7 +602,6 @@ canvas {
   visibility: hidden;
 }
 
-/* #introInfo {} */
 #infoSide {
   width: 20%;
   height: 100%;
@@ -642,11 +640,10 @@ canvas {
   visibility: hidden;
 }
 
-/* #seInfo {} */
-
 .seCol {
   height: 100%;
-  border: solid 1px;
+  margin: 0;
+  padding: 0;
 }
 
 #sName {
@@ -673,10 +670,19 @@ canvas {
 }
 
 .colHead {
-  width: 100%;
   height: 5%;
 
+  justify-content: center;
   background-color: rgba(244, 244, 244, 1);
+  font-size: 12px;
+}
+
+.categoryDivide {
+  height: 5%;
+  justify-content: center;
+
+  font-style: italic;
+  background-color: rgba(200, 200, 200, 1);
 }
 
 .colMain {
@@ -684,11 +690,23 @@ canvas {
   background-color: rgba(255, 255, 255, 1);
 }
 
-.colAlt {
+.colAltMain {
   height: 10%;
   background-color: rgba(244, 244, 244, 1);
 }
 
+.skillText {
+  justify-content: left;
+  padding-left: 20px;
+}
+
+.profText {
+  justify-content: right;
+}
+
+.profText p {
+  margin-right: 10px;
+}
 
 #funFacts {
   top: 15%;
@@ -702,7 +720,6 @@ canvas {
 }
 
 /* #fFInfo {} */
-
 .fFButton {
   width: 6%;
   height: 100%;
