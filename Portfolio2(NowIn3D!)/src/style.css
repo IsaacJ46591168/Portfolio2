@@ -744,7 +744,7 @@ canvas {
 }
 
 /* #fFInfo {} */
-.fFButton {
+/* .fFButton {
   width: 6%;
   height: 100%;
 
@@ -757,13 +757,16 @@ canvas {
 
 #forwardButton {
   border-bottom-right-radius: 10px;
-}
+} */
 
-#fFGalleryWrapper {
+/* #fFGalleryWrapper {
   height: 100%;
   flex-grow: 1;
   overflow: hidden;
-}
+
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+} */
 
 #fFGallery {
   width: 300%;
@@ -845,12 +848,32 @@ canvas {
 }
 
 .contactApp {
-  width: 35%;
-  height: 17%;
+  width: 30%;
+  height: 15%;
+
   border: solid 1px;
   border-radius: 15px;
   gap: 1em;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   cursor: pointer;
+}
+
+#LI {
+  background-image: url(Images/linkedin.webp);
+}
+
+#GT {
+  background-image: url(Images/github.webp);
+}
+
+#EM {
+  background-image: url(Images/mail.webp);
+}
+
+#BS {
+  background-image: url(Images/bluesky.webp);
 }
 
 .contactApp:hover {

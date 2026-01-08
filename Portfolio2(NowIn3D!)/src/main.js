@@ -415,12 +415,14 @@ function ChangeButtonGallery() {
   for (i = 0; i < fFbuttons.length; i++) {
     if (this.id == galleryButtonOBJs[i].id) {
       var curGallery = document.getElementById(galleryButtonOBJs[i].gallery);
-      var curGalleryWidth = curGallery.offsetWidth;
+      var curGalleryDimensions = curGallery.getBoundingClientRect();
+
+      console.log(curGalleryDimensions.width)
 
       if (galleryButtonOBJs[i].scrollDirection == "left") {
-        curGallery.scrollLeft -= curGalleryWidth;
+        curGallery.scrollLeft -= curGalleryDimensions.width;
       } else {
-        curGallery.scrollLeft += curGalleryWidth;
+        curGallery.scrollLeft += curGalleryDimensions.width;
       }
     }
   }
