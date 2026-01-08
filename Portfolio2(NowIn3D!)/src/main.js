@@ -255,9 +255,9 @@ function OpenProject() {
   for (i = 0; i < projectBarButtons.length; i++) {
     if (this.id == projectOBJs[i].id) {
       projName.innerText = projectOBJs[i].Name;
-      projDevelop.innerText = projectOBJs[i].Developers;
+      // projDevelop.innerText = projectOBJs[i].Developers;
       projRelease.innerText = projectOBJs[i].Release;
-      projAvailable.innerText = projectOBJs[i].Link;
+      // projAvailable.innerText = projectOBJs[i].Link;
       projAbout.innerText = projectOBJs[i].About;
       projRole.innerText = projectOBJs[i].RoleAct;
 

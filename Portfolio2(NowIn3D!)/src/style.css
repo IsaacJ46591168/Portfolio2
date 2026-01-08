@@ -201,6 +201,38 @@ canvas {
   background-color: blue;
 }
 
+#projHeadlines h1 {
+  text-align: center;
+
+  font-size: 80px;
+  margin-bottom: 0;
+}
+
+#projHeadlines h2 {
+  text-align: center;
+
+  font-style: italic;
+}
+
+#studioPlayBar {
+  width: 100%;
+  height: 12%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 5em;
+
+  margin-top: 2em;
+}
+
+.sPBItem {
+  width: 10%;
+  height: 100%;
+
+  border: solid 1px;
+}
+
 #projDetails {
   display: flex;
   flex-direction: column;
@@ -764,16 +796,12 @@ canvas {
   width: 6%;
   height: 30%;
 
+  border: solid 1px;
   cursor: pointer;
-}
-
-#fFBack {
-  border-bottom-left-radius: 10px;
 }
 
 #fFForward {
   right: 0;
-  border-bottom-right-radius: 10px;
 }
 
 #fFGallery {
