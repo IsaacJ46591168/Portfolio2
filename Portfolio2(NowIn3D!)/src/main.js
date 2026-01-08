@@ -351,6 +351,7 @@ function OpenAbout() {
 function CloseAbout() {
   for (i = 0; i < abWindowCloseButtons.length; i++) {
     var curWindow = document.getElementById(this.id).parentElement.parentElement;
+    console.log(curWindow);
     curWindow.style.visibility = "hidden";
   }
 }
