@@ -3,7 +3,7 @@ import './style.css'
 import * as THREE from 'three'
 import { Tween, Group } from '@tweenjs/tween.js'
 import { ToTarget, currentlyAnim } from './cameranimations';
-import { projectOBJs, smallProjectOBJs, aboutWindowsOBJs, contactLinkOBJs, navButtonOBJs, galleryButtonOBJs } from './objectarrays';
+import { projectOBJs, smallProjectOBJs, projectLinkOBJs, aboutWindowsOBJs, contactLinkOBJs, navButtonOBJs, galleryButtonOBJs } from './objectarrays';
 
 //#region ThreeJS Setup
 const scene = new THREE.Scene();
@@ -180,6 +180,12 @@ for (var i = 0; i < modalImages.length; i++) {
   modalImages[i].addEventListener('click', OpenModalMedia);
 }
 
+//Buttons to open either the studio or play project links
+var projectLinkButtons = document.getElementsByClassName("sPBItem");
+for (var i = 0; i < projectLinkButtons.length; i++) {
+  projectLinkButtons[i].addEventListener('click', OpenProjLink);
+}
+
 //Buttons that will bring up project info
 var projectBarButtons = document.getElementsByClassName("project");
 for (var i = 0; i < projectBarButtons.length; i++) {
@@ -246,9 +252,7 @@ function OpenProject() {
   modalContentWindow.style.zIndex = 9;
 
   var projName = document.getElementById("pName");
-  var projDevelop = document.getElementById("develop");
   var projRelease = document.getElementById("release");
-  var projAvailable = document.getElementById("available");
   var projAbout = document.getElementById("descText");
   var projRole = document.getElementById("roleText");
 
@@ -258,6 +262,14 @@ function OpenProject() {
       // projDevelop.innerText = projectOBJs[i].Developers;
       projRelease.innerText = projectOBJs[i].Release;
       // projAvailable.innerText = projectOBJs[i].Link;
+      for (k = 0; k < projectLinkButtons.length; k++) {
+        if (projectLinkButtons[k].id == "studio") {
+          projectLinkButtons[k].setAttribute("href", projectOBJs[i].Developers);
+        } else {
+          projectLinkButtons[k].setAttribute("href", projectOBJs[i].Link);
+        }
+      }
+
       projAbout.innerText = projectOBJs[i].About;
       projRole.innerText = projectOBJs[i].RoleAct;
 
@@ -265,6 +277,15 @@ function OpenProject() {
       for (var k = 0; k < projectOBJs[i].Gallery.length; k++) {
         galleryElements[k].style.backgroundImage = "url(/src/Images/" + projectOBJs[i].Gallery[k] + ")";
       }
+      break;
+    }
+  }
+}
+
+function OpenProjLink() {
+  for (i = 0; i < projectLinkButtons.length; i++) {
+    if (this.id == projectLinkOBJs[i].id) {
+      projectLinkOBJs[i].Open(projectLinkButtons[i].getAttribute('href'));
       break;
     }
   }

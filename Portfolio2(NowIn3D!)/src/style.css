@@ -231,6 +231,7 @@ canvas {
   height: 100%;
 
   border: solid 1px;
+  cursor: pointer;
 }
 
 #projDetails {
