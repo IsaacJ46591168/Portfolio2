@@ -155,6 +155,10 @@ canvas {
   font-size: 30px;
 }
 
+#desktopMonText p {
+  font-style: italic;
+}
+
 #modalContentWindow {
   position: absolute;
   align-self: center;
@@ -953,10 +957,13 @@ canvas {
 
 /*Phone display CSS*/
 #phoneDisplay {
-  top: 20.6em;
+  top: 20.8em;
   left: 52.7em;
   margin: 0;
   padding: 0;
+
+  display: flex;
+  flex-direction: column;
 
   width: 238px;
   height: 445px;
@@ -964,26 +971,32 @@ canvas {
   visibility: hidden;
 }
 
-#phoneScreen {
+#phoneScreenText {
+  text-align: center;
+  padding-top: 4em;
+  font-size: 20px;
+  flex-grow: 1;
+}
+
+#phoneApps {
   width: 100%;
-  height: 100%;
+  height: 20%;
 
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
-  align-content: center;
-  gap: 2em;
+  gap: 0.2em;
+  justify-content: center;
+
+  background-color: rgba(189, 189, 189, 0.7);
 }
 
 .contactApp {
-  width: 30%;
-  height: 15%;
+  width: 22%;
+  height: 65%;
 
   border: solid 1px;
   border-radius: 15px;
-  gap: 1em;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
