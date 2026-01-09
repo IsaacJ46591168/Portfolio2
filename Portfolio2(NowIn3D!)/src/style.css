@@ -12,6 +12,7 @@ body {
   font-family: Roboto, sans-serif;
 }
 
+
 ul {
   padding: 0;
   margin: 0;
@@ -37,14 +38,19 @@ canvas {
 }
 
 .navButton {
+  position: absolute;
   cursor: pointer;
-  border: solid 1px green;
+  transition: background-color 0.08s linear;
+}
+
+.navButton:hover {
+  background-color: rgba(125, 125, 125, 0.4);
+  transition: background-color 0.08s linear;
 }
 
 #monNav {
-  position: absolute;
-  top: 28.5em;
-  left: 38.7em;
+  top: 28.6em;
+  left: 38.8em;
   right: 0;
 
   width: 625px;
@@ -52,26 +58,27 @@ canvas {
 }
 
 #lapNav {
-  position: absolute;
   top: 43em;
   left: 22em;
 
   width: 260px;
   height: 180px;
+
+  border-radius: 10px;
 }
 
 #phnNav {
-  position: absolute;
   top: 52em;
   left: 91.5em;
   right: 0;
 
   width: 115px;
   height: 80px;
+
+  border-radius: 10px;
 }
 
 #defaultNav {
-  position: absolute;
   top: auto;
   bottom: 0;
   left: 50%;
@@ -81,6 +88,23 @@ canvas {
   height: 150px;
 
   visibility: hidden;
+}
+
+.navButton .hoverText {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+
+  margin: 0;
+  padding: 0;
+  font-size: 25px;
+  display: none;
+}
+
+.navButton:hover .hoverText {
+  display: block;
 }
 
 .contentWrapper {
@@ -109,6 +133,26 @@ canvas {
   background-color: rgb(222, 222, 222, 1);
 
   visibility: hidden;
+}
+
+#desktopMonText {
+  position: absolute;
+  align-self: center;
+
+  top: 40%;
+  transform: translateY(-40%);
+
+  width: 60%;
+
+  text-align: center;
+}
+
+#desktopMonText h1 {
+  font-size: 60px;
+}
+
+#desktopMonText h2 {
+  font-size: 30px;
 }
 
 #modalContentWindow {
@@ -246,6 +290,32 @@ canvas {
   border: solid 1px;
 }
 
+#shortDesc h2 {
+  text-align: center;
+
+  margin-top: 0.3em;
+  margin-bottom: 0;
+  font-size: 40px;
+}
+
+#shortDesc p {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+#roles-activities h2 {
+  text-align: center;
+
+  margin-top: 0.3em;
+  margin-bottom: 0;
+  font-size: 40px;
+}
+
+#roles-activities p {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
 #gallery {
   width: 100%;
   height: 20%;
@@ -266,6 +336,7 @@ canvas {
 
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
   border: solid 1px;
 }
 
@@ -408,6 +479,7 @@ canvas {
 
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .sPText {
@@ -503,6 +575,7 @@ canvas {
 
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #projectBar {
@@ -540,6 +613,7 @@ canvas {
 
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #searchMock {
@@ -559,6 +633,25 @@ canvas {
 
   background-color: rgba(100, 100, 100, 1);
   visibility: hidden;
+}
+
+#desktopLapText {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+
+  width: 60%;
+
+  text-align: center;
+}
+
+#desktopLapText h1 {
+  font-size: 40px;
+}
+
+#desktopLapText h2 {
+  font-size: 30px;
 }
 
 #laptopScreen {

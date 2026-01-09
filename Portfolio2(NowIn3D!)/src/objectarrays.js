@@ -19,8 +19,8 @@ export var navButtonOBJs = [
         "SmallFormWidth": 150 + 'px',
         "SmallFormHeight": 400 + 'px',
 
-        "DefaultTPos": 28.5 + 'em',
-        "DefaultLPos": 38.7 + 'em',
+        "DefaultTPos": 28.6 + 'em',
+        "DefaultLPos": 38.8 + 'em',
         "DefaultWidth": 625 + 'px',
         "DefaultHeight": 320 + 'px'
     },
@@ -161,9 +161,9 @@ export var projectOBJs = [
     {
         "id": "PLN",
         "Name": "Thread the Ring",
-        "Developers": "Developed with: Myself (Solo Project!)",
+        "Developers": "Developed-by-Myself-(Solo-Project!)",
         "Release": "Finished: 2020",
-        "Link": "",
+        "Link": "Not-available-right-now.",
         "About": "A 3D Game putting your flight skills to the test!. Twist, Turn and soar your way around around the stage, flying through all of the rings in order to make it to the finish line!",
         "RoleAct": "My first, and so far only, solo project which I made for my final assignment for my industrial tech class in Year 12. Developing it solo was a huge learning curve, given that I was responsible for almost everything that went into it, and especially as I had never programmed anything before at the time. In general though, I tried to keep the flying mechanics to a more arcade-y level, as my inspiration was Pilotwings on the NES, and trying to make realistic plane physics with no prior progamming experience would not have ended well.",
         "Gallery": [
