@@ -258,10 +258,9 @@ function OpenProject() {
 
   for (i = 0; i < projectBarButtons.length; i++) {
     if (this.id == projectOBJs[i].id) {
+      console.log(projectOBJs[i].Name);
       projName.innerText = projectOBJs[i].Name;
-      // projDevelop.innerText = projectOBJs[i].Developers;
       projRelease.innerText = projectOBJs[i].Release;
-      // projAvailable.innerText = projectOBJs[i].Link;
       for (k = 0; k < projectLinkButtons.length; k++) {
         if (projectLinkButtons[k].id == "studio") {
           projectLinkButtons[k].setAttribute("href", projectOBJs[i].Developers);
@@ -372,7 +371,6 @@ function OpenAbout() {
 function CloseAbout() {
   for (i = 0; i < abWindowCloseButtons.length; i++) {
     var curWindow = document.getElementById(this.id).parentElement.parentElement;
-    console.log(curWindow);
     curWindow.style.visibility = "hidden";
   }
 }
