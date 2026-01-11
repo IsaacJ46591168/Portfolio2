@@ -18,11 +18,14 @@ export var navButtonOBJs = [
         "SmallFormLPosAlt": "auto",
         "SmallFormWidth": 150 + 'px',
         "SmallFormHeight": 400 + 'px',
+        "SmallFormText": "<",
+        "SmallFormTextAlt": ">",
 
         "DefaultTPos": 28.6 + 'em',
         "DefaultLPos": 38.8 + 'em',
         "DefaultWidth": 625 + 'px',
-        "DefaultHeight": 320 + 'px'
+        "DefaultHeight": 320 + 'px',
+        "DefaultText": "Projects"
     },
     {
         "id": "lapNav",
@@ -40,11 +43,13 @@ export var navButtonOBJs = [
         "SmallFormLPos": 0 + 'em',
         "SmallFormWidth": 170 + 'px',
         "SmallFormHeight": 345 + 'px',
+        "SmallFormText": "<",
 
         "DefaultTPos": 43 + 'em',
         "DefaultLPos": 22 + 'em',
         "DefaultWidth": 260 + 'px',
-        "DefaultHeight": 180 + 'px'
+        "DefaultHeight": 180 + 'px',
+        "DefaultText": "About Me"
     },
     {
         "id": "phnNav",
@@ -66,11 +71,13 @@ export var navButtonOBJs = [
         "SmallFormLPos": "auto",
         "SmallFormWidth": 100 + 'px',
         "SmallFormHeight": 160 + 'px',
+        "SmallFormText": ">",
 
         "DefaultTPos": 52 + 'em',
         "DefaultLPos": 91.5 + 'em',
         "DefaultWidth": 115 + 'px',
-        "DefaultHeight": 80 + 'px'
+        "DefaultHeight": 80 + 'px',
+        "DefaultText": "Contact",
     },
     {
         "id": "defaultNav",
@@ -94,6 +101,7 @@ export var navButtonOBJs = [
         "SmallFormLPos": 50 + '%',
         "SmallFormWidth": 1200 + 'px',
         "SmallFormHeight": 150 + 'px',
+        "SmallFormText": "V"
     }
 ]
 

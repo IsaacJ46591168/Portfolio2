@@ -472,8 +472,10 @@ function NavButtonClick() {
 function ChangeButtonVis(activeButton, curButtonHTML, curButtonObj) {
   curButtonHTML.style.visibility = "visible";
   curButtonHTML.style.top = curButtonObj.SmallFormTPos;
+  curButtonHTML.innerText = curButtonObj.SmallFormText;
   if (activeButton == "lapNav" && curButtonObj.id == "monNav") {
     curButtonHTML.style.left = curButtonObj.SmallFormLPosAlt;
+    curButtonHTML.innerText = curButtonObj.SmallFormTextAlt;
   } else {
     curButtonHTML.style.left = curButtonObj.SmallFormLPos;
   }
@@ -487,6 +489,7 @@ function ResetNavButtons(buttonsHTML, buttonOBJs) {
     buttonsHTML[i].style.left = buttonOBJs[i].DefaultLPos;
     buttonsHTML[i].style.width = buttonOBJs[i].DefaultWidth;
     buttonsHTML[i].style.height = buttonOBJs[i].DefaultHeight;
+    buttonsHTML[i].innerText = buttonOBJs[i].DefaultText;
   }
 }
 
