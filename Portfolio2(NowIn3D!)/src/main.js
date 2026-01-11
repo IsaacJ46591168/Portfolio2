@@ -472,15 +472,18 @@ function NavButtonClick() {
 function ChangeButtonVis(activeButton, curButtonHTML, curButtonObj) {
   curButtonHTML.style.visibility = "visible";
   curButtonHTML.style.top = curButtonObj.SmallFormTPos;
-  curButtonHTML.innerText = curButtonObj.SmallFormText;
+  curButtonHTML.style.width = curButtonObj.SmallFormWidth;
+  curButtonHTML.style.height = curButtonObj.SmallFormHeight;
+  curButtonHTML.firstElementChild.innerText = curButtonObj.SmallFormText;
+
+  curButtonHTML.firstElementChild.style.display = "block";
+
   if (activeButton == "lapNav" && curButtonObj.id == "monNav") {
     curButtonHTML.style.left = curButtonObj.SmallFormLPosAlt;
-    curButtonHTML.innerText = curButtonObj.SmallFormTextAlt;
+    curButtonHTML.firstElementChild.innerText = curButtonObj.SmallFormTextAlt;
   } else {
     curButtonHTML.style.left = curButtonObj.SmallFormLPos;
   }
-  curButtonHTML.style.width = curButtonObj.SmallFormWidth;
-  curButtonHTML.style.height = curButtonObj.SmallFormHeight;
 }
 
 function ResetNavButtons(buttonsHTML, buttonOBJs) {
@@ -489,7 +492,8 @@ function ResetNavButtons(buttonsHTML, buttonOBJs) {
     buttonsHTML[i].style.left = buttonOBJs[i].DefaultLPos;
     buttonsHTML[i].style.width = buttonOBJs[i].DefaultWidth;
     buttonsHTML[i].style.height = buttonOBJs[i].DefaultHeight;
-    buttonsHTML[i].innerText = buttonOBJs[i].DefaultText;
+    buttonsHTML[i].firstElementChild.innerText = buttonOBJs[i].DefaultText;
+    buttonsHTML[i].firstElementChild.style.display = "none";
   }
 }
 
