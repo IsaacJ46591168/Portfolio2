@@ -1,9 +1,8 @@
 import * as THREE from 'three'
 import { Tween, Group } from '@tweenjs/tween.js'
-import { navButtons } from './main';
 export var currentlyAnim = false;
 
-export function ToTarget(targetPosition, targetRotation, camera, animGroup, duration, htmlEnable) {
+export function ToTarget(targetPosition, targetRotation, camera, animGroup, duration, htmlEnable, navButtons) {
     var curCamPosition = new THREE.Vector3().copy(camera.position);
     var curCamRotation = new THREE.Vector3().copy(camera.rotation);
 
@@ -17,11 +16,11 @@ export function ToTarget(targetPosition, targetRotation, camera, animGroup, dura
         .onComplete(function () {
             camera.position.set(targetPosition.x, targetPosition.y, targetPosition.z);
             htmlEnable.style.visibility = "visible";
+            currentlyAnim = false;
+            console.log(navButtons);
             navButtons[0].style.visibility = "visible";
             navButtons[1].style.visibility = "visible";
             navButtons[2].style.visibility = "visible";
-            navButtons[3].style.visibility = "visible";
-            currentlyAnim = false;
         })
         .start();
     animGroup.add(toTarget);
@@ -39,7 +38,7 @@ export function ToTarget(targetPosition, targetRotation, camera, animGroup, dura
     animGroup.add(toTargetRot);
 }
 
-export function ToDefault(targetPosition, targetRotation, camera, animGroup, duration) {
+export function ToDefault(targetPosition, targetRotation, camera, animGroup, duration, navButtons) {
     var curCamPosition = new THREE.Vector3().copy(camera.position);
     var curCamRotation = new THREE.Vector3().copy(camera.rotation);
 

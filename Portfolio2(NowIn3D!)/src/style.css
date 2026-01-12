@@ -99,7 +99,7 @@ canvas {
 }
 
 .navButton:hover .hoverTextWrapper {
-  transform: scale(1.5);
+  transform: scale(1.4);
   transition: transform 0.2s ease-in-out;
 }
 

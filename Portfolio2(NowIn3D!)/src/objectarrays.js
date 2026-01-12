@@ -3,8 +3,8 @@ import { startingPos, startingRot, monitorView, laptopView, laptopRotation, phon
 export var navButtonOBJs = [
     {
         "id": "monNav",
-        "MoveTo": function (cam, group, duration, monHTML, lapHTML, phnHTML) {
-            ToTarget(monitorView, startingRot, cam, group, duration, monHTML);
+        "MoveTo": function (cam, group, duration, monHTML, lapHTML, phnHTML, navButtons) {
+            ToTarget(monitorView, startingRot, cam, group, duration, monHTML, navButtons);
             var lapWindows = document.getElementsByClassName("abWindow");
             lapHTML.style.visibility = "hidden";
             for (var i = 0; i < lapWindows.length; i++) {
@@ -29,8 +29,8 @@ export var navButtonOBJs = [
     },
     {
         "id": "lapNav",
-        "MoveTo": function (cam, group, duration, monHTML, lapHTML, phnHTML) {
-            ToTarget(laptopView, laptopRotation, cam, group, duration, lapHTML);
+        "MoveTo": function (cam, group, duration, monHTML, lapHTML, phnHTML, navButtons) {
+            ToTarget(laptopView, laptopRotation, cam, group, duration, lapHTML, navButtons);
             var monWindows = document.getElementsByClassName("monWindows")
             monHTML.style.visibility = "hidden";
             for (var i = 0; i < monWindows.length; i++) {
@@ -54,8 +54,8 @@ export var navButtonOBJs = [
     },
     {
         "id": "phnNav",
-        "MoveTo": function (cam, group, duration, monHTML, lapHTML, phnHTML) {
-            ToTarget(phoneView, phoneRotation, cam, group, duration, phnHTML);
+        "MoveTo": function (cam, group, duration, monHTML, lapHTML, phnHTML, navButtons) {
+            ToTarget(phoneView, phoneRotation, cam, group, duration, phnHTML, navButtons);
             var monWindows = document.getElementsByClassName("monWindows")
             monHTML.style.visibility = "hidden";
             for (var i = 0; i < monWindows.length; i++) {
@@ -82,8 +82,8 @@ export var navButtonOBJs = [
     },
     {
         "id": "defaultNav",
-        "MoveTo": function (cam, group, duration, monHTML, lapHTML, phnHTML) {
-            ToDefault(startingPos, startingRot, cam, group, duration);
+        "MoveTo": function (cam, group, duration, monHTML, lapHTML, phnHTML, navButtons) {
+            ToDefault(startingPos, startingRot, cam, group, duration, navButtons);
             var monWindows = document.getElementsByClassName("monWindows")
             monHTML.style.visibility = "hidden";
             for (var i = 0; i < monWindows.length; i++) {

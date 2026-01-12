@@ -455,17 +455,24 @@ var laptopHTML = document.getElementById("laptopDisplay");
 var phoneHTML = document.getElementById("phoneDisplay");
 
 function NavButtonClick() {
+  var visibleButtons = new Array();
+  var clickedButton = null;
+
   for (i = 0; i < navButtons.length; i++) {
     navButtons[i].style.visibility = "hidden";
-    if (this.id == navButtonOBJs[i].id && !currentlyAnim) {
-      navButtonOBJs[i].MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML);
-      if (this.id == "defaultNav") {
-        ResetNavButtons(navButtons, navButtonOBJs);
-        break;
-      }
+    if (this.id == navButtonOBJs[i].id) {
+      clickedButton = navButtonOBJs[i];
     } else {
+      visibleButtons.push(navButtons[i]);
       ChangeButtonVis(this.id, navButtons[i], navButtonOBJs[i]);
     }
+  }
+
+  if (!currentlyAnim) {
+    if (this.id == "defaultNav") {
+      ResetNavButtons(visibleButtons, navButtonOBJs);
+    }
+    clickedButton.MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML, visibleButtons);
   }
 }
 //TODO: Make more efficient (Doesn't need to be called every time as only one of the 4 buttons actually move between locations)
