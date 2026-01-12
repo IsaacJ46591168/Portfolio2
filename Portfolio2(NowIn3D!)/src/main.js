@@ -165,7 +165,7 @@ const camAnimations = new Group();
 //Adding click events to all buttons
 
 //Buttons to move around the website
-var navButtons = document.getElementsByClassName("navButton");
+export var navButtons = document.getElementsByClassName("navButton");
 for (var i = 0; i < navButtons.length; i++) {
   navButtons[i].addEventListener('click', NavButtonClick);
 }
@@ -456,9 +456,9 @@ var phoneHTML = document.getElementById("phoneDisplay");
 
 function NavButtonClick() {
   for (i = 0; i < navButtons.length; i++) {
+    navButtons[i].style.visibility = "hidden";
     if (this.id == navButtonOBJs[i].id && !currentlyAnim) {
       navButtonOBJs[i].MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML);
-      navButtons[i].style.visibility = "hidden";
       if (this.id == "defaultNav") {
         ResetNavButtons(navButtons, navButtonOBJs);
         break;
@@ -470,19 +470,17 @@ function NavButtonClick() {
 }
 //TODO: Make more efficient (Doesn't need to be called every time as only one of the 4 buttons actually move between locations)
 function ChangeButtonVis(activeButton, curButtonHTML, curButtonObj) {
-  curButtonHTML.style.visibility = "visible";
-  curButtonHTML.style.top = curButtonObj.SmallFormTPos;
-  curButtonHTML.style.width = curButtonObj.SmallFormWidth;
-  curButtonHTML.style.height = curButtonObj.SmallFormHeight;
-  curButtonHTML.firstElementChild.innerText = curButtonObj.SmallFormText;
-
-  curButtonHTML.firstElementChild.style.display = "block";
+  curButtonHTML.style.top = curButtonObj.ActiveTPos;
+  curButtonHTML.style.width = curButtonObj.ActiveWidth;
+  curButtonHTML.style.height = curButtonObj.ActiveHeight;
+  curButtonHTML.firstElementChild.firstElementChild.innerText = curButtonObj.ActiveText;
+  curButtonHTML.firstElementChild.firstElementChild.style.display = "block";
 
   if (activeButton == "lapNav" && curButtonObj.id == "monNav") {
-    curButtonHTML.style.left = curButtonObj.SmallFormLPosAlt;
-    curButtonHTML.firstElementChild.innerText = curButtonObj.SmallFormTextAlt;
+    curButtonHTML.style.left = curButtonObj.ActiveLPosAlt;
+    curButtonHTML.firstElementChild.firstElementChild.innerText = curButtonObj.ActiveTextAlt;
   } else {
-    curButtonHTML.style.left = curButtonObj.SmallFormLPos;
+    curButtonHTML.style.left = curButtonObj.ActiveLPos;
   }
 }
 
@@ -492,8 +490,8 @@ function ResetNavButtons(buttonsHTML, buttonOBJs) {
     buttonsHTML[i].style.left = buttonOBJs[i].DefaultLPos;
     buttonsHTML[i].style.width = buttonOBJs[i].DefaultWidth;
     buttonsHTML[i].style.height = buttonOBJs[i].DefaultHeight;
-    buttonsHTML[i].firstElementChild.innerText = buttonOBJs[i].DefaultText;
-    buttonsHTML[i].firstElementChild.style.display = "none";
+    buttonsHTML[i].firstElementChild.firstElementChild.innerText = buttonOBJs[i].DefaultText;
+    buttonsHTML[i].firstElementChild.firstElementChild.style.display = "";
   }
 }
 

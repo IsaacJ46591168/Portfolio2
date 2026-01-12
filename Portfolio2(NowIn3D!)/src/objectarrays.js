@@ -13,13 +13,13 @@ export var navButtonOBJs = [
 
             phnHTML.style.visibility = "hidden";
         },
-        "SmallFormTPos": 0 + 'em',
-        "SmallFormLPos": 0 + 'em',
-        "SmallFormLPosAlt": "auto",
-        "SmallFormWidth": 150 + 'px',
-        "SmallFormHeight": 400 + 'px',
-        "SmallFormText": "<",
-        "SmallFormTextAlt": ">",
+        "ActiveTPos": 0 + 'em',
+        "ActiveLPos": 0 + 'em',
+        "ActiveLPosAlt": "auto",
+        "ActiveWidth": 150 + 'px',
+        "ActiveHeight": 400 + 'px',
+        "ActiveText": "<",
+        "ActiveTextAlt": ">",
 
         "DefaultTPos": 28.6 + 'em',
         "DefaultLPos": 38.8 + 'em',
@@ -39,17 +39,18 @@ export var navButtonOBJs = [
 
             phnHTML.style.visibility = "hidden";
         },
-        "SmallFormTPos": 43 + 'em',
-        "SmallFormLPos": 0 + 'em',
-        "SmallFormWidth": 170 + 'px',
-        "SmallFormHeight": 345 + 'px',
-        "SmallFormText": "<",
+        "ActiveTPos": 43 + 'em',
+        "ActiveLPos": 0 + 'em',
+        "ActiveWidth": 170 + 'px',
+        "ActiveHeight": 345 + 'px',
+        "ActiveText": "<",
+
 
         "DefaultTPos": 43 + 'em',
         "DefaultLPos": 22 + 'em',
         "DefaultWidth": 260 + 'px',
         "DefaultHeight": 180 + 'px',
-        "DefaultText": "About Me"
+        "DefaultText": "About Me",
     },
     {
         "id": "phnNav",
@@ -67,11 +68,11 @@ export var navButtonOBJs = [
                 lapWindows[i].style.visibility = "hidden";
             }
         },
-        "SmallFormTPos": 54 + 'em',
-        "SmallFormLPos": "auto",
-        "SmallFormWidth": 100 + 'px',
-        "SmallFormHeight": 160 + 'px',
-        "SmallFormText": ">",
+        "ActiveTPos": 54 + 'em',
+        "ActiveLPos": "auto",
+        "ActiveWidth": 100 + 'px',
+        "ActiveHeight": 160 + 'px',
+        "ActiveText": ">",
 
         "DefaultTPos": 52 + 'em',
         "DefaultLPos": 91.5 + 'em',
@@ -97,11 +98,11 @@ export var navButtonOBJs = [
 
             phnHTML.style.visibility = "hidden";
         },
-        "SmallFormTPos": 'auto',
-        "SmallFormLPos": 50 + '%',
-        "SmallFormWidth": 1200 + 'px',
-        "SmallFormHeight": 150 + 'px',
-        "SmallFormText": "V"
+        "ActiveTPos": 'auto',
+        "ActiveLPos": 50 + '%',
+        "ActiveWidth": 350 + 'px',
+        "ActiveHeight": 150 + 'px',
+        "ActiveText": "V"
     }
 ]
 

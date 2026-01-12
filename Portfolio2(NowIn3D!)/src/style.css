@@ -40,12 +40,10 @@ canvas {
 .navButton {
   position: absolute;
   cursor: pointer;
-  transition: background-color 0.08s linear;
-}
 
-.navButton:hover {
-  background-color: rgba(125, 125, 125, 0.4);
-  transition: background-color 0.08s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #monNav {
@@ -90,21 +88,30 @@ canvas {
   visibility: hidden;
 }
 
-.navButton .hoverText {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100%;
+.hoverTextWrapper {
+  width: 50%;
+  height: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.navButton:hover .hoverTextWrapper {
+  transform: scale(1.5);
+  transition: transform 0.2s ease-in-out;
+}
+
+.hoverText {
   text-align: center;
+  justify-content: center;
+  color: rgba(200, 200, 200, 1);
 
   margin: 0;
   padding: 0;
-  font-size: 25px;
-  display: none;
-}
-
-.navButton:hover .hoverText {
-  display: block;
+  font-size: 35px;
+  /* display: none; */
 }
 
 .contentWrapper {

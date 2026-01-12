@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import { Tween, Group } from '@tweenjs/tween.js'
+import { navButtons } from './main';
 export var currentlyAnim = false;
 
 export function ToTarget(targetPosition, targetRotation, camera, animGroup, duration, htmlEnable) {
@@ -16,6 +17,10 @@ export function ToTarget(targetPosition, targetRotation, camera, animGroup, dura
         .onComplete(function () {
             camera.position.set(targetPosition.x, targetPosition.y, targetPosition.z);
             htmlEnable.style.visibility = "visible";
+            navButtons[0].style.visibility = "visible";
+            navButtons[1].style.visibility = "visible";
+            navButtons[2].style.visibility = "visible";
+            navButtons[3].style.visibility = "visible";
             currentlyAnim = false;
         })
         .start();
@@ -47,6 +52,9 @@ export function ToDefault(targetPosition, targetRotation, camera, animGroup, dur
         .onComplete(function () {
             camera.position.set(targetPosition.x, targetPosition.y, targetPosition.z);
             currentlyAnim = false;
+            navButtons[0].style.visibility = "visible";
+            navButtons[1].style.visibility = "visible";
+            navButtons[2].style.visibility = "visible";
         })
         .start();
     animGroup.add(toDefault);
