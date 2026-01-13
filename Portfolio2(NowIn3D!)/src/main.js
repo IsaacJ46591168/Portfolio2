@@ -415,7 +415,7 @@ function DragStart(event) {
 
 function DragStop() {
   mouseClicked = false;
-  scrollGallery.style.cursor = "grab";
+  scrollGallery.style.cursor = "pointer";
 }
 
 

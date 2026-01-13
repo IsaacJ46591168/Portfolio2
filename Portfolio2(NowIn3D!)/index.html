@@ -38,10 +38,11 @@
     <div id="desktopMonText">
       <h1 class="monText">Welcome to my Portfolio!</h1>
       <h2 class="monText">Check out my stuff by clicking on the icons below</h2>
-      <p class="monText">Last Updated: 12/01/2026</p>
+      <p class="monText">Last Updated: 13/01/2026</p>
     </div>
     <div id="modalContentWindow">
-      <div class="mTopBar">
+      <div class="mTopBar" id="modalWindowTopBar">
+        <p class="monText windowName">MediaMagnifier.exe</p>
         <div class="mWindowClose" id="modalClose">
           <p class="monText">X</p>
         </div>
@@ -53,7 +54,7 @@
       </div>
     </div>
     <div class="monWindows" id="projectDisplay">
-      <div class="mTopBar">
+      <div class="mTopBar" id="projectWindowTopBar">
         <p class="monText windowName">Project.txt</p>
         <div class="mWindowClose" id="projectClose">
           <p class="monText">X</p>
@@ -87,7 +88,7 @@
       </ul>
     </div>
     <div class="monWindows" id="smallProjectFinder">
-      <div class="mTopBar">
+      <div class="mTopBar" id="sProjWindowTopBar">
         <p class="monText windowName">Small Project Finder.exe</p>
         <div class="mWindowClose" id="smallProjectClose">
           <p class="monText">X</p>
@@ -175,7 +176,7 @@
       </div>
     </div>
     <div class="monWindows" id="smallProjectProperties">
-      <div class="mTopBar">
+      <div class="mTopBar" id="sPPWindowTopBar">
         <p class="monText windowName">Small Project Properties</p>
         <div class="mWindowClose" id="smallProjPropClose">
           <p class="monText">X</p>
@@ -214,7 +215,7 @@
     </div>
     <ul id="projectBar">
       <li class="pBElementContainer" id="pHome">
-        <div class="pBElement"></div>
+        <div class="pBElementIcon" style="background-image: url(/src/Images/home.svg)"></div>
       </li>
       <li class="pBElementContainer" id="searchMock"></li>
       <li class="pBElementContainer project" id="P1">
@@ -236,7 +237,7 @@
         <div class="pBElementIcon" style="background-image: url(/src/Images/ttrtitle.webp)"></div>
       </li>
       <li class="pBElementContainer" id="smallProjBar">
-        <div class="pBElementIcon"></div>
+        <div class="pBElementIcon" style="background-image: url(/src/Images/moreproj.svg)"></div>
       </li>
     </ul>
   </section>
@@ -388,18 +389,17 @@
       </div>
     </div>
     <ul id="aboutMeBar">
-      <!-- <div class="abBarElement" id="abHome"></div> -->
-      <li class="abBarElement" id="introBar">
+      <li class="abBarElement" id="introBar" style="background-image: url(/src/Images/home.svg)">
         <div class="abName">
           <p class="abNameText lapText">About Me</p>
         </div>
       </li>
-      <li class="abBarElement" id="sk-exBar">
+      <li class="abBarElement" id="sk-exBar" style="background-image: url(/src/Images/linkedin.webp)">
         <div class="abName">
           <p class="abNameText lapText">Skills/Experience</p>
         </div>
       </li>
-      <li class="abBarElement" id="fFBar">
+      <li class="abBarElement" id="fFBar" style="background-image: url(/src/Images/linkedin.webp)">
         <div class="abName">
           <p class="abNameText lapText">Fun Facts</p>
         </div>
@@ -413,10 +413,10 @@
       <h2 class="lapText">Contact Me!</h2>
     </div>
     <ul id="phoneApps">
-      <li class="contactApp" id="LI"></li>
-      <li class="contactApp" id="GT"></li>
-      <li class="contactApp" id="EM"></li>
-      <li class="contactApp" id="BS"></li>
+      <li class="contactApp" id="LI" style="background-image: url(/src/Images/linkedin.webp)"></li>
+      <li class="contactApp" id="GT" style="background-image: url(/src/Images/github.webp)"></li>
+      <li class="contactApp" id="EM" style="background-image: url(/src/Images/mail.webp)"></li>
+      <li class="contactApp" id="BS" style="background-image: url(/src/Images/bluesky.webp)"></li>
     </ul>
   </section>
 </body>
