@@ -882,10 +882,12 @@ canvas {
   visibility: hidden;
 }
 
-/* #fFInfo {} */
+#fFInfo {
+  background-color: rgba(6, 50, 100, 1);
+  flex-wrap: wrap;
+}
 
 #fFGalleryWrapper {
-  height: 100%;
   flex-grow: 1;
   overflow: hidden;
 
@@ -898,12 +900,27 @@ canvas {
   top: 50%;
   transform: translateY(-50%);
 
-  width: 6%;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  width: 7%;
   height: 30%;
 
   text-align: center;
-  border: solid 1px;
   cursor: pointer;
+}
+
+.fFTextWrapper {
+  font-size: 40px;
+  transition: transform 0.2s ease-in-out;
+  color: rgba(150, 200, 255, 1);
+}
+
+.fFButton:hover .fFTextWrapper {
+  transform: scale(1.5);
+  transition: transform 0.2s ease-in-out;
 }
 
 #fFForward {
@@ -911,19 +928,53 @@ canvas {
 }
 
 #fFGallery {
-  width: 300%;
-  height: 100%;
-  display: flex;
-}
-
-.fFElement {
   width: 100%;
   height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 22px;
+  color: rgba(255, 255, 255, 1);
+}
+
+/* .fFElement {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
 
   text-align: center;
   font-size: 22px;
   padding-top: 4em;
-  background-color: green;
+  color: rgba(255, 255, 255, 1);
+} */
+
+.progressIndicatorBar {
+  width: 100%;
+  height: 20%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+
+  color: rgba(255, 255, 255, 1);
+}
+
+.progressIndicator {
+  height: 20px;
+  width: 20px;
+
+  border-radius: 10px;
+  border: solid 1px;
+}
+
+.pIActive {
+  background-color: rgba(255, 255, 255, 1);
 }
 
 #aboutMeBar {

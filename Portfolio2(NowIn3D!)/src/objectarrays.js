@@ -278,16 +278,21 @@ export var aboutWindowsOBJs = [
     }
 ]
 
-export var galleryButtonOBJs = [
+export var funFacts = [
     {
-        "id": "fFForward",
-        "gallery": "fFGalleryWrapper",
-        "scrollDirection": "right"
+        "id": "fact1",
+        "line1": "The longest I've ever stayed awake is 25 hours.",
+        "line2": "It was for a coding assignment at Uni..."
     },
     {
-        "id": "fFBack",
-        "gallery": "fFGalleryWrapper",
-        "scrollDirection": "left"
+        "id": "fact2",
+        "line1": "My highest hour-count on any game is 1130.",
+        "line2": "It's on Splatoon 2, shamefully."
+    },
+    {
+        "id": "fact3",
+        "line1": "My favourite Football team is Liverpool.",
+        "line2": "20 Times! #YNWA"
     },
 ]
 

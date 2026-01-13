@@ -3,7 +3,7 @@ import './style.css'
 import * as THREE from 'three'
 import { Tween, Group } from '@tweenjs/tween.js'
 import { ToTarget, currentlyAnim } from './cameranimations';
-import { projectOBJs, smallProjectOBJs, projectLinkOBJs, aboutWindowsOBJs, contactLinkOBJs, navButtonOBJs, galleryButtonOBJs } from './objectarrays';
+import { projectOBJs, smallProjectOBJs, projectLinkOBJs, aboutWindowsOBJs, funFacts, contactLinkOBJs, navButtonOBJs } from './objectarrays';
 
 //#region ThreeJS Setup
 const scene = new THREE.Scene();
@@ -431,21 +431,28 @@ function RunDrag(event) {
 }
 
 
+var galleryText = document.getElementsByClassName("fFText");
+var galleryIndicators = document.getElementsByClassName("progressIndicator");
+
+var galleryCount = 0;
+galleryText[0].innerText = funFacts[galleryCount].line1;
+galleryText[1].innerText = funFacts[galleryCount].line2;
+galleryIndicators[galleryCount].classList.add("pIActive");
+
 function ChangeButtonGallery() {
-  for (i = 0; i < fFbuttons.length; i++) {
-    if (this.id == galleryButtonOBJs[i].id) {
-      var curGallery = document.getElementById(galleryButtonOBJs[i].gallery);
-      var curGalleryDimensions = curGallery.getBoundingClientRect();
-
-      console.log(curGalleryDimensions.width)
-
-      if (galleryButtonOBJs[i].scrollDirection == "left") {
-        curGallery.scrollLeft -= curGalleryDimensions.width;
-      } else {
-        curGallery.scrollLeft += curGalleryDimensions.width;
-      }
+  if (this.id == "fFBack") {
+    if (galleryCount != 0) {
+      galleryIndicators[galleryCount].classList.remove("pIActive");
+      galleryCount -= 1;
     }
+  } else if (galleryCount != funFacts.length - 1) {
+    galleryIndicators[galleryCount].classList.remove("pIActive");
+    galleryCount += 1;
   }
+
+  galleryText[0].innerText = funFacts[galleryCount].line1;
+  galleryText[1].innerText = funFacts[galleryCount].line2;
+  galleryIndicators[galleryCount].classList.add("pIActive");
 }
 
 
