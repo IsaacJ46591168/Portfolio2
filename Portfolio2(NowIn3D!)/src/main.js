@@ -264,6 +264,7 @@ function OpenProject() {
       for (k = 0; k < projectLinkButtons.length; k++) {
         if (projectLinkButtons[k].id == "studio") {
           projectLinkButtons[k].setAttribute("href", projectOBJs[i].Developers);
+          projectLinkButtons[k].style.backgroundImage = "url(/src/Images/SiteNav/" + projectOBJs[i].StudioLogo;
         } else {
           projectLinkButtons[k].setAttribute("href", projectOBJs[i].Link);
         }
