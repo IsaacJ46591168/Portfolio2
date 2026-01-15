@@ -274,7 +274,7 @@ function OpenProject() {
 
       var galleryElements = document.getElementsByClassName("monGalleryElement");
       for (var k = 0; k < projectOBJs[i].Gallery.length; k++) {
-        galleryElements[k].style.backgroundImage = "url(/src/Images/" + projectOBJs[i].Gallery[k] + ")";
+        galleryElements[k].style.backgroundImage = "url(/src/Images/" + projectOBJs[i].ImagesLocation + projectOBJs[i].Gallery[k] + ")";
       }
       break;
     }
@@ -326,7 +326,8 @@ function OpenSmallProject() {
           galleryElements[k].style.backgroundImage = "";
           sGalleryVideo.setAttribute("src", "/src/Videos/" + smallProjectOBJs[i].Gallery[k]);
         } else {
-          galleryElements[k].style.backgroundImage = "url(/src/Images/" + smallProjectOBJs[i].Gallery[k] + ")";
+          galleryElements[k].style.backgroundImage = "url(/src/Images/" + smallProjectOBJs[i].ImagesLocation + smallProjectOBJs[i].Gallery[k] + ")";
+          console.log(galleryElements[k].style.backgroundImage);
         }
       }
       break;

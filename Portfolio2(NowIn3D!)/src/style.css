@@ -658,6 +658,10 @@ canvas {
   width: 20%;
 }
 
+#searchMock p {
+  font-style: italic;
+}
+
 
 /*Laptop display CSS*/
 #laptopDisplay {
@@ -706,7 +710,6 @@ canvas {
   /*make sure to change to em*/
 
   margin: auto;
-  background-color: rgba(255, 255, 255, 1);
   border-radius: 10px;
 }
 
@@ -1021,7 +1024,10 @@ canvas {
   border: solid 1px;
   border-radius: 10px;
   cursor: pointer;
-  background-image: url(Images/bluesky.webp);
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .abName {
@@ -1044,17 +1050,6 @@ canvas {
   padding: 0;
 }
 
-/* #introBar {
-  background-image: url(Images/about.svg);
-}
-
-#sk-expBar {
-  background-image: url(Images/skillexp.svg);
-}
-
-#fFBar {
-  background-image: url(Images/funfacts.svg);
-} */
 
 /*Phone display CSS*/
 #phoneDisplay {
