@@ -246,14 +246,8 @@ canvas {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  background-color: rgba(0, 0, 0, 1);
   transition: background-color 0.08s linear;
   cursor: pointer;
-}
-
-.mWindowClose p {
-  color: white;
 }
 
 .mWindowClose:hover {
@@ -262,7 +256,11 @@ canvas {
 }
 
 #projectWindowTopBar {
-  background-color: rgba(55, 55, 55, 1);
+  background-color: rgba(70, 70, 70, 1);
+}
+
+#projectClose p {
+  color: rgba(255, 255, 255, 1);
 }
 
 .projectInfos {
@@ -300,11 +298,15 @@ canvas {
   width: 10%;
   height: 100%;
 
-  border: solid 1px;
+  border-radius: 10px;
   cursor: pointer;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+#playLink {
+  background-color: rgba(255, 255, 255, 1);
 }
 
 #projDetails {
@@ -371,7 +373,11 @@ canvas {
 }
 
 #sProjWindowTopBar {
-  background-color: rgba(150, 150, 150, 1);
+  background-color: rgba(230, 230, 230, 1);
+}
+
+#smallProjectClose p {
+  color: rgba(0, 0, 0, 1);
 }
 
 #smallProjectFinder {
@@ -405,8 +411,17 @@ canvas {
   width: 60%;
   height: 5%;
 
-  border: solid 1px;
+  display: flex;
+  align-items: center;
+
+  border: solid 1px rgba(130, 130, 130, 1);
   margin-left: 5em;
+}
+
+#path p {
+  font-size: 15px;
+  color: rgba(130, 130, 130, 1);
+  margin-left: 10px;
 }
 
 #searchFolder {
@@ -416,8 +431,14 @@ canvas {
   display: flex;
   align-items: center;
 
-  border: solid 1px;
+  border: solid 1px rgba(130, 130, 130, 1);
   margin-left: 1em;
+}
+
+#searchFolder p {
+  font-size: 15px;
+  color: rgba(130, 130, 130, 1);
+  margin-left: 10px;
 }
 
 #folderList {
@@ -535,7 +556,11 @@ canvas {
 }
 
 #sPPWindowTopBar {
-  background-color: rgba(100, 100, 100, 1);
+  background-color: rgba(230, 230, 230, 1);
+}
+
+#smallProjPropClose {
+  color: rgba(0, 0, 0, 1);
 }
 
 #smallProjectProperties {
@@ -726,7 +751,8 @@ canvas {
 
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  background-color: rgba(181, 181, 181, 1);
+  /* background-color: rgba(181, 181, 181, 1); */
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(181, 181, 181, 1));
 }
 
 .appTopBar p {
@@ -740,9 +766,9 @@ canvas {
   width: 12px;
   height: 12px;
 
-  border: solid 1px;
   border-radius: 50px;
   background-color: rgba(255, 0, 0, 1);
+  border: solid 1px rgba(150, 0, 0, 1);
   cursor: pointer;
 }
 
@@ -788,7 +814,16 @@ canvas {
   height: 20%;
 
   border-top: solid 1px;
-  border-right: solid 1px;
+  background-color: rgba(235, 235, 235, 1);
+}
+
+#iseSelect {
+  border-top: 0px;
+  background-color: rgba(232, 207, 118, 1);
+}
+
+#iseBottom {
+  border-bottom-left-radius: 10px;
 }
 
 .iSEhead {
@@ -804,6 +839,9 @@ canvas {
 #infoMain {
   max-width: 80%;
   height: 100%;
+
+  background-color: rgba(255, 255, 255, 1);
+  border-bottom-right-radius: 10px;
 }
 
 #infoMain h2 {
@@ -829,6 +867,7 @@ canvas {
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: rgba(255, 255, 255, 1);
 }
 
 #sName {
@@ -858,7 +897,7 @@ canvas {
   height: 5%;
 
   justify-content: center;
-  background-color: rgba(244, 244, 244, 1);
+  background-color: rgba(200, 200, 200, 1);
   font-size: 12px;
 }
 
@@ -1014,7 +1053,8 @@ canvas {
 
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  background-color: rgba(227, 227, 227, 1)
+  background-color: rgba(141, 142, 148, 0.8);
+  z-index: 11;
 }
 
 .abBarElement {
@@ -1024,10 +1064,10 @@ canvas {
   display: flex;
   justify-content: center;
 
-  border: solid 1px;
   border-radius: 10px;
   cursor: pointer;
 
+  background-color: rgba(255, 255, 255, 1);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -1040,7 +1080,9 @@ canvas {
   transform: translateY(-150%);
 
   text-align: center;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgba(204, 204, 204, 1);
+  padding-left: 10px;
+  padding-right: 10px;
   display: none;
 }
 
