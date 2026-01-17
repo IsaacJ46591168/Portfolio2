@@ -132,7 +132,6 @@ scene.add(monitorLight);
 const monHelper = new RectAreaLightHelper(monitorLight, 0xffffff);
 monitorLight.add(monHelper);
 
-
 //Laptop backlight
 const laptopLight = new THREE.RectAreaLight(0x2128b5, 10, 1.62, 0.83);
 laptopLight.position.set(-2.66, 4.53, -2.01);
@@ -251,16 +250,29 @@ function OpenProject() {
   smallProjDisplay.style.zIndex = 9;
   modalContentWindow.style.zIndex = 9;
 
+  var projHeadlines = document.getElementById("projHeadlines");
   var projName = document.getElementById("pName");
   var projRelease = document.getElementById("release");
+  var projDetails = document.getElementById("projDetails");
   var projAbout = document.getElementById("descText");
   var projRole = document.getElementById("roleText");
+  var projGallery = document.getElementById("gallery");
 
   for (i = 0; i < projectBarButtons.length; i++) {
     if (this.id == projectOBJs[i].id) {
       console.log(projectOBJs[i].Name);
       projName.innerText = projectOBJs[i].Name;
       projRelease.innerText = projectOBJs[i].Release;
+
+      projHeadlines.style.background = projectOBJs[i].ProjectBackImg;
+      projHeadlines.style.backgroundPosition = "90% 50%";
+      projHeadlines.style.backgroundSize = "140%";
+      projHeadlines.style.color = projectOBJs[i].TextCol;
+
+
+      projDetails.style.backgroundColor = projectOBJs[i].BackgroundCol;
+      projDetails.style.color = projectOBJs[i].TextCol;
+      projGallery.style.backgroundColor = projectOBJs[i].BackgroundCol;
       for (k = 0; k < projectLinkButtons.length; k++) {
         if (projectLinkButtons[k].id == "studio") {
           projectLinkButtons[k].setAttribute("href", projectOBJs[i].Developers);

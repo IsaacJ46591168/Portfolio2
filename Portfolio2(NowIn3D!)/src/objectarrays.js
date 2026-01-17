@@ -110,6 +110,7 @@ export var projectOBJs = [
     {
         "id": "P1",
         "Name": "Phoenix One",
+        "ProjectBackImg": "linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 59%, rgba(62, 63, 65, 1) 97%), linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 59%, rgba(62, 63, 65, 1) 97%), url('/src/Images/Projects/P1/p1-6.JPG') no-repeat",
         "Developers": "https://lstandsforwinner.studio/",
         "StudioLogo": "LSW-Logo.png",
         "StudioBackground": "rgba(0, 0, 0, 1)",
@@ -117,6 +118,8 @@ export var projectOBJs = [
         "Link": "https://lstandsforwinner.itch.io/phoenix-one-demo",
         "About": "A 2D Run-and-Gun Game combining puzzle, quick thinking and action. Run, Jump, Glide, Dash and Shoot your way through numerous puzzling and high-octane alien encounters, as you rush to salvage the fate of the Phoenix One mission and preserve hope for humanity.",
         "RoleAct": "For this project, I was both a developer and designer, focusing on the character's movement system and the design of the levels. The movement and the levels had to be designed in a way that complemented each other and that allowed the game to achieve the fast-paced and fluid to play. Because of this, I spent a lot of time refining each compontent of the player's moveset so that it felt quick and responsive, such as the left-right movement having very little acceleration and decelleration times to allow for quick direction changes, and little-to-no end-lag being implemented on the character's moveset so multiple movement options could be chained together. Similar was done to the design of the levels as well; I designed them encounter-by-encounter, resulting in a variety of different challenges for the player in one level, whilst also keeping to the same theme and difficulty. This helped to create a cohesive and engaging level, of whose elements gelled well together.",
+        "BackgroundCol": "rgba(62, 63, 65, 1)",
+        "TextCol": "rgba(255, 255, 255, 1)",
         "ImagesLocation": "Projects/P1/",
         "Gallery": [
             "p1-1.JPG", "p1-2.JPG", "p1-3.JPG", "p1-4.JPG", "p1-5.JPG", "p1-6.JPG"
@@ -125,6 +128,7 @@ export var projectOBJs = [
     {
         "id": "BSC",
         "Name": "Beachside Campfire",
+        "ProjectBackImg": "linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 59%, rgba(0, 0, 0, 1) 97%), linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 59%, rgba(0, 0, 0, 1) 97%), url('/src/Images/Projects/BSC/bsc-5.JPG') no-repeat",
         "Developers": "https://unitguides.mq.edu.au/unit_offerings/156343/unit_guide",
         "StudioLogo": "macqlogo.webp",
         "StudioBackground": "rgba(255, 255, 255, 1)",
@@ -132,6 +136,8 @@ export var projectOBJs = [
         "Link": "https://www.meta.com/en-gb/experiences/liminal-relax-unwind-engage-explore/3158342884265828/",
         "About": "A unique VR experience designed to assist a user in getting ready for sleep. Relax and doze off as you 'watch' the comforting lightshow of a beach-side campfire in front of you, listening to a carefully constructed sleep-inducing soundscape.",
         "RoleAct": "My roles for this project were developer and audio engineer. This was definitely the most unique project I've ever been part of; a VR project about preparing the user for sleep, which they would use with their eyes closed. My most significant contributions were via the development of the audio playing system, which was quite basic in implementation, as it was only regulating when and how many tracks were playing at once, as well as recording, mixing and implementing various audio tracks that combined together to create a non-intrusive, subtle audioscape that aimed to make the user feel relaxed enough to feel sleepy. This included sounds such as ocean noises without the crashing of waves, fire sounds without the peaking and crackling of the fire, subtle narration and chatting that allowed the user to feel comforted without feeling distracted by the sounds.",
+        "BackgroundCol": "rgba(0, 0, 0, 1)",
+        "TextCol": "rgba(255, 255, 255, 1)",
         "ImagesLocation": "Projects/BSC/",
         "Gallery": [
             "bsc-1.JPG", "bsc-2.JPG", "bsc-3.JPG", "bsc-4.JPG", "bsc-5.JPG", "bsc-6.JPG"
@@ -140,6 +146,7 @@ export var projectOBJs = [
     {
         "id": "SPC",
         "Name": "Personal Space",
+        "ProjectBackImg": "linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 59%, rgba(10, 6, 20, 1) 97%), linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 59%, rgba(10, 6, 20, 1) 97%), url('/src/Images/Projects/SPC/spc-3.JPG') no-repeat",
         "Developers": "https://lstandsforwinner.studio/",
         "StudioLogo": "LSW-Logo.png",
         "StudioBackground": "rgba(0, 0, 0, 1)",
@@ -147,6 +154,8 @@ export var projectOBJs = [
         "Link": "https://lstandsforwinner.itch.io/personal-space",
         "About": "A 3D Top-Down Game combining situational awareness and tight movement. Fly around in the depths of space while avoiding the spaceships trying to 're-enter' your atmosphere and avoid 're-entering' all the other planets while you're at it.",
         "RoleAct": "My role for this project was 3D artist. Since the models for this Game Jam were objects required to be avoided, and the project in general was very low-poly, not much detailling was given to them as the player wouldn't really be paying much more attention to them other than registering that they needed to be avoided, so the modelling and design was pretty basic. I did, however, take much inspiration from the Space Shuttle for the spaceship's design.",
+        "BackgroundCol": "rgba(10, 6, 20, 1)",
+        "TextCol": "rgba(255, 255, 255, 1)",
         "ImagesLocation": "Projects/SPC/",
         "Gallery": [
             "spc-1.JPG", "spc-2.JPG", "spc-3.JPG", "spc-4.JPG", "spc-5.JPG", "spc-6.JPG"
@@ -155,6 +164,7 @@ export var projectOBJs = [
     {
         "id": "ANT",
         "Name": "The Very Hungry Antepillar",
+        "ProjectBackImg": "linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 59%, rgba(61, 45, 29, 1) 97%), linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 59%, rgba(61, 45, 29, 1) 97%), url('/src/Images/Projects/ANT/ant-3.JPG') no-repeat",
         "Developers": "https://lstandsforwinner.studio/",
         "StudioLogo": "LSW-Logo.png",
         "StudioBackground": "rgba(0, 0, 0, 1)",
@@ -162,6 +172,8 @@ export var projectOBJs = [
         "Link": "https://lstandsforwinner.itch.io/the-very-hungry-anterpillar",
         "About": "A 2.5D Game at a small scale! Crawl and Weave your way through numerous obstacles and collect as much bread as you can to avoid running out of energy, and avoid getting squashed by the boot!",
         "RoleAct": "My role for this project was 3D artist. The theme of this Game Jam was something along the lines of 'drawn to scale', and so we decided to make a game from the perspective of an ant, hence making the scale of the in-game environment very small. Naturally this meant designing and modelling the 3D objects to match how they might appear to something or someone of that size, with tall and imposing profiles, exaggerated detail, etc.",
+        "BackgroundCol": "rgba(61, 45, 29, 1)",
+        "TextCol": "rgba(255, 255, 255, 1)",
         "ImagesLocation": "Projects/ANT/",
         "Gallery": [
             "ant-1.JPG", "ant-2.JPG", "ant-3.JPG", "ant-4.JPG", "ant-5.JPG", "ant-6.JPG"
@@ -170,6 +182,7 @@ export var projectOBJs = [
     {
         "id": "BSM",
         "Name": "Basement Game",
+        "ProjectBackImg": "linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 59%, rgba(77, 82, 88, 1) 97%), linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 59%, rgba(77, 82, 88, 1) 97%), url('/src/Images/Projects/BSM/bsm-5.JPG') no-repeat",
         "Developers": "https://lstandsforwinner.studio/",
         "StudioLogo": "LSW-Logo.png",
         "StudioBackground": "rgba(0, 0, 0, 1)",
@@ -177,6 +190,8 @@ export var projectOBJs = [
         "Link": "https://lstandsforwinner.itch.io/basement-game",
         "About": "A 2.5D Automation Game set in the shadows of a basement. Combine, Produce, Sell and Submit different elements from the periodic table via purchasing and contructing a complex network of small alchemy machines.",
         "RoleAct": "My role for this project was 3D artist. As this was a 2.5D automation game, all the models had to be quite small in order to make sure that, in the inevitable situation where there were many models on the screen at once, they weren't too obstructive. To match the theme of this game, which was all about pretending to be an alchemist by using rickety, old, discount, do-it-yourself machines, I tried to replicate this using basic objects and designs to make them look 'primitive'.",
+        "BackgroundCol": "rgba(77, 82, 88, 1)",
+        "TextCol": "rgba(0, 0, 0, 1)",
         "ImagesLocation": "Projects/BSM/",
         "Gallery": [
             "bsm-1.JPG", "bsm-2.JPG", "bsm-3.JPG", "bsm-4.JPG", "bsm-5.JPG", "bsm-6.JPG"
@@ -185,6 +200,7 @@ export var projectOBJs = [
     {
         "id": "PLN",
         "Name": "Thread the Ring",
+        "ProjectBackImg": "linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 59%, rgba(255, 255, 255, 1) 97%), linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 59%, rgba(255, 255, 255, 1) 97%), url('/src/Images/Projects/PLN/ttrtitle.webp') no-repeat",
         "Developers": "Developed-by-Myself-(Solo-Project!)",
         "StudioLogo": "LSW-Logo.png",
         "StudioBackground": "rgba(0, 0, 0, 1)",
@@ -192,6 +208,8 @@ export var projectOBJs = [
         "Link": "Not-available-right-now.",
         "About": "A 3D Game putting your flight skills to the test!. Twist, Turn and soar your way around around the stage, flying through all of the rings in order to make it to the finish line!",
         "RoleAct": "My first, and so far only, solo project which I made for my final assignment for my industrial tech class in Year 12. Developing it solo was a huge learning curve, given that I was responsible for almost everything that went into it, and especially as I had never programmed anything before at the time. In general though, I tried to keep the flying mechanics to a more arcade-y level, as my inspiration was Pilotwings on the NES, and trying to make realistic plane physics with no prior progamming experience would not have ended well.",
+        "BackgroundCol": "rgba(255, 255, 255, 1)",
+        "TextCol": "rgba(0, 0, 0, 1)",
         "ImagesLocation": "Projects/PLN/",
         "Gallery": [
             "ttrtitle.webp", "ttrgame.webp", "fl1.webp", "fl2.webp", "fl4.webp", "fl5.webp"
