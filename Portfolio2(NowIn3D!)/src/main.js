@@ -260,7 +260,6 @@ function OpenProject() {
 
   for (i = 0; i < projectBarButtons.length; i++) {
     if (this.id == projectOBJs[i].id) {
-      console.log(projectOBJs[i].Name);
       projName.innerText = projectOBJs[i].Name;
       projRelease.innerText = projectOBJs[i].Release;
 
@@ -273,6 +272,8 @@ function OpenProject() {
       projDetails.style.backgroundColor = projectOBJs[i].BackgroundCol;
       projDetails.style.color = projectOBJs[i].TextCol;
       projGallery.style.backgroundColor = projectOBJs[i].BackgroundCol;
+      projGallery.style.color = projectOBJs[i].TextCol;
+
       for (k = 0; k < projectLinkButtons.length; k++) {
         if (projectLinkButtons[k].id == "studio") {
           projectLinkButtons[k].setAttribute("href", projectOBJs[i].Developers);
@@ -290,7 +291,6 @@ function OpenProject() {
       for (var k = 0; k < projectOBJs[i].Gallery.length; k++) {
         galleryElements[k].style.backgroundImage = "url(/src/Images/" + projectOBJs[i].ImagesLocation + projectOBJs[i].Gallery[k] + ")";
       }
-      break;
     }
   }
 }
