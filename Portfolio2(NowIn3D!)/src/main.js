@@ -31,7 +31,7 @@ export const startingRot = new THREE.Vector3(0, 0, 0);
 export const monitorView = new THREE.Vector3(0.05, 5.4, 5);
 
 export const laptopView = new THREE.Vector3(-0.03, 4.6, 1.7);
-export const laptopRotation = new THREE.Vector3(0, 35 * (Math.PI / 180), 0);
+export const laptopRotation = new THREE.Vector3(0, 35.01 * (Math.PI / 180), 0.08 * (Math.PI / 180));
 
 export const phoneView = new THREE.Vector3(3.3, 7.5, 0.23);
 export const phoneRotation = new THREE.Vector3(-79.8 * (Math.PI / 180), 0, -16.5 * (Math.PI / 180))
@@ -558,6 +558,19 @@ function animate() {
   camAnimations.update();
   renderer.render(scene, camera);
   // console.log(mouseClicked);
+}
+
+var canvasContainer = document.getElementById("websiteWrapper");
+console.log(camera.aspect);
+
+window.addEventListener("resize", onWindowResize, false);
+function onWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  console.log(window.innerWidth, window.innerHeight);
+  console.log()
+
 }
 
 animate();

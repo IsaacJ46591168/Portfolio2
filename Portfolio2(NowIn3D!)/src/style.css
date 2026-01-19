@@ -38,42 +38,52 @@ canvas {
 }
 
 .navButton {
-  position: absolute;
+  position: fixed;
   cursor: pointer;
 
   display: flex;
   justify-content: center;
   align-items: center;
+  border: solid 1px greenyellow;
 }
 
 #monNav {
-  top: 28.6em;
-  left: 38.8em;
+  /* top: 28.6em;
+  left: 38.8em; */
+
+  top: 43.6vh;
+  left: 32.36vw;
+
   right: 0;
 
   width: 625px;
   height: 320px;
+  /* width: 32.5vw;
+  height: 30.5vh; */
 }
 
 #lapNav {
-  top: 43em;
-  left: 22em;
+  /* top: 43em;
+  left: 22em; */
+
+  top: 65.5vh;
+  left: 18.55vw;
 
   width: 260px;
   height: 180px;
 
-  border-radius: 10px;
 }
 
 #phnNav {
-  top: 52em;
-  left: 91.5em;
-  right: 0;
+  /* top: 52em;
+  left: 91.5em; */
+
+  top: 79.5vh;
+  left: 76vw;
 
   width: 115px;
   height: 80px;
 
-  border-radius: 10px;
 }
 
 #defaultNav {
