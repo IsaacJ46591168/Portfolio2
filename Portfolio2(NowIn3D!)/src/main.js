@@ -92,8 +92,8 @@ dirLight.position.set(2, 4, 4);
 dirLight.target.position.set(0, 3, 0);
 scene.add(dirLight);
 
-const dirLighthelper = new THREE.DirectionalLightHelper(dirLight, 5);
-dirLight.add(dirLighthelper);
+// const dirLighthelper = new THREE.DirectionalLightHelper(dirLight, 5);
+// dirLight.add(dirLighthelper);
 
 //Side Light
 const sideLight = new THREE.SpotLight(0x1f31a6, 1500, 70, 2, 0.5);
@@ -105,8 +105,8 @@ sideLight.shadow.mapSize.height = 2048;
 sideLight.shadow.bias = -0.0001;
 scene.add(sideLight);
 
-const sLightHelper = new THREE.SpotLightHelper(sideLight, 0xffffff);
-sideLight.add(sLightHelper);
+// const sLightHelper = new THREE.SpotLightHelper(sideLight, 0xffffff);
+// sideLight.add(sLightHelper);
 
 
 //Front light
@@ -119,8 +119,8 @@ frontLight.shadow.mapSize.height = 2048;
 frontLight.shadow.bias = -0.0009;
 scene.add(frontLight);
 
-const fLightHelper = new THREE.SpotLightHelper(frontLight, 0xffffff);
-frontLight.add(fLightHelper);
+// const fLightHelper = new THREE.SpotLightHelper(frontLight, 0xffffff);
+// frontLight.add(fLightHelper);
 
 
 //Monitor Backlight
@@ -564,13 +564,38 @@ var canvasContainer = document.getElementById("websiteWrapper");
 console.log(camera.aspect);
 
 window.addEventListener("resize", onWindowResize, false);
+var prevWidth = window.innerWidth;
+var prevHeight = window.innerHeight;
+var widthChange = 0;
+var heightChange = 0;
+
+var curButtonWidth = navButtons[0].clientWidth;
+var curButtonHeight = navButtons[0].clientHeight;
+
+var curButtonPos = navButtons[0].getBoundingClientRect().left;
+
 function onWindowResize() {
+  // navButtons[0].style.width = "500px";
+
+  widthChange = prevWidth - window.innerWidth;
+  heightChange = prevHeight - window.innerHeight;
+
+  curButtonWidth -= 0.59 * heightChange;
+  curButtonPos += 0.32 * heightChange;
+  console.log(widthChange, heightChange);
+
+  navButtons[0].style.width = curButtonWidth + "px";
+  navButtons[0].style.left = curButtonPos + "px";
+  console.log(curButtonHeight);
+
+
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
-  console.log(window.innerWidth, window.innerHeight);
-  console.log()
 
+  prevWidth = window.innerWidth;
+  prevHeight = window.innerHeight;
+  console.log(window.innerWidth, window.innerHeight);
 }
 
 animate();

@@ -38,7 +38,7 @@ canvas {
 }
 
 .navButton {
-  position: fixed;
+  position: absolute;
   cursor: pointer;
 
   display: flex;
@@ -48,29 +48,22 @@ canvas {
 }
 
 #monNav {
-  /* top: 28.6em;
-  left: 38.8em; */
-
-  top: 43.6vh;
-  left: 32.36vw;
+  top: 43.6%;
+  left: 407px;
+  /* left: 413.44px; */
 
   right: 0;
 
-  width: 625px;
-  height: 320px;
-  /* width: 32.5vw;
-  height: 30.5vh; */
+  width: 429px;
+  height: 30.7vh;
 }
 
 #lapNav {
-  /* top: 43em;
-  left: 22em; */
+  top: 65.5%;
+  left: 352px;
 
-  top: 65.5vh;
-  left: 18.55vw;
-
-  width: 260px;
-  height: 180px;
+  width: 13.5vw;
+  height: 15vh;
 
 }
 
@@ -78,8 +71,8 @@ canvas {
   /* top: 52em;
   left: 91.5em; */
 
-  top: 79.5vh;
-  left: 76vw;
+  top: 79.5%;
+  left: 1464px;
 
   width: 115px;
   height: 80px;
