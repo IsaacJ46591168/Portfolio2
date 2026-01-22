@@ -551,21 +551,16 @@ function OnKeyDown(event) {
   }
 }
 
-
-function animate() {
-  requestAnimationFrame(animate);
-  // controls.update();
-  camAnimations.update();
-  renderer.render(scene, camera);
-  // console.log(mouseClicked);
-}
-
-var canvasContainer = document.getElementById("websiteWrapper");
-console.log(camera.aspect);
-
 window.addEventListener("resize", onWindowResize, false);
-var prevWidth = window.innerWidth;
-var prevHeight = window.innerHeight;
+v
+
+
+var startingWidth = window.innerWidth;
+var startingHeight = window.innerHeight;
+
+var prevWidth = startingWidth;
+var prevHeight = startingHeight;
+
 var widthChange = 0;
 var heightChange = 0;
 
@@ -575,7 +570,6 @@ var curButtonHeight = navButtons[0].clientHeight;
 var curButtonPos = navButtons[0].getBoundingClientRect().left;
 
 function onWindowResize() {
-  // navButtons[0].style.width = "500px";
 
   widthChange = prevWidth - window.innerWidth;
   heightChange = prevHeight - window.innerHeight;
@@ -596,6 +590,14 @@ function onWindowResize() {
   prevWidth = window.innerWidth;
   prevHeight = window.innerHeight;
   console.log(window.innerWidth, window.innerHeight);
+}
+
+function animate() {
+  requestAnimationFrame(animate);
+  // controls.update();
+  camAnimations.update();
+  renderer.render(scene, camera);
+  // console.log(mouseClicked);
 }
 
 animate();
