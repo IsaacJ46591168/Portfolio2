@@ -60,23 +60,18 @@ canvas {
 
 #lapNav {
   top: 65.5%;
-  left: 352px;
+  left: 355px;
 
-  width: 13.5vw;
+  width: 260px;
   height: 15vh;
-
 }
 
 #phnNav {
-  /* top: 52em;
-  left: 91.5em; */
-
   top: 79.5%;
-  left: 1464px;
+  left: 1465px;
 
   width: 115px;
-  height: 80px;
-
+  height: 7vh;
 }
 
 #defaultNav {

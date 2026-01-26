@@ -21,10 +21,13 @@ export var navButtonOBJs = [
         "ActiveText": "<",
         "ActiveTextAlt": ">",
 
-        "DefaultTPos": 28.6 + 'em',
-        "DefaultLPos": 38.8 + 'em',
+        "DefaultTPos": 43.6 + '%',
+        "DefaultLPos": 620 + 'px',
         "DefaultWidth": 625 + 'px',
-        "DefaultHeight": 320 + 'px',
+        "DefaultHeight": 30.7 + 'vh',
+        "HbWRatio": 0.59327217125, //For every 1px of window height change, this value is applied to the button width (Calculated by dividing the change between button width values from one window height value to another)
+        "HbPRatio": 0.31924882629, //For every 1px of window height change, this value is applied to the button left position (Calculated by dividing the change between button left position values from one window height value to another)
+        "WbWRatio": 0.5, //For every 1px of window width change, this value is applied to the button left position (Calculated by dividing the change between button left position values from one window width value to another)
         "DefaultText": "Projects"
     },
     {
@@ -46,10 +49,13 @@ export var navButtonOBJs = [
         "ActiveText": "<",
 
 
-        "DefaultTPos": 43 + 'em',
-        "DefaultLPos": 22 + 'em',
+        "DefaultTPos": 65.5 + '%',
+        "DefaultLPos": 352 + 'px',
         "DefaultWidth": 260 + 'px',
-        "DefaultHeight": 180 + 'px',
+        "DefaultHeight": 15 + 'vh',
+        "HbWRatio": 0.26291079812, //For every 1px of window height change, this value is applied to the button width (Calculated by dividing the change between button width values from one window height value to another)
+        "HbPRatio": 0.59624413145, //For every 1px of window height change, this value is applied to the button left position (Calculated by dividing the change between button left position values from one window height value to another)
+        "WbPRatio": 0.5, //For every 1px of window width change, this value is applied to the button left position (Calculated by dividing the change between button left position values from one window width value to another)
         "DefaultText": "About Me",
     },
     {
@@ -74,10 +80,13 @@ export var navButtonOBJs = [
         "ActiveHeight": 160 + 'px',
         "ActiveText": ">",
 
-        "DefaultTPos": 52 + 'em',
-        "DefaultLPos": 91.5 + 'em',
+        "DefaultTPos": 79.5 + '%',
+        "DefaultLPos": 1465 + 'px',
         "DefaultWidth": 115 + 'px',
-        "DefaultHeight": 80 + 'px',
+        "DefaultHeight": 7 + 'vh',
+        "HbWRatio": 0.05769230769, //For every 1px of window height change, this value is applied to the button width (Calculated by dividing the change between button width values from one window height value to another)
+        "HbPRatio": -0.43846153846, //For every 1px of window height change, this value is applied to the button left position (Calculated by dividing the change between button left position values from one window height value to another)
+        "WbPRatio": 0.5, //For every 1px of window width change, this value is applied to the button left position (Calculated by dividing the change between button left position values from one window width value to another)
         "DefaultText": "Contact",
     },
     {

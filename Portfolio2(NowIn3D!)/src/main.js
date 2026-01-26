@@ -553,10 +553,6 @@ function OnKeyDown(event) {
 
 window.addEventListener("resize", onWindowResize, false);
 
-var curButtonWidth = navButtons[0].clientWidth;
-var curButtonHeight = navButtons[0].clientHeight;
-var curButtonPos = navButtons[0].getBoundingClientRect().left;
-
 var defaultWidth = 1920;
 var defaultHeight = 1047;
 
@@ -566,12 +562,29 @@ var startingHeight = window.innerHeight;
 var stWidthChange = defaultWidth - startingWidth;
 var stHeightChange = defaultHeight - startingHeight;
 
-curButtonPos -= 0.5 * stWidthChange;
-curButtonPos += 0.32 * stHeightChange;
-curButtonWidth -= 0.59 * stHeightChange;
+// for (i = 0; i < navButtons; i++) {
+//   var curButtonWidth = navButtons[i].clientWidth;
+//   var curButtonPos = navButtons[i].getBoundingClientRect().left;
+
+//   curButtonPos += navButtonOBJs[i].HbPRatio * stHeightChange;
+//   curButtonWidth -= navButtonOBJs[i].HbWRatio * stHeightChange;
+//   curButtonPos -= navButtonOBJs[i].WbPRatio * stWidthChange;
+
+//   navButtons[i].style.width = curButtonWidth + "px";
+//   navButtons[i].style.left = curButtonPos + "px";
+// }
+
+var curButtonWidth = navButtons[0].clientWidth;
+var curButtonPos = navButtons[0].getBoundingClientRect().left;
+
+curButtonWidth -= navButtonOBJs[0].HbWRatio * stHeightChange;
+curButtonPos += navButtonOBJs[0].HbPRatio * stHeightChange;
+curButtonPos -= navButtonOBJs[0].WbPRatio * stWidthChange;
+
 navButtons[0].style.width = curButtonWidth + "px";
 navButtons[0].style.left = curButtonPos + "px";
 
+console.log(navButtons[0]);
 
 
 
@@ -582,23 +595,21 @@ var prevHeight = startingHeight;
 
 function onWindowResize() {
 
-  var widthChange = prevWidth - window.innerWidth;
-  var heightChange = prevHeight - window.innerHeight;
+  // var widthChange = prevWidth - window.innerWidth;
+  // var heightChange = prevHeight - window.innerHeight;
 
-  // curButtonPos += 0.32 * heightChange;
-  console.log(widthChange, heightChange);
+  // // curButtonPos += 0.32 * heightChange;
+  // console.log(widthChange, heightChange);
 
 
   // curButtonPos -= 0.5 * widthChange;
-  // curButtonPos -= 0.3328125 * heightChange;
+  // curButtonPos += 0.3328125 * heightChange;
   // curButtonWidth -= 0.59 * heightChange;
-
-
   // navButtons[0].style.width = curButtonWidth + "px";
   // navButtons[0].style.left = curButtonPos + "px";
-  console.log(curButtonHeight);
 
 
+  // console.log(curButtonHeight);
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
