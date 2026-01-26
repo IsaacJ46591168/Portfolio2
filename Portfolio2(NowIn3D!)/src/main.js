@@ -552,34 +552,50 @@ function OnKeyDown(event) {
 }
 
 window.addEventListener("resize", onWindowResize, false);
-v
 
+var curButtonWidth = navButtons[0].clientWidth;
+var curButtonHeight = navButtons[0].clientHeight;
+var curButtonPos = navButtons[0].getBoundingClientRect().left;
+
+var defaultWidth = 1920;
+var defaultHeight = 1047;
 
 var startingWidth = window.innerWidth;
 var startingHeight = window.innerHeight;
 
+var stWidthChange = defaultWidth - startingWidth;
+var stHeightChange = defaultHeight - startingHeight;
+
+curButtonPos -= 0.5 * stWidthChange;
+curButtonPos += 0.32 * stHeightChange;
+curButtonWidth -= 0.59 * stHeightChange;
+navButtons[0].style.width = curButtonWidth + "px";
+navButtons[0].style.left = curButtonPos + "px";
+
+
+
+
+
 var prevWidth = startingWidth;
 var prevHeight = startingHeight;
 
-var widthChange = 0;
-var heightChange = 0;
-
-var curButtonWidth = navButtons[0].clientWidth;
-var curButtonHeight = navButtons[0].clientHeight;
-
-var curButtonPos = navButtons[0].getBoundingClientRect().left;
 
 function onWindowResize() {
 
-  widthChange = prevWidth - window.innerWidth;
-  heightChange = prevHeight - window.innerHeight;
+  var widthChange = prevWidth - window.innerWidth;
+  var heightChange = prevHeight - window.innerHeight;
 
-  curButtonWidth -= 0.59 * heightChange;
-  curButtonPos += 0.32 * heightChange;
+  // curButtonPos += 0.32 * heightChange;
   console.log(widthChange, heightChange);
 
-  navButtons[0].style.width = curButtonWidth + "px";
-  navButtons[0].style.left = curButtonPos + "px";
+
+  // curButtonPos -= 0.5 * widthChange;
+  // curButtonPos -= 0.3328125 * heightChange;
+  // curButtonWidth -= 0.59 * heightChange;
+
+
+  // navButtons[0].style.width = curButtonWidth + "px";
+  // navButtons[0].style.left = curButtonPos + "px";
   console.log(curButtonHeight);
 
 
