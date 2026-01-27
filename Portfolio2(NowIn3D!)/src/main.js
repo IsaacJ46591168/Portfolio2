@@ -562,52 +562,36 @@ var startingHeight = window.innerHeight;
 var stWidthChange = defaultWidth - startingWidth;
 var stHeightChange = defaultHeight - startingHeight;
 
-// for (i = 0; i < navButtons; i++) {
-//   var curButtonWidth = navButtons[i].clientWidth;
-//   var curButtonPos = navButtons[i].getBoundingClientRect().left;
 
-//   curButtonPos += navButtonOBJs[i].HbPRatio * stHeightChange;
-//   curButtonWidth -= navButtonOBJs[i].HbWRatio * stHeightChange;
-//   curButtonPos -= navButtonOBJs[i].WbPRatio * stWidthChange;
+for (i = 0; i < navButtons.length; i++) {
+  var curButtonWidth = navButtons[i].clientWidth;
+  var curButtonPos = navButtons[i].getBoundingClientRect().left;
 
-//   navButtons[i].style.width = curButtonWidth + "px";
-//   navButtons[i].style.left = curButtonPos + "px";
-// }
+  curButtonPos -= navButtonOBJs[i].WbPRatio * stWidthChange;
+  curButtonPos += navButtonOBJs[i].HbPRatio * stHeightChange;
+  curButtonWidth -= navButtonOBJs[i].HbWRatio * stHeightChange;
 
-var curButtonWidth = navButtons[0].clientWidth;
-var curButtonPos = navButtons[0].getBoundingClientRect().left;
-
-curButtonWidth -= navButtonOBJs[0].HbWRatio * stHeightChange;
-curButtonPos += navButtonOBJs[0].HbPRatio * stHeightChange;
-curButtonPos -= navButtonOBJs[0].WbPRatio * stWidthChange;
-
-navButtons[0].style.width = curButtonWidth + "px";
-navButtons[0].style.left = curButtonPos + "px";
-
-console.log(navButtons[0]);
-
-
-
-
+  navButtons[i].style.width = curButtonWidth + "px";
+  navButtons[i].style.left = curButtonPos + "px";
+}
 var prevWidth = startingWidth;
 var prevHeight = startingHeight;
 
-
 function onWindowResize() {
+  var widthChange = prevWidth - window.innerWidth;
+  var heightChange = prevHeight - window.innerHeight;
 
-  // var widthChange = prevWidth - window.innerWidth;
-  // var heightChange = prevHeight - window.innerHeight;
+  // for (i = 0; i < navButtons.length; i++) {
+  //   var curButtonWidth = navButtons[i].clientWidth;
+  //   var curButtonPos = navButtons[i].getBoundingClientRect().left;
 
-  // // curButtonPos += 0.32 * heightChange;
-  // console.log(widthChange, heightChange);
+  //   curButtonPos -= navButtonOBJs[i].WbPRatio * widthChange;
+  //   curButtonPos += navButtonOBJs[i].HbPRatio * heightChange;
+  //   curButtonWidth -= navButtonOBJs[i].HbWRatio * heightChange;
 
-
-  // curButtonPos -= 0.5 * widthChange;
-  // curButtonPos += 0.3328125 * heightChange;
-  // curButtonWidth -= 0.59 * heightChange;
-  // navButtons[0].style.width = curButtonWidth + "px";
-  // navButtons[0].style.left = curButtonPos + "px";
-
+  //   navButtons[i].style.width = curButtonWidth + "px";
+  //   navButtons[i].style.left = curButtonPos + "px";
+  // }
 
   // console.log(curButtonHeight);
   camera.aspect = window.innerWidth / window.innerHeight;
