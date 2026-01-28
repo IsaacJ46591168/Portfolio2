@@ -128,8 +128,8 @@ canvas {
 
 /*Monitor display CSS*/
 #monitorDisplay {
-  top: 17.69%;
-  left: 15em;
+  top: 17.6%;
+  left: 240px;
   margin: 0;
   padding: 0;
 
@@ -720,7 +720,7 @@ canvas {
 /*Laptop display CSS*/
 #laptopDisplay {
   top: 28.3%;
-  left: 25.7em;
+  left: 411px;
   margin: 0;
   padding: 0;
 
@@ -1125,7 +1125,7 @@ canvas {
 /*Phone display CSS*/
 #phoneDisplay {
   top: 31.8%;
-  left: 52.7em;
+  left: 843px;
   margin: 0;
   padding: 0;
 

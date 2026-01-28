@@ -118,20 +118,20 @@ export var navButtonOBJs = [
 export var windowRatios = [
     {
         "Name": "Projects",
-        "HbWRatio": 0.05769230769, //For every 1px of window height change, this value is applied to the button width (Calculated by dividing the change between button width values from one window height value to another)
-        "HbPRatio": -0.5352112676, //For every 1px of window height change, this value is applied to the button left position (Calculated by dividing the change between button left position values from one window height value to another)
+        "HbWRatio": 1.36150234742, //For every 1px of window height change, this value is applied to the button width (Calculated by dividing the change between button width values from one window height value to another)
+        "HbPRatio": 0.68544600939, //For every 1px of window height change, this value is applied to the button left position (Calculated by dividing the change between button left position values from one window height value to another)
         "WbPRatio": 0.5, //For every 1px of window width change, this value is applied to the button left position (Calculated by dividing the change between button left position values from one window width value to another)
     },
     {
         "Name": "About",
-        "HbWRatio": 0.05769230769, //For every 1px of window height change, this value is applied to the button width (Calculated by dividing the change between button width values from one window height value to another)
-        "HbPRatio": -0.5352112676, //For every 1px of window height change, this value is applied to the button left position (Calculated by dividing the change between button left position values from one window height value to another)
+        "HbWRatio": 0.98591549295, //For every 1px of window height change, this value is applied to the button width (Calculated by dividing the change between button width values from one window height value to another)
+        "HbPRatio": 0.52582159624, //For every 1px of window height change, this value is applied to the button left position (Calculated by dividing the change between button left position values from one window height value to another)
         "WbPRatio": 0.5, //For every 1px of window width change, this value is applied to the button left position (Calculated by dividing the change between button left position values from one window width value to another)
     },
     {
         "Name": "Contact",
-        "HbWRatio": 0.05769230769, //For every 1px of window height change, this value is applied to the button width (Calculated by dividing the change between button width values from one window height value to another)
-        "HbPRatio": -0.5352112676, //For every 1px of window height change, this value is applied to the button left position (Calculated by dividing the change between button left position values from one window height value to another)
+        "HbWRatio": 0.89201877934, //For every 1px of window height change, this value is applied to the button width (Calculated by dividing the change between button width values from one window height value to another)
+        "HbPRatio": 0.11267605633, //For every 1px of window height change, this value is applied to the button left position (Calculated by dividing the change between button left position values from one window height value to another)
         "WbPRatio": 0.5, //For every 1px of window width change, this value is applied to the button left position (Calculated by dividing the change between button left position values from one window width value to another)
     }
 ]

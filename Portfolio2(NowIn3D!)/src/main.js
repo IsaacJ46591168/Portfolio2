@@ -576,6 +576,21 @@ for (i = 0; i < navButtons.length; i++) {
   navButtons[i].style.width = curButtonWidth + "px";
   navButtons[i].style.left = curButtonPos + "px";
 }
+
+for (i = 0; i < contentWindows.length; i++) {
+  var curWindowWidth = contentWindows[i].clientWidth;
+  var curWindowPos = contentWindows[i].getBoundingClientRect().left;
+
+  curWindowPos -= windowRatios[i].WbPRatio * stWidthChange;
+  curWindowPos += windowRatios[i].HbPRatio * stHeightChange;
+  curWindowWidth -= windowRatios[i].HbWRatio * stHeightChange;
+
+  contentWindows[i].style.width = curWindowWidth + "px";
+  contentWindows[i].style.left = curWindowPos + "px";
+  console.log(curWindowPos);
+}
+
+
 var prevWidth = startingWidth;
 var prevHeight = startingHeight;
 
