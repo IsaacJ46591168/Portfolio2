@@ -12,7 +12,6 @@ body {
   font-family: Roboto, sans-serif;
 }
 
-
 ul {
   padding: 0;
   margin: 0;
@@ -62,6 +61,8 @@ canvas {
   top: 65.5%;
   left: 355px;
 
+  bottom: 0;
+
   width: 260px;
   height: 15vh;
 }
@@ -69,6 +70,9 @@ canvas {
 #phnNav {
   top: 79.5%;
   left: 1465px;
+
+  right: 0;
+  bottom: 0;
 
   width: 115px;
   height: 7vh;
@@ -124,13 +128,13 @@ canvas {
 
 /*Monitor display CSS*/
 #monitorDisplay {
-  top: 11.5em;
+  top: 17.69%;
   left: 15em;
   margin: 0;
   padding: 0;
 
   width: 1429px;
-  height: 671px;
+  height: 64vh;
 
   display: flex;
   flex-wrap: nowrap;
@@ -715,13 +719,13 @@ canvas {
 
 /*Laptop display CSS*/
 #laptopDisplay {
-  top: 18.5em;
+  top: 28.3%;
   left: 25.7em;
   margin: 0;
   padding: 0;
 
   width: 1060px;
-  height: 545px;
+  height: 52vh;
 
   background-color: rgba(100, 100, 100, 1);
   visibility: hidden;
@@ -1120,7 +1124,7 @@ canvas {
 
 /*Phone display CSS*/
 #phoneDisplay {
-  top: 20.8em;
+  top: 31.8%;
   left: 52.7em;
   margin: 0;
   padding: 0;
@@ -1129,7 +1133,7 @@ canvas {
   flex-direction: column;
 
   width: 238px;
-  height: 445px;
+  height: 42.5vh;
 
   visibility: hidden;
 }

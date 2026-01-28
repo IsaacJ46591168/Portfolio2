@@ -3,7 +3,7 @@ import './style.css'
 import * as THREE from 'three'
 import { Tween, Group } from '@tweenjs/tween.js'
 import { ToTarget, currentlyAnim } from './cameranimations';
-import { projectOBJs, smallProjectOBJs, projectLinkOBJs, aboutWindowsOBJs, funFacts, contactLinkOBJs, navButtonOBJs } from './objectarrays';
+import { projectOBJs, smallProjectOBJs, projectLinkOBJs, aboutWindowsOBJs, funFacts, contactLinkOBJs, navButtonOBJs, windowRatios } from './objectarrays';
 
 //#region ThreeJS Setup
 const scene = new THREE.Scene();
@@ -161,8 +161,10 @@ const camAnimations = new Group();
 
 //#region Website Functionality
 
-//Adding click events to all buttons
+//Array of each window wrapper to be resized when resizing the actual website (hopefully everything else just falls into place)
+export var contentWindows = document.getElementsByClassName("contentWrapper");
 
+//Adding click events to all buttons
 //Buttons to move around the website
 export var navButtons = document.getElementsByClassName("navButton");
 for (var i = 0; i < navButtons.length; i++) {

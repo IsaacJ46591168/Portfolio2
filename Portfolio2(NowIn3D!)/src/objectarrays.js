@@ -17,7 +17,7 @@ export var navButtonOBJs = [
         "ActiveLPos": 0 + 'em',
         "ActiveLPosAlt": "auto",
         "ActiveWidth": 150 + 'px',
-        "ActiveHeight": 400 + 'px',
+        "ActiveHeight": 40 + 'vh',
         "ActiveText": "<",
         "ActiveTextAlt": ">",
 
@@ -42,10 +42,10 @@ export var navButtonOBJs = [
 
             phnHTML.style.visibility = "hidden";
         },
-        "ActiveTPos": 43 + 'em',
+        "ActiveTPos": 'auto',
         "ActiveLPos": 0 + 'em',
         "ActiveWidth": 170 + 'px',
-        "ActiveHeight": 345 + 'px',
+        "ActiveHeight": 34.2 + 'vh',
         "ActiveText": "<",
 
 
@@ -74,10 +74,10 @@ export var navButtonOBJs = [
                 lapWindows[i].style.visibility = "hidden";
             }
         },
-        "ActiveTPos": 54 + 'em',
+        "ActiveTPos": 'auto',
         "ActiveLPos": "auto",
         "ActiveWidth": 100 + 'px',
-        "ActiveHeight": 160 + 'px',
+        "ActiveHeight": 15 + 'vh',
         "ActiveText": ">",
 
         "DefaultTPos": 79.5 + '%',
@@ -110,10 +110,40 @@ export var navButtonOBJs = [
         "ActiveTPos": 'auto',
         "ActiveLPos": 50 + '%',
         "ActiveWidth": 350 + 'px',
-        "ActiveHeight": 150 + 'px',
+        "ActiveHeight": 14 + 'vh',
         "ActiveText": "V"
     }
 ]
+
+export var windowRatios = [
+    {
+        "Name": "Projects",
+        "HbWRatio": 0.05769230769, //For every 1px of window height change, this value is applied to the button width (Calculated by dividing the change between button width values from one window height value to another)
+        "HbPRatio": -0.5352112676, //For every 1px of window height change, this value is applied to the button left position (Calculated by dividing the change between button left position values from one window height value to another)
+        "WbPRatio": 0.5, //For every 1px of window width change, this value is applied to the button left position (Calculated by dividing the change between button left position values from one window width value to another)
+    },
+    {
+        "Name": "About",
+        "HbWRatio": 0.05769230769, //For every 1px of window height change, this value is applied to the button width (Calculated by dividing the change between button width values from one window height value to another)
+        "HbPRatio": -0.5352112676, //For every 1px of window height change, this value is applied to the button left position (Calculated by dividing the change between button left position values from one window height value to another)
+        "WbPRatio": 0.5, //For every 1px of window width change, this value is applied to the button left position (Calculated by dividing the change between button left position values from one window width value to another)
+    },
+    {
+        "Name": "Contact",
+        "HbWRatio": 0.05769230769, //For every 1px of window height change, this value is applied to the button width (Calculated by dividing the change between button width values from one window height value to another)
+        "HbPRatio": -0.5352112676, //For every 1px of window height change, this value is applied to the button left position (Calculated by dividing the change between button left position values from one window height value to another)
+        "WbPRatio": 0.5, //For every 1px of window width change, this value is applied to the button left position (Calculated by dividing the change between button left position values from one window width value to another)
+    }
+]
+
+
+
+
+
+
+
+
+
 
 export var projectOBJs = [
     {
