@@ -130,7 +130,7 @@ export var windowRatios = [
     },
     {
         "Name": "Contact",
-        "HbWRatio": 0.89201877934, //For every 1px of window height change, this value is applied to the button width (Calculated by dividing the change between button width values from one window height value to another)
+        "HbWRatio": 0.22535211267, //For every 1px of window height change, this value is applied to the button width (Calculated by dividing the change between button width values from one window height value to another)
         "HbPRatio": 0.11267605633, //For every 1px of window height change, this value is applied to the button left position (Calculated by dividing the change between button left position values from one window height value to another)
         "WbPRatio": 0.5, //For every 1px of window width change, this value is applied to the button left position (Calculated by dividing the change between button left position values from one window width value to another)
     }
