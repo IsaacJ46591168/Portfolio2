@@ -1,6 +1,6 @@
-import { GLTFLoader, OrbitControls, RectAreaLightHelper } from '/three/examples/jsm/Addons.js';
+import { GLTFLoader, OrbitControls, RectAreaLightHelper } from 'three/examples/jsm/Addons.js';
 import './style.css'
-import * as THREE from '/three'
+import * as THREE from 'three'
 import { Tween, Group } from '@tweenjs/tween.js'
 import { ToTarget, currentlyAnim } from './cameranimations';
 import { projectOBJs, smallProjectOBJs, projectLinkOBJs, aboutWindowsOBJs, funFacts, contactLinkOBJs, navButtonOBJs, windowRatios } from './objectarrays';
