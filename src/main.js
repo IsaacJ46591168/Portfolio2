@@ -1,4 +1,4 @@
-import { GLTFLoader, OrbitControls, RectAreaLightHelper } from 'three/examples/jsm/Addons.js';
+import { GLTFLoader, OrbitControls, RectAreaLightHelper } from '/three/examples/jsm/Addons.js';
 import './style.css'
 import * as THREE from 'three'
 import { Tween, Group } from '@tweenjs/tween.js'
