@@ -153,6 +153,44 @@ scene.add(phoneLight);
 const phoneHelper = new RectAreaLightHelper(phoneLight, 0xffffff);
 phoneLight.add(phoneHelper);
 
+
+//Navigation Buttons
+const monitorButton = new THREE.Mesh(
+  new THREE.BoxGeometry(2.73, 1.4, 0),
+  new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.DoubleSide, wireframe: false })
+);
+monitorButton.position.set(0.085, 5.58, 3);
+scene.add(monitorButton);
+
+
+const laptopButton = new THREE.Mesh(
+  new THREE.BoxGeometry(1.2, 0.7, 0),
+  new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.DoubleSide, wireframe: false })
+);
+laptopButton.position.set(-1.9, 4.95, 3);
+scene.add(laptopButton);
+
+const phoneButton = new THREE.Mesh(
+  new THREE.BoxGeometry(0.8, 0.5, 0),
+  new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.DoubleSide, wireframe: false })
+);
+phoneButton.position.set(2.65, 4.5, 3);
+scene.add(phoneButton);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //camera animations
 const camAnimations = new Group();
 //#endregion
@@ -166,10 +204,10 @@ export var contentWindows = document.getElementsByClassName("contentWrapper");
 
 //Adding click events to all buttons
 //Buttons to move around the website
-export var navButtons = document.getElementsByClassName("navButton");
-for (var i = 0; i < navButtons.length; i++) {
-  navButtons[i].addEventListener('click', NavButtonClick);
-}
+// export var navButtons = document.getElementsByClassName("navButton");
+// for (var i = 0; i < navButtons.length; i++) {
+//   navButtons[i].addEventListener('click', NavButtonClick);
+// }
 
 //Button to remove all content from monitor
 var monitorHome = document.getElementById("pHome");
@@ -565,17 +603,17 @@ var stWidthChange = defaultWidth - startingWidth;
 var stHeightChange = defaultHeight - startingHeight;
 
 
-for (i = 0; i < navButtons.length; i++) {
-  var curButtonWidth = navButtons[i].clientWidth;
-  var curButtonPos = navButtons[i].getBoundingClientRect().left;
+// for (i = 0; i < navButtons.length; i++) {
+//   var curButtonWidth = navButtons[i].clientWidth;
+//   var curButtonPos = navButtons[i].getBoundingClientRect().left;
 
-  curButtonPos -= navButtonOBJs[i].WbPRatio * stWidthChange;
-  curButtonPos += navButtonOBJs[i].HbPRatio * stHeightChange;
-  curButtonWidth -= navButtonOBJs[i].HbWRatio * stHeightChange;
+//   curButtonPos -= navButtonOBJs[i].WbPRatio * stWidthChange;
+//   curButtonPos += navButtonOBJs[i].HbPRatio * stHeightChange;
+//   curButtonWidth -= navButtonOBJs[i].HbWRatio * stHeightChange;
 
-  navButtons[i].style.width = curButtonWidth + "px";
-  navButtons[i].style.left = curButtonPos + "px";
-}
+//   navButtons[i].style.width = curButtonWidth + "px";
+//   navButtons[i].style.left = curButtonPos + "px";
+// }
 
 for (i = 0; i < contentWindows.length; i++) {
   var curWindowWidth = contentWindows[i].clientWidth;
