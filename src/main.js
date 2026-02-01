@@ -1,9 +1,9 @@
-import { GLTFLoader, OrbitControls, RectAreaLightHelper } from '/three/examples/jsm/Addons.js';
+import { GLTFLoader, OrbitControls, RectAreaLightHelper } from 'three/examples/jsm/Addons.js';
 import './style.css'
 import * as THREE from 'three'
 import { Tween, Group } from '@tweenjs/tween.js'
 import { ToTarget, currentlyAnim } from './cameranimations';
-import { projectOBJs, smallProjectOBJs, projectLinkOBJs, aboutWindowsOBJs, funFacts, contactLinkOBJs, navButtonOBJs, windowRatios } from './objectarrays';
+import { projectOBJs, smallProjectOBJs, projectLinkOBJs, aboutWindowsOBJs, funFacts, contactLinkOBJs, windowRatios } from './objectarrays';
 
 //#region ThreeJS Setup
 const scene = new THREE.Scene();
@@ -157,27 +157,45 @@ phoneLight.add(phoneHelper);
 //Navigation Buttons
 const monitorButton = new THREE.Mesh(
   new THREE.BoxGeometry(2.73, 1.4, 0),
-  new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.DoubleSide, wireframe: false })
+  new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.FrontSide, wireframe: false })
 );
 monitorButton.position.set(0.085, 5.58, 3);
+monitorButton.name = "monNav";
 scene.add(monitorButton);
 
 
 const laptopButton = new THREE.Mesh(
   new THREE.BoxGeometry(1.2, 0.7, 0),
-  new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.DoubleSide, wireframe: false })
+  new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.FrontSide, wireframe: false })
 );
 laptopButton.position.set(-1.9, 4.95, 3);
+laptopButton.name = "lapNav";
 scene.add(laptopButton);
 
 const phoneButton = new THREE.Mesh(
   new THREE.BoxGeometry(0.8, 0.5, 0),
-  new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.DoubleSide, wireframe: false })
+  new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.FrontSide, wireframe: false })
 );
 phoneButton.position.set(2.65, 4.5, 3);
+phoneButton.name = "phnNav";
 scene.add(phoneButton);
 
+const navButtonArray = new Array(monitorButton, laptopButton, phoneButton);
 
+window.addEventListener('click', (event) => {
+  var mouseRayCast = new THREE.Raycaster();
+  var mouseNDC = new THREE.Vector2(
+    (event.clientX / window.innerWidth) * 2 - 1,
+    - (event.clientY / window.innerHeight) * 2 + 1
+  );
+
+  console.log(mouseNDC);
+  mouseRayCast.setFromCamera(mouseNDC, camera);
+  var intersections = mouseRayCast.intersectObjects(navButtonArray, false);
+  console.log(intersections);
+
+  console.log("mouse was clicked");
+})
 
 
 
