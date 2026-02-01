@@ -192,37 +192,51 @@ const pBActivePos = new THREE.Vector3(laptopView.x - 0.375, laptopView.y - 0.1, 
 
 phoneButton.scale.set(0.1, 0.1, 0.1);
 
-// const textLoader = new FontLoader();
-// const font = textLoader.load('/public/fonts/droid_sans_regular.typeface.json');
-// const projectText = new THREE.Mesh(
-//   new TextGeometry('Hello World', {
-//     size: 10,
-//     height: 2,
-//     font: font,
-//     depth: 1
-//   }),
-//   new THREE.MeshStandardMaterial()
-// )
-// projectText.position.set(1, 1, 1);
-// scene.add(projectText);
+const textLoader = new FontLoader();
+const font = await textLoader.loadAsync('/public/fonts/droid_sans_regular.typeface.json');
 
-const fontLoader = new FontLoader();
-fontLoader.load(
-  '/public/fonts/droid_sans_regular.typeface.json',
-  (droidFont) => {
-    const projectText = new TextGeometry('projects >', {
-      size: 1,
-      height: 1,
-      depth: 0.1,
-      font: droidFont,
-    });
-    const pTextMaterial = new THREE.MeshStandardMaterial();
-    const pTextMesh = new THREE.Mesh(projectText, pTextMaterial);
-    pTextMesh.position.x = 0;
-    pTextMesh.position.y = 0;
-    scene.add(pTextMesh);
-  }
-);
+const projectText = new THREE.Mesh(
+  new TextGeometry('Projects >', {
+    size: 2,
+    font: font,
+    depth: 0.1
+  }),
+  new THREE.MeshStandardMaterial()
+)
+projectText.position.set(pBActivePos.x, pBActivePos.y, pBActivePos.z);
+projectText.rotation.set(laptopRotation.x, laptopRotation.y, laptopRotation.z - 0.5)
+scene.add(projectText);
+
+const aboutText = new THREE.Mesh(
+  new TextGeometry('< About Me', {
+    size: 2,
+    font: font,
+    depth: 0.1
+  }),
+  new THREE.MeshStandardMaterial()
+)
+aboutText.position.set(pBActivePos.x, pBActivePos.y, pBActivePos.z);
+aboutText.rotation.set(laptopRotation.x, laptopRotation.y, laptopRotation.z - 0.5)
+scene.add(aboutText);
+
+const contactText = new THREE.Mesh(
+  new TextGeometry('Contact >', {
+    size: 2,
+    font: font,
+    depth: 0.1
+  }),
+  new THREE.MeshStandardMaterial()
+)
+contactText.position.set(pBActivePos.x, pBActivePos.y, pBActivePos.z);
+contactText.rotation.set(laptopRotation.x, laptopRotation.y, laptopRotation.z - 0.5)
+scene.add(contactText);
+
+
+
+
+
+
+
 
 
 
