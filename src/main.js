@@ -1,9 +1,12 @@
 import { GLTFLoader, OrbitControls, RectAreaLightHelper } from 'three/examples/jsm/Addons.js';
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
+import { FontLoader } from 'three/addons/loaders/FontLoader.js';
+import { TTFLoader } from 'three/addons/loaders/TTFLoader.js';
 import './style.css'
 import * as THREE from 'three'
 import { Tween, Group } from '@tweenjs/tween.js'
 import { ToTarget, currentlyAnim } from './cameranimations';
-import { projectOBJs, smallProjectOBJs, projectLinkOBJs, aboutWindowsOBJs, funFacts, contactLinkOBJs, windowRatios } from './objectarrays';
+import { projectOBJs, smallProjectOBJs, projectLinkOBJs, aboutWindowsOBJs, funFacts, contactLinkOBJs, windowRatios, navButtonOBJs } from './objectarrays';
 
 //#region ThreeJS Setup
 const scene = new THREE.Scene();
@@ -43,23 +46,23 @@ camera.rotation.set(startingRot.x, startingRot.y, startingRot.z);
 // camera.position.set(monitorView.x, monitorView.y, monitorView.z);
 // camera.rotation.set(startingRot.x, startingRot.y, startingRot.z);
 
-// camera.position.set(laptopView.x, laptopView.y, laptopView.z);
-// camera.rotation.set(laptopRotation.x, laptopRotation.y, laptopRotation.z);
+camera.position.set(laptopView.x, laptopView.y, laptopView.z);
+camera.rotation.set(laptopRotation.x, laptopRotation.y, laptopRotation.z);
 
 // camera.position.set(phoneView.x, phoneView.y, phoneView.z);
 // camera.rotation.set(phoneRotation.x, phoneRotation.y, phoneRotation.z);
 
 
-// const controls = new OrbitControls(camera, renderer.domElement);
-// controls.enableDamping = false;
-// controls.enablePan = false;
-// controls.minDistance = 5;
-// controls.maxDistance = 50;
-// controls.minPolarAngle = 0.5;
-// controls.maxPolarAngle = 1.5;
-// controls.autoRotate = false;
-// controls.target = new THREE.Vector3(0, 6, 0)
-// controls.update();
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = false;
+controls.enablePan = false;
+controls.minDistance = 5;
+controls.maxDistance = 50;
+controls.minPolarAngle = 0.5;
+controls.maxPolarAngle = 1.5;
+controls.autoRotate = false;
+controls.target = new THREE.Vector3(0, 6, 0)
+controls.update();
 
 
 const loader = new GLTFLoader().setPath('DeskModel/')
@@ -155,59 +158,103 @@ phoneLight.add(phoneHelper);
 
 
 //Navigation Buttons
-const monitorButton = new THREE.Mesh(
-  new THREE.BoxGeometry(2.73, 1.4, 0),
-  new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.FrontSide, wireframe: false })
-);
-monitorButton.position.set(0.085, 5.58, 3);
-monitorButton.name = "monNav";
-scene.add(monitorButton);
+// const monitorButton = new THREE.Mesh(
+//   new THREE.BoxGeometry(2.73, 1.4, 0),
+//   new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.FrontSide, wireframe: false })
+// );
+// const mBDefaultPos = new THREE.Vector3(0.085, 5.58, 3);
 
 
-const laptopButton = new THREE.Mesh(
-  new THREE.BoxGeometry(1.2, 0.7, 0),
-  new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.FrontSide, wireframe: false })
-);
-laptopButton.position.set(-1.9, 4.95, 3);
-laptopButton.name = "lapNav";
-scene.add(laptopButton);
+// monitorButton.position.set(mBDefaultPos.x, mBDefaultPos.y, mBDefaultPos.z);
+// monitorButton.name = "monNav";
+// scene.add(monitorButton);
+// console.log(monitorButton.layers.mask);
+
+
+// const laptopButton = new THREE.Mesh(
+//   new THREE.BoxGeometry(1.2, 0.7, 0),
+//   new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.FrontSide, wireframe: false })
+// );
+// const lBDefaultPos = new THREE.Vector3(-1.9, 4.95, 3);
+// laptopButton.position.set(lBDefaultPos.x, lBDefaultPos.y, lBDefaultPos.z);
+// laptopButton.name = "lapNav";
+// scene.add(laptopButton);
 
 const phoneButton = new THREE.Mesh(
   new THREE.BoxGeometry(0.8, 0.5, 0),
   new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.FrontSide, wireframe: false })
 );
-phoneButton.position.set(2.65, 4.5, 3);
+
+const pBDefaultPos = new THREE.Vector3(2.65, 4.5, 3);
+
+
+const pBActivePos = new THREE.Vector3(laptopView.x - 0.375, laptopView.y - 0.1, laptopView.z - 1);
+
+phoneButton.scale.set(0.1, 0.1, 0.1);
+
+// const textLoader = new FontLoader();
+// const font = textLoader.load('/public/fonts/droid_sans_regular.typeface.json');
+// const projectText = new THREE.Mesh(
+//   new TextGeometry('Hello World', {
+//     size: 10,
+//     height: 2,
+//     font: font,
+//     depth: 1
+//   }),
+//   new THREE.MeshStandardMaterial()
+// )
+// projectText.position.set(1, 1, 1);
+// scene.add(projectText);
+
+const fontLoader = new FontLoader();
+fontLoader.load(
+  '/public/fonts/droid_sans_regular.typeface.json',
+  (droidFont) => {
+    const projectText = new TextGeometry('projects >', {
+      size: 1,
+      height: 1,
+      depth: 0.1,
+      font: droidFont,
+    });
+    const pTextMaterial = new THREE.MeshStandardMaterial();
+    const pTextMesh = new THREE.Mesh(projectText, pTextMaterial);
+    pTextMesh.position.x = 0;
+    pTextMesh.position.y = 0;
+    scene.add(pTextMesh);
+  }
+);
+
+
+
+
+
+phoneButton.position.set(pBDefaultPos.x, pBDefaultPos.y, pBDefaultPos.z);
+
+
+phoneButton.position.set(pBActivePos.x, pBActivePos.y, pBActivePos.z);
+phoneButton.rotation.set(laptopRotation.x, laptopRotation.y, laptopRotation.z - 0.5);
+
+
 phoneButton.name = "phnNav";
 scene.add(phoneButton);
 
-const navButtonArray = new Array(monitorButton, laptopButton, phoneButton);
+// const navButtonArray = new Array(monitorButton, laptopButton, phoneButton);
 
-window.addEventListener('click', (event) => {
-  var mouseRayCast = new THREE.Raycaster();
-  var mouseNDC = new THREE.Vector2(
-    (event.clientX / window.innerWidth) * 2 - 1,
-    - (event.clientY / window.innerHeight) * 2 + 1
-  );
+// window.addEventListener('click', (event) => {
+//   var mouseRayCast = new THREE.Raycaster();
+//   var mouseNDC = new THREE.Vector2(
+//     (event.clientX / window.innerWidth) * 2 - 1,
+//     - (event.clientY / window.innerHeight) * 2 + 1
+//   );
 
-  console.log(mouseNDC);
-  mouseRayCast.setFromCamera(mouseNDC, camera);
-  var intersections = mouseRayCast.intersectObjects(navButtonArray, false);
-  console.log(intersections);
-
-  console.log("mouse was clicked");
-})
-
-
-
-
-
-
-
-
-
-
-
-
+//   console.log(mouseNDC);
+//   mouseRayCast.setFromCamera(mouseNDC, camera);
+//   var intersection = mouseRayCast.intersectObjects(navButtonArray, false);
+//   if (intersection.length > 0) {
+//     console.log(intersection[0].object.name);
+//     NavButtonClick(intersection[0]);
+//   }
+// })
 
 //camera animations
 const camAnimations = new Group();
@@ -221,12 +268,6 @@ const camAnimations = new Group();
 export var contentWindows = document.getElementsByClassName("contentWrapper");
 
 //Adding click events to all buttons
-//Buttons to move around the website
-// export var navButtons = document.getElementsByClassName("navButton");
-// for (var i = 0; i < navButtons.length; i++) {
-//   navButtons[i].addEventListener('click', NavButtonClick);
-// }
-
 //Button to remove all content from monitor
 var monitorHome = document.getElementById("pHome");
 monitorHome.addEventListener('click', HideMonContent);
@@ -534,26 +575,21 @@ var monitorHTML = document.getElementById("monitorDisplay");
 var laptopHTML = document.getElementById("laptopDisplay");
 var phoneHTML = document.getElementById("phoneDisplay");
 
-function NavButtonClick() {
-  var visibleButtons = new Array();
-  var clickedButton = null;
-
-  for (i = 0; i < navButtons.length; i++) {
-    navButtons[i].style.visibility = "hidden";
-    if (this.id == navButtonOBJs[i].id) {
-      clickedButton = navButtonOBJs[i];
-    } else {
-      visibleButtons.push(navButtons[i]);
-      ChangeButtonVis(this.id, navButtons[i], navButtonOBJs[i]);
+function NavButtonClick(curButton) {
+  for (i = 0; i < navButtonOBJs.length; i++) {
+    if (curButton.object.name == navButtonOBJs[i].id) {
+      navButtonOBJs[i].MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML)
+      curButton.object.layers.set(10);
+      console.log(curButton.object.layers.mask);
     }
   }
 
-  if (!currentlyAnim) {
-    if (this.id == "defaultNav") {
-      ResetNavButtons(visibleButtons, navButtonOBJs);
-    }
-    clickedButton.MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML, visibleButtons);
-  }
+  // if (!currentlyAnim) {
+  //   if (this.id == "defaultNav") {
+  //     ResetNavButtons(visibleButtons, navButtonOBJs);
+  //   }
+  //   clickedButton.MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML, visibleButtons);
+  // }
 }
 //TODO: Make more efficient (Doesn't need to be called every time as only one of the 4 buttons actually move between locations)
 function ChangeButtonVis(activeButton, curButtonHTML, curButtonObj) {
@@ -678,7 +714,7 @@ function onWindowResize() {
 
 function animate() {
   requestAnimationFrame(animate);
-  // controls.update();
+  controls.update();
   camAnimations.update();
   renderer.render(scene, camera);
   // console.log(mouseClicked);

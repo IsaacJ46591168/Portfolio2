@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { Tween, Group } from '@tweenjs/tween.js'
 export var currentlyAnim = false;
 
-export function ToTarget(targetPosition, targetRotation, camera, animGroup, duration, htmlEnable, navButtons) {
+export function ToTarget(targetPosition, targetRotation, camera, animGroup, duration, htmlEnable) {
     var curCamPosition = new THREE.Vector3().copy(camera.position);
     var curCamRotation = new THREE.Vector3().copy(camera.rotation);
 
@@ -17,10 +17,6 @@ export function ToTarget(targetPosition, targetRotation, camera, animGroup, dura
             camera.position.set(targetPosition.x, targetPosition.y, targetPosition.z);
             htmlEnable.style.visibility = "visible";
             currentlyAnim = false;
-            console.log(navButtons);
-            navButtons[0].style.visibility = "visible";
-            navButtons[1].style.visibility = "visible";
-            navButtons[2].style.visibility = "visible";
         })
         .start();
     animGroup.add(toTarget);

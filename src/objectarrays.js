@@ -3,8 +3,8 @@ import { startingPos, startingRot, monitorView, laptopView, laptopRotation, phon
 export var navButtonOBJs = [
     {
         "id": "monNav",
-        "MoveTo": function (cam, group, duration, monHTML, lapHTML, phnHTML, navButtons) {
-            ToTarget(monitorView, startingRot, cam, group, duration, monHTML, navButtons);
+        "MoveTo": function (cam, group, duration, monHTML, lapHTML, phnHTML) {
+            ToTarget(monitorView, startingRot, cam, group, duration, monHTML);
             var lapWindows = document.getElementsByClassName("abWindow");
             lapHTML.style.visibility = "hidden";
             for (var i = 0; i < lapWindows.length; i++) {
@@ -13,21 +13,8 @@ export var navButtonOBJs = [
 
             phnHTML.style.visibility = "hidden";
         },
-        "ActiveTPos": 0 + 'em',
-        "ActiveLPos": 0 + 'em',
-        "ActiveLPosAlt": "auto",
-        "ActiveWidth": 150 + 'px',
-        "ActiveHeight": 40 + 'vh',
         "ActiveText": "<",
         "ActiveTextAlt": ">",
-
-        "DefaultTPos": 43.6 + '%',
-        "DefaultLPos": 620 + 'px',
-        "DefaultWidth": 625 + 'px',
-        "DefaultHeight": 30.7 + 'vh',
-        "HbWRatio": 0.59327217125, //For every 1px of window height change, this value is applied to the button width (Calculated by dividing the change between button width values from one window height value to another)
-        "HbPRatio": 0.31924882629, //For every 1px of window height change, this value is applied to the button left position (Calculated by dividing the change between button left position values from one window height value to another)
-        "WbPRatio": 0.5, //For every 1px of window width change, this value is applied to the button left position (Calculated by dividing the change between button left position values from one window width value to another)
         "DefaultText": "Projects"
     },
     {
