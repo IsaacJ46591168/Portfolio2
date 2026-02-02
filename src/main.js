@@ -239,7 +239,7 @@ phoneButton.rotation.set(0, 0, 0);
 phoneButton.scale.set(1, 1, 1);
 scene.add(phoneButton);
 
-const navButtonArray = new Array(monitorButton, laptopButton, phoneButton);
+export const navButtonArray = new Array(monitorButton, laptopButton, phoneButton);
 
 
 window.addEventListener('click', (event) => {
@@ -580,9 +580,9 @@ var phoneHTML = document.getElementById("phoneDisplay");
 function NavButtonClick(curButton) {
   for (i = 0; i < navButtonOBJs.length; i++) {
     if (curButton.object.name == navButtonOBJs[i].id) {
-      navButtonOBJs[i].MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML)
-      curButton.object.layers.set(10);
-      console.log(curButton.object.layers.mask);
+      navButtonOBJs[i].MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML);
+      // curButton.object.layers.set(10);
+      // curButton.object.children[0].layers.set(10);
     }
   }
 
