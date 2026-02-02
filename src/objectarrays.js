@@ -1,5 +1,6 @@
+import { Vector3 } from 'three';
 import { ToDefault, ToTarget } from './cameranimations';
-import { startingPos, startingRot, monitorView, laptopView, laptopRotation, phoneView, phoneRotation, } from './main';
+import { startingPos, startingRot, monitorView, laptopView, laptopRotation, phoneView, phoneRotation } from './main';
 export var navButtonOBJs = [
     {
         "id": "monNav",
@@ -13,6 +14,18 @@ export var navButtonOBJs = [
 
             phnHTML.style.visibility = "hidden";
         },
+        "DefaultPos": new Vector3(0.085, 5.58, 3),
+        "DefaultRot": new Vector3(0, 0, 0),
+        "DefaultScl": new Vector3(1, 1, 1),
+
+        "lapPos": new Vector3(-0.66, 0.18, -1.2),
+        "lapRot": new Vector3(0, 0, 0),
+        "lapScl": new Vector3(0.07, 0.04, 0.1),
+
+        "phnPos": new Vector3(-0.22, -1.2, -0.4),
+        "phnRot": new Vector3(0, 0, -0.1),
+        "phnScl": new Vector3(0.05, 0.03, 0.1),
+
         "ActiveText": "<",
         "ActiveTextAlt": ">",
         "DefaultText": "Projects"
@@ -29,6 +42,19 @@ export var navButtonOBJs = [
 
             phnHTML.style.visibility = "hidden";
         },
+        "DefaultPos": new Vector3(-1.9, 4.95, 3),
+        "DefaultRot": new Vector3(0, 0, 0),
+        "DefaultScl": new Vector3(1, 1, 1),
+
+        "monPos": new Vector3(-0.24, -0.185, -1.2),
+        "monRot": new Vector3(0, 0, 0),
+        "monScl": new Vector3(0.12, 0.07, 0.1),
+
+        "phnPos": new Vector3(-0.27, -1.2, -0.2),
+        "phnRot": new Vector3(0, 0, 0.05),
+        "phnScl": new Vector3(0.115, 0.06, 0.1),
+
+
         "ActiveText": "<",
         "DefaultText": "About Me",
     },
@@ -48,6 +74,18 @@ export var navButtonOBJs = [
                 lapWindows[i].style.visibility = "hidden";
             }
         },
+        "DefaultPos": new Vector3(2.65, 4.5, 3),
+        "DefaultRot": new Vector3(0, 0, 0),
+        "DefaultScl": new Vector3(1, 1, 1),
+
+        "monPos": new Vector3(0.235, -0.185, -1.2),
+        "monRot": new Vector3(0, 0, 0),
+        "monScl": new Vector3(0.18, 0.098, 0.2),
+
+        "lapPos": new Vector3(-0.45, -0.185, -1.2),
+        "lapRot": new Vector3(0, 0, 0),
+        "lapScl": new Vector3(0.2, 0.1, 0.1),
+
         "DefaultText": "Contact",
     },
     {

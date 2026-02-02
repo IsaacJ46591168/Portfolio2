@@ -177,32 +177,16 @@ const monitorButton = new THREE.Mesh(
   new THREE.BoxGeometry(2.73, 1.4, 0),
   new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.FrontSide, wireframe: true, transparent: true })
 );
-// const mBDefaultPos = new THREE.Vector3(0.085, 5.58, 3);
-// monitorButton.position.set(mBDefaultPos.x, mBDefaultPos.y, mBDefaultPos.z);
 monitorButton.name = "monNav";
 monitorButton.attach(projectText);
-// console.log(monitorButton.layers.mask);
 
 // Default Text Position
 projectText.position.set(-0.42, -0.05, 0);
 
-//Default View
-monitorButton.position.set(0.085, 5.58, 3);
-monitorButton.rotation.set(startingRot.x, startingRot.y, startingRot.z);
-
-// //Laptop View
-// monitorButton.position.set(laptopView.x - 0.66, laptopView.y + 0.18, laptopView.z - 1.2);
-// monitorButton.rotation.set(laptopRotation.x, laptopRotation.y, laptopRotation.z);
-// monitorButton.scale.set(0.07, 0.04, 0.1);
-
-//Phone View
-// monitorButton.position.set(phoneView.x - 0.22, phoneView.y - 1.2, phoneView.z - 0.4);
-// monitorButton.rotation.set(phoneRotation.x, phoneRotation.y, phoneRotation.z - 0.1);
-// monitorButton.scale.set(0.05, 0.03, 0.1);
+monitorButton.position.set(navButtonOBJs[0].DefaultPos.x, navButtonOBJs[0].DefaultPos.y, navButtonOBJs[0].DefaultPos.z,);
+monitorButton.rotation.set(0, 0, 0);
+monitorButton.scale.set(1, 1, 1);
 scene.add(monitorButton);
-
-
-
 
 
 //Laptop Button
@@ -224,21 +208,10 @@ laptopButton.name = "lapNav";
 laptopButton.attach(aboutText);
 
 aboutText.position.set(-0.49, -0.07, 0);
-const lBDefaultPos = new THREE.Vector3(-1.9, 4.95, 3);
 
-//Default View
-laptopButton.position.set(-1.9, 4.95, 3);
-laptopButton.rotation.set(startingRot.x, startingRot.y, startingRot.z);
-
-//Monitor View
-// laptopButton.position.set(monitorView.x - 0.24, monitorView.y - 0.185, monitorView.z - 1.2);
-// laptopButton.rotation.set(startingRot.x, startingRot.y, startingRot.z);
-// laptopButton.scale.set(0.12, 0.07, 0.1);
-
-//Phone View
-// laptopButton.position.set(phoneView.x - 0.27, phoneView.y - 1.2, phoneView.z - 0.2);
-// laptopButton.rotation.set(phoneRotation.x, phoneRotation.y, phoneRotation.z + 0.05);
-// laptopButton.scale.set(0.115, 0.06, 0.1);
+laptopButton.position.set(navButtonOBJs[1].DefaultPos.x, navButtonOBJs[1].DefaultPos.y, navButtonOBJs[1].DefaultPos.z,);
+laptopButton.rotation.set(0, 0, 0);
+laptopButton.scale.set(1, 1, 1);
 scene.add(laptopButton);
 
 
@@ -259,28 +232,14 @@ const phoneButton = new THREE.Mesh(
 );
 phoneButton.name = "phnNav";
 phoneButton.attach(contactText);
-// const pBDefaultPos = new THREE.Vector3(2.65, 4.5, 3);
-
 contactText.position.set(-0.41, -0.075, 0);
 
-//Default View
-phoneButton.position.set(2.65, 4.5, 3);
-phoneButton.rotation.set(startingRot.x, startingRot.y, startingRot.z);
-
-//Monitor View
-// phoneButton.position.set(monitorView.x + 0.235, monitorView.y - 0.185, monitorView.z - 1.2);
-// phoneButton.rotation.set(startingRot.x, startingRot.y, startingRot.z);
-// phoneButton.scale.set(0.18, 0.098, 0.2);
-
-//Laptop View
-// phoneButton.position.set(laptopView.x - 0.45, laptopView.y - 0.185, laptopView.z - 1.2);
-// phoneButton.rotation.set(laptopRotation.x, laptopRotation.y, laptopRotation.z);
-// phoneButton.scale.set(0.2, 0.1, 0.1);
+phoneButton.position.set(navButtonOBJs[2].DefaultPos.x, navButtonOBJs[2].DefaultPos.y, navButtonOBJs[2].DefaultPos.z,);
+phoneButton.rotation.set(0, 0, 0);
+phoneButton.scale.set(1, 1, 1);
 scene.add(phoneButton);
 
-
-// const navButtonArray = new Array(monitorButton, laptopButton, phoneButton);
-// const navTextArray = new Array(projectText, aboutText, contactText);
+const navButtonArray = new Array(monitorButton, laptopButton, phoneButton);
 
 
 window.addEventListener('click', (event) => {
@@ -292,16 +251,11 @@ window.addEventListener('click', (event) => {
 
   console.log(mouseNDC);
   mouseRayCast.setFromCamera(mouseNDC, camera);
-  // var buttonIntersection = mouseRayCast.intersectObjects(navButtonArray, false);
-  // var textIntersection = mouseRayCast.intersectObjects(navTextArray, false);
-  // if (buttonIntersection.length > 0) {
-  //   console.log(buttonIntersection[0].object.name);
-  //   NavButtonClick(buttonIntersection[0]);
-  // }
-  // if (textIntersection.length > 0) {
-  //   console.log(textIntersection[0].object.name);
-  //   NavButtonClick(textIntersection[0]);
-  // }
+  var buttonIntersection = mouseRayCast.intersectObjects(navButtonArray, false);
+  if (buttonIntersection.length > 0) {
+    console.log(buttonIntersection[0].object.name);
+    NavButtonClick(buttonIntersection[0]);
+  }
 })
 
 //camera animations
