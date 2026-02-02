@@ -46,8 +46,8 @@ camera.rotation.set(startingRot.x, startingRot.y, startingRot.z);
 // camera.position.set(monitorView.x, monitorView.y, monitorView.z);
 // camera.rotation.set(startingRot.x, startingRot.y, startingRot.z);
 
-camera.position.set(laptopView.x, laptopView.y, laptopView.z);
-camera.rotation.set(laptopRotation.x, laptopRotation.y, laptopRotation.z);
+// camera.position.set(laptopView.x, laptopView.y, laptopView.z);
+// camera.rotation.set(laptopRotation.x, laptopRotation.y, laptopRotation.z);
 
 // camera.position.set(phoneView.x, phoneView.y, phoneView.z);
 // camera.rotation.set(phoneRotation.x, phoneRotation.y, phoneRotation.z);
@@ -64,7 +64,7 @@ camera.rotation.set(laptopRotation.x, laptopRotation.y, laptopRotation.z);
 // controls.target = new THREE.Vector3(0, 6, 0)
 // controls.update();
 
-
+//Load Model into scene
 const loader = new GLTFLoader().setPath('DeskModel/')
 console.log('loader initialised');
 loader.load('portfolio2.gltf', (gltf) => { //Callback function (active when other one finishes)
@@ -157,121 +157,152 @@ const phoneHelper = new RectAreaLightHelper(phoneLight, 0xffffff);
 phoneLight.add(phoneHelper);
 
 
-//Navigation Buttons
-// const monitorButton = new THREE.Mesh(
-//   new THREE.BoxGeometry(2.73, 1.4, 0),
-//   new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.FrontSide, wireframe: false })
-// );
-// const mBDefaultPos = new THREE.Vector3(0.085, 5.58, 3);
-
-
-// monitorButton.position.set(mBDefaultPos.x, mBDefaultPos.y, mBDefaultPos.z);
-// monitorButton.name = "monNav";
-// scene.add(monitorButton);
-// console.log(monitorButton.layers.mask);
-
-
-// const laptopButton = new THREE.Mesh(
-//   new THREE.BoxGeometry(1.2, 0.7, 0),
-//   new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.FrontSide, wireframe: false })
-// );
-// const lBDefaultPos = new THREE.Vector3(-1.9, 4.95, 3);
-// laptopButton.position.set(lBDefaultPos.x, lBDefaultPos.y, lBDefaultPos.z);
-// laptopButton.name = "lapNav";
-// scene.add(laptopButton);
-
-// const phoneButton = new THREE.Mesh(
-//   new THREE.BoxGeometry(0.8, 0.5, 0),
-//   new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.FrontSide, wireframe: false })
-// );
-// const pBDefaultPos = new THREE.Vector3(2.65, 4.5, 3);
-// phoneButton.position.set(pBDefaultPos.x, pBDefaultPos.y, pBDefaultPos.z);
-// phoneButton.name = "phnNav";
-// scene.add(phoneButton);
-
-
-//Navigation text
+//Navigation button setup
+//Loading fonts for text
 const textLoader = new FontLoader();
 const font = await textLoader.loadAsync('/public/fonts/droid_sans_regular.typeface.json');
 
+//Monitor Button
 const projectText = new THREE.Mesh(
-  new TextGeometry('Projects >', {
-    size: 0.02,
+  new TextGeometry('Projects', {
+    size: 0.17,
     font: font,
     depth: 0
   }),
   new THREE.MeshStandardMaterial()
 )
-
-//Looking at laptop
-projectText.position.set(laptopView.x - 0.7, laptopView.y + 0.18, laptopView.z - 1.2);
-projectText.rotation.set(laptopRotation.x, laptopRotation.y, laptopRotation.z);
-
-//Looking at phone
-// projectText.position.set(phoneView.x - 0.28, phoneView.y - 1.2, phoneView.z - 0.4);
-// projectText.rotation.set(phoneRotation.x, phoneRotation.y, phoneRotation.z - 0.1)
-
 scene.add(projectText);
 
+const monitorButton = new THREE.Mesh(
+  new THREE.BoxGeometry(2.73, 1.4, 0),
+  new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.FrontSide, wireframe: true, transparent: true })
+);
+// const mBDefaultPos = new THREE.Vector3(0.085, 5.58, 3);
+// monitorButton.position.set(mBDefaultPos.x, mBDefaultPos.y, mBDefaultPos.z);
+monitorButton.name = "monNav";
+monitorButton.attach(projectText);
+// console.log(monitorButton.layers.mask);
 
-// const aboutText = new THREE.Mesh(
-//   new TextGeometry('< About Me', {
-//     size: 0.02,
-//     font: font,
-//     depth: 0
-//   }),
-//   new THREE.MeshStandardMaterial()
-// )
-// aboutText.position.set(pBActivePos.x, pBActivePos.y, pBActivePos.z);
-// aboutText.rotation.set(laptopRotation.x, laptopRotation.y, laptopRotation.z - 0.5);
+// Default Text Position
+projectText.position.set(-0.42, -0.05, 0);
 
-// //looking at monitor
-// aboutText.position.set(monitorView.x - 0.32, monitorView.y - 0.19, monitorView.z - 1.2);
-// aboutText.rotation.set(startingRot.x, startingRot.y, startingRot.z);
+//Default View
+monitorButton.position.set(0.085, 5.58, 3);
+monitorButton.rotation.set(startingRot.x, startingRot.y, startingRot.z);
 
-//looking at phone
-// aboutText.position.set(phoneView.x - 0.35, phoneView.y - 1.2, phoneView.z - 0.2);
-// aboutText.rotation.set(phoneRotation.x, phoneRotation.y, phoneRotation.z + 0.05);
-// scene.add(aboutText);
+// //Laptop View
+// monitorButton.position.set(laptopView.x - 0.66, laptopView.y + 0.18, laptopView.z - 1.2);
+// monitorButton.rotation.set(laptopRotation.x, laptopRotation.y, laptopRotation.z);
+// monitorButton.scale.set(0.07, 0.04, 0.1);
 
-const contactText = new THREE.Mesh(
-  new TextGeometry('Contact >', {
-    size: 0.02,
+//Phone View
+// monitorButton.position.set(phoneView.x - 0.22, phoneView.y - 1.2, phoneView.z - 0.4);
+// monitorButton.rotation.set(phoneRotation.x, phoneRotation.y, phoneRotation.z - 0.1);
+// monitorButton.scale.set(0.05, 0.03, 0.1);
+scene.add(monitorButton);
+
+
+
+
+
+//Laptop Button
+const aboutText = new THREE.Mesh(
+  new TextGeometry('About Me', {
+    size: 0.17,
     font: font,
     depth: 0
   }),
   new THREE.MeshStandardMaterial()
-)
+);
+scene.add(aboutText);
 
-// //Looking at laptop
-contactText.position.set(laptopView.x - 0.5, laptopView.y - 0.21, laptopView.z - 1.2);
-contactText.rotation.set(laptopRotation.x, laptopRotation.y, laptopRotation.z);
+const laptopButton = new THREE.Mesh(
+  new THREE.BoxGeometry(1.2, 0.7, 0),
+  new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.FrontSide, wireframe: true })
+);
+laptopButton.name = "lapNav";
+laptopButton.attach(aboutText);
 
-// //looking at monitor
-// contactText.position.set(monitorView.x + 0.25, monitorView.y - 0.18, monitorView.z - 1.2);
-// contactText.rotation.set(startingRot.x, startingRot.y, startingRot.z - 0.2);
+aboutText.position.set(-0.49, -0.07, 0);
+const lBDefaultPos = new THREE.Vector3(-1.9, 4.95, 3);
 
+//Default View
+laptopButton.position.set(-1.9, 4.95, 3);
+laptopButton.rotation.set(startingRot.x, startingRot.y, startingRot.z);
+
+//Monitor View
+// laptopButton.position.set(monitorView.x - 0.24, monitorView.y - 0.185, monitorView.z - 1.2);
+// laptopButton.rotation.set(startingRot.x, startingRot.y, startingRot.z);
+// laptopButton.scale.set(0.12, 0.07, 0.1);
+
+//Phone View
+// laptopButton.position.set(phoneView.x - 0.27, phoneView.y - 1.2, phoneView.z - 0.2);
+// laptopButton.rotation.set(phoneRotation.x, phoneRotation.y, phoneRotation.z + 0.05);
+// laptopButton.scale.set(0.115, 0.06, 0.1);
+scene.add(laptopButton);
+
+
+//Phone Button
+const contactText = new THREE.Mesh(
+  new TextGeometry('Contact', {
+    size: 0.17,
+    font: font,
+    depth: 0
+  }),
+  new THREE.MeshStandardMaterial()
+);
 scene.add(contactText);
 
+const phoneButton = new THREE.Mesh(
+  new THREE.BoxGeometry(0.8, 0.5, 0),
+  new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.BackSide, wireframe: true })
+);
+phoneButton.name = "phnNav";
+phoneButton.attach(contactText);
+// const pBDefaultPos = new THREE.Vector3(2.65, 4.5, 3);
+
+contactText.position.set(-0.41, -0.075, 0);
+
+//Default View
+phoneButton.position.set(2.65, 4.5, 3);
+phoneButton.rotation.set(startingRot.x, startingRot.y, startingRot.z);
+
+//Monitor View
+// phoneButton.position.set(monitorView.x + 0.235, monitorView.y - 0.185, monitorView.z - 1.2);
+// phoneButton.rotation.set(startingRot.x, startingRot.y, startingRot.z);
+// phoneButton.scale.set(0.18, 0.098, 0.2);
+
+//Laptop View
+// phoneButton.position.set(laptopView.x - 0.45, laptopView.y - 0.185, laptopView.z - 1.2);
+// phoneButton.rotation.set(laptopRotation.x, laptopRotation.y, laptopRotation.z);
+// phoneButton.scale.set(0.2, 0.1, 0.1);
+scene.add(phoneButton);
 
 
 // const navButtonArray = new Array(monitorButton, laptopButton, phoneButton);
+// const navTextArray = new Array(projectText, aboutText, contactText);
 
-// window.addEventListener('click', (event) => {
-//   var mouseRayCast = new THREE.Raycaster();
-//   var mouseNDC = new THREE.Vector2(
-//     (event.clientX / window.innerWidth) * 2 - 1,
-//     - (event.clientY / window.innerHeight) * 2 + 1
-//   );
 
-//   console.log(mouseNDC);
-//   mouseRayCast.setFromCamera(mouseNDC, camera);
-//   var intersection = mouseRayCast.intersectObjects(navButtonArray, false);
-//   if (intersection.length > 0) {
-//     console.log(intersection[0].object.name);
-//     NavButtonClick(intersection[0]);
-//   }
-// })
+window.addEventListener('click', (event) => {
+  var mouseRayCast = new THREE.Raycaster();
+  var mouseNDC = new THREE.Vector2(
+    (event.clientX / window.innerWidth) * 2 - 1,
+    - (event.clientY / window.innerHeight) * 2 + 1
+  );
+
+  console.log(mouseNDC);
+  mouseRayCast.setFromCamera(mouseNDC, camera);
+  // var buttonIntersection = mouseRayCast.intersectObjects(navButtonArray, false);
+  // var textIntersection = mouseRayCast.intersectObjects(navTextArray, false);
+  // if (buttonIntersection.length > 0) {
+  //   console.log(buttonIntersection[0].object.name);
+  //   NavButtonClick(buttonIntersection[0]);
+  // }
+  // if (textIntersection.length > 0) {
+  //   console.log(textIntersection[0].object.name);
+  //   NavButtonClick(textIntersection[0]);
+  // }
+})
 
 //camera animations
 const camAnimations = new Group();
