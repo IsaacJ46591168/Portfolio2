@@ -1,16 +1,16 @@
 import * as THREE from 'three'
 import { Tween, Group } from '@tweenjs/tween.js'
-import { navButtonArray } from './main';
 export var currentlyAnim = false;
 
-export function ToTarget(targetPosition, targetRotation, camera, animGroup, duration, htmlEnable) {
+export function ToTarget(targetPosition, targetRotation, camera, animGroup, duration, htmlEnable, activeButtons) {
     var curCamPosition = new THREE.Vector3().copy(camera.position);
     var curCamRotation = new THREE.Vector3().copy(camera.rotation);
 
     currentlyAnim = true;
-    for (var i = 0; i < navButtonArray.length; i++) {
-        navButtonArray[i].layers.set(10);
-        navButtonArray[i].children[0].layers.set(10);
+    for (var i = 0; i < activeButtons.length; i++) {
+        activeButtons[i].layers.set(10);
+        activeButtons[i].children[0].layers.set(10);
+        console.log(activeButtons[i]);
     }
 
 
@@ -23,10 +23,9 @@ export function ToTarget(targetPosition, targetRotation, camera, animGroup, dura
             camera.position.set(targetPosition.x, targetPosition.y, targetPosition.z);
             htmlEnable.style.visibility = "visible";
             currentlyAnim = false;
-            for (var i = 0; i < navButtonArray.length; i++) {
-                navButtonArray[i].layers.set(0);
-                navButtonArray[i].children[0].layers.set(0);
-                console.log(navButtonArray[i].layers.mask);
+            for (var i = 0; i < activeButtons.length; i++) {
+                activeButtons[i].layers.set(0);
+                activeButtons[i].children[0].layers.set(0);
             }
         })
         .start();

@@ -577,21 +577,21 @@ var monitorHTML = document.getElementById("monitorDisplay");
 var laptopHTML = document.getElementById("laptopDisplay");
 var phoneHTML = document.getElementById("phoneDisplay");
 
+var activeButtons = new Array();
 function NavButtonClick(curButton) {
-  for (i = 0; i < navButtonOBJs.length; i++) {
-    if (curButton.object.name == navButtonOBJs[i].id) {
-      navButtonOBJs[i].MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML);
-      // curButton.object.layers.set(10);
-      // curButton.object.children[0].layers.set(10);
+  var curButtonOBJ;
+  if (!currentlyAnim) {
+    for (i = 0; i < navButtonArray.length; i++) {
+      if (curButton.object.name != navButtonOBJs[i].id) {
+        activeButtons.push(navButtonArray[i])
+      } else {
+        curButtonOBJ = navButtonOBJs[i];
+        curButton.object.layers.set(10);
+        curButton.object.children[0].layers.set(10);
+      }
     }
+    curButtonOBJ.MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML, activeButtons);
   }
-
-  // if (!currentlyAnim) {
-  //   if (this.id == "defaultNav") {
-  //     ResetNavButtons(visibleButtons, navButtonOBJs);
-  //   }
-  //   clickedButton.MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML, visibleButtons);
-  // }
 }
 //TODO: Make more efficient (Doesn't need to be called every time as only one of the 4 buttons actually move between locations)
 function ChangeButtonVis(activeButton, curButtonHTML, curButtonObj) {
