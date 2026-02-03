@@ -13,7 +13,6 @@ export function ToTarget(targetPosition, targetRotation, camera, animGroup, dura
         console.log(activeButtons[i]);
     }
 
-
     const toTarget = new Tween(curCamPosition)
         .to(targetPosition, duration)
         .onUpdate(function () {

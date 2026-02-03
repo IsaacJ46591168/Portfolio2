@@ -253,7 +253,6 @@ window.addEventListener('click', (event) => {
   mouseRayCast.setFromCamera(mouseNDC, camera);
   var buttonIntersection = mouseRayCast.intersectObjects(navButtonArray, false);
   if (buttonIntersection.length > 0) {
-    console.log(buttonIntersection[0].object.name);
     NavButtonClick(buttonIntersection[0]);
   }
 })
@@ -577,36 +576,58 @@ var monitorHTML = document.getElementById("monitorDisplay");
 var laptopHTML = document.getElementById("laptopDisplay");
 var phoneHTML = document.getElementById("phoneDisplay");
 
-var activeButtons = new Array();
 function NavButtonClick(curButton) {
+  var activeButtons = new Array();
   var curButtonOBJ;
   if (!currentlyAnim) {
     for (i = 0; i < navButtonArray.length; i++) {
       if (curButton.object.name != navButtonOBJs[i].id) {
-        activeButtons.push(navButtonArray[i])
+        activeButtons.push(navButtonArray[i]);
       } else {
         curButtonOBJ = navButtonOBJs[i];
         curButton.object.layers.set(10);
         curButton.object.children[0].layers.set(10);
       }
     }
+
+    ChangeActiveButtons(curButton.object.name, activeButtons);
     curButtonOBJ.MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML, activeButtons);
   }
 }
-//TODO: Make more efficient (Doesn't need to be called every time as only one of the 4 buttons actually move between locations)
-function ChangeButtonVis(activeButton, curButtonHTML, curButtonObj) {
-  curButtonHTML.style.top = curButtonObj.ActiveTPos;
-  curButtonHTML.style.width = curButtonObj.ActiveWidth;
-  curButtonHTML.style.height = curButtonObj.ActiveHeight;
-  curButtonHTML.firstElementChild.firstElementChild.innerText = curButtonObj.ActiveText;
-  curButtonHTML.firstElementChild.firstElementChild.style.display = "block";
+//TODO: Make more efficient (Long if/else statements are cringe)
+function ChangeActiveButtons(clickedButton, activeButtonArray) {
+  console.log(clickedButton.substring(0, 3));
 
-  if (activeButton == "lapNav" && curButtonObj.id == "monNav") {
-    curButtonHTML.style.left = curButtonObj.ActiveLPosAlt;
-    curButtonHTML.firstElementChild.firstElementChild.innerText = curButtonObj.ActiveTextAlt;
-  } else {
-    curButtonHTML.style.left = curButtonObj.ActiveLPos;
+  for (i = 0; i < activeButtonArray.length; i++) {
+    var activeButtonPrefix = activeButtonArray[i].name.substring(0, 3);
+    for (var k = 0; k < navButtonOBJs.length; k++) {
+      if (activeButtonPrefix == navButtonOBJs[k].id.substring(0, 3)) {
+        if (clickedButton.substring(0, 3) == "mon") {
+          activeButtonArray[i].position.set(monitorView.x + navButtonOBJs[k].monPos.x, monitorView.y + navButtonOBJs[k].monPos.y, monitorView.z + navButtonOBJs[k].monPos.z,);
+          activeButtonArray[i].rotation.set(startingRot.x + navButtonOBJs[k].monRot.x, startingRot.y + navButtonOBJs[k].monRot.y, startingRot.z + navButtonOBJs[k].monRot.z,);
+          activeButtonArray[i].scale.set(navButtonOBJs[k].monScl.x, navButtonOBJs[k].monScl.y, navButtonOBJs[k].monScl.z,);
+
+        } else if (clickedButton.substring(0, 3) == "lap") {
+          activeButtonArray[i].position.set(laptopView.x + navButtonOBJs[k].lapPos.x, laptopView.y + navButtonOBJs[k].lapPos.y, laptopView.z + navButtonOBJs[k].lapPos.z,);
+          activeButtonArray[i].rotation.set(laptopRotation.x + navButtonOBJs[k].lapRot.x, laptopRotation.y + navButtonOBJs[k].lapRot.y, laptopRotation.z + navButtonOBJs[k].lapRot.z,);
+          activeButtonArray[i].scale.set(navButtonOBJs[k].lapScl.x, navButtonOBJs[k].lapScl.y, navButtonOBJs[k].lapScl.z,);
+        } else {
+          activeButtonArray[i].position.set(phoneView.x + navButtonOBJs[k].phnPos.x, phoneView.y + navButtonOBJs[k].phnPos.y, phoneView.z + navButtonOBJs[k].phnPos.z,);
+          activeButtonArray[i].rotation.set(phoneRotation.x + navButtonOBJs[k].phnRot.x, phoneRotation.y + navButtonOBJs[k].phnRot.y, phoneRotation.z + navButtonOBJs[k].phnRot.z,);
+          activeButtonArray[i].scale.set(navButtonOBJs[k].phnScl.x, navButtonOBJs[k].phnScl.y, navButtonOBJs[k].phnScl.z,);
+        }
+      }
+    }
   }
+
+
+
+  // if (activeButton == "lapNav" && curButtonObj.id == "monNav") {
+  //   curButtonHTML.style.left = curButtonObj.ActiveLPosAlt;
+  //   curButtonHTML.firstElementChild.firstElementChild.innerText = curButtonObj.ActiveTextAlt;
+  // } else {
+  //   curButtonHTML.style.left = curButtonObj.ActiveLPos;
+  // }
 }
 
 function ResetNavButtons(buttonsHTML, buttonOBJs) {
