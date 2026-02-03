@@ -282,6 +282,10 @@ const camAnimations = new Group();
 export var contentWindows = document.getElementsByClassName("contentWrapper");
 
 //Adding click events to all buttons
+//Button to go back to the default view
+var backButton = document.getElementById("backNav");
+backButton.addEventListener('click', ResetNavButtons);
+
 //Button to remove all content from monitor
 var monitorHome = document.getElementById("pHome");
 monitorHome.addEventListener('click', HideMonContent);
@@ -602,7 +606,7 @@ function NavButtonClick(curButton) {
         curButton.object.children[0].layers.set(10);
       }
     }
-
+    backButton.style.visibility = "visible";
     ChangeActiveButtons(curButton.object.name, activeButtons);
     curButtonOBJ.MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML, activeButtons);
   }
@@ -641,25 +645,17 @@ function ChangeActiveButtons(clickedButton, activeButtonArray) {
       }
     }
   }
-
-
-
-  // if (activeButton == "lapNav" && curButtonObj.id == "monNav") {
-  //   curButtonHTML.style.left = curButtonObj.ActiveLPosAlt;
-  //   curButtonHTML.firstElementChild.firstElementChild.innerText = curButtonObj.ActiveTextAlt;
-  // } else {
-  //   curButtonHTML.style.left = curButtonObj.ActiveLPos;
-  // }
 }
 
-function ResetNavButtons(buttonsHTML, buttonOBJs) {
-  for (i = 0; i < buttonsHTML.length; i++) {
-    buttonsHTML[i].style.top = buttonOBJs[i].DefaultTPos;
-    buttonsHTML[i].style.left = buttonOBJs[i].DefaultLPos;
-    buttonsHTML[i].style.width = buttonOBJs[i].DefaultWidth;
-    buttonsHTML[i].style.height = buttonOBJs[i].DefaultHeight;
-    buttonsHTML[i].firstElementChild.firstElementChild.innerText = buttonOBJs[i].DefaultText;
-    buttonsHTML[i].firstElementChild.firstElementChild.style.display = "";
+function ResetNavButtons() {
+  if (!currentlyAnim) {
+    this.style.visibility = "hidden";
+    for (i = 0; i < navButtonArray.length; i++) {
+      navButtonArray[i].position.set(navButtonOBJs[i].DefaultPos.x, navButtonOBJs[i].DefaultPos.y, navButtonOBJs[i].DefaultPos.z);
+      navButtonArray[i].rotation.set(startingRot.x, startingRot.y, startingRot.z);
+      navButtonArray[i].scale.set(1, 1, 1);
+    }
+    navButtonOBJs[3].MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML, navButtonArray);
   }
 }
 

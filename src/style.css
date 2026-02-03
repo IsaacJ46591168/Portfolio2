@@ -46,48 +46,17 @@ canvas {
   border: solid 1px greenyellow;
 }
 
-#monNav {
-  top: 43.6%;
-  left: 620px;
-  /* left: 413.44px; */
-
-  right: 0;
-
-  width: 625px;
-  height: 30.7vh;
-}
-
-#lapNav {
-  top: 65.5%;
-  left: 355px;
-
-  bottom: 0;
-
-  width: 260px;
-  height: 15vh;
-}
-
-#phnNav {
-  top: 79.5%;
-  left: 1465px;
-
-  right: 0;
-  bottom: 0;
-
-  width: 115px;
-  height: 7vh;
-}
-
-#defaultNav {
+#backNav {
   top: auto;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
 
-  width: 1200px;
-  height: 150px;
+  width: 200px;
+  height: 120px;
 
   visibility: hidden;
+  border: solid 1px green;
 }
 
 .hoverTextWrapper {

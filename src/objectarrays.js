@@ -123,12 +123,7 @@ export var navButtonOBJs = [
             }
 
             phnHTML.style.visibility = "hidden";
-        },
-        "ActiveTPos": 'auto',
-        "ActiveLPos": 50 + '%',
-        "ActiveWidth": 350 + 'px',
-        "ActiveHeight": 14 + 'vh',
-        "ActiveText": "V"
+        }
     }
 ]
 

@@ -43,11 +43,16 @@ export function ToTarget(targetPosition, targetRotation, camera, animGroup, dura
     animGroup.add(toTargetRot);
 }
 
-export function ToDefault(targetPosition, targetRotation, camera, animGroup, duration, navButtons) {
+export function ToDefault(targetPosition, targetRotation, camera, animGroup, duration, activeButtons) {
     var curCamPosition = new THREE.Vector3().copy(camera.position);
     var curCamRotation = new THREE.Vector3().copy(camera.rotation);
 
     currentlyAnim = true;
+    for (var i = 0; i < activeButtons.length; i++) {
+        activeButtons[i].layers.set(10);
+        activeButtons[i].children[0].layers.set(10);
+        console.log(activeButtons[i]);
+    }
     const toDefault = new Tween(curCamPosition)
         .to(targetPosition, duration)
         .onUpdate(function () {
@@ -56,9 +61,10 @@ export function ToDefault(targetPosition, targetRotation, camera, animGroup, dur
         .onComplete(function () {
             camera.position.set(targetPosition.x, targetPosition.y, targetPosition.z);
             currentlyAnim = false;
-            navButtons[0].style.visibility = "visible";
-            navButtons[1].style.visibility = "visible";
-            navButtons[2].style.visibility = "visible";
+            for (var i = 0; i < activeButtons.length; i++) {
+                activeButtons[i].layers.set(0);
+                activeButtons[i].children[0].layers.set(0);
+            }
         })
         .start();
     animGroup.add(toDefault);
