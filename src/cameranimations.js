@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import { backButton } from './main';
 import { Tween, Group } from '@tweenjs/tween.js'
 export var currentlyAnim = false;
 
@@ -12,6 +13,7 @@ export function ToTarget(targetPosition, targetRotation, camera, animGroup, dura
         activeButtons[i].children[0].layers.set(10);
         console.log(activeButtons[i]);
     }
+    backButton.style.visibility = "hidden";
 
     const toTarget = new Tween(curCamPosition)
         .to(targetPosition, duration)
@@ -26,6 +28,7 @@ export function ToTarget(targetPosition, targetRotation, camera, animGroup, dura
                 activeButtons[i].layers.set(0);
                 activeButtons[i].children[0].layers.set(0);
             }
+            backButton.style.visibility = "visible";
         })
         .start();
     animGroup.add(toTarget);

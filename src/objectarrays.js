@@ -17,6 +17,7 @@ export var navButtonOBJs = [
         "DefaultPos": new Vector3(0.085, 5.58, 3),
         "DefaultRot": new Vector3(0, 0, 0),
         "DefaultScl": new Vector3(1, 1, 1),
+        "DefTextXPos": -0.42,
 
         "lapPos": new Vector3(-0.66, 0.18, -1.2),
         "lapRot": new Vector3(0, 0, 0),
@@ -51,6 +52,7 @@ export var navButtonOBJs = [
         "DefaultPos": new Vector3(-1.9, 4.95, 3),
         "DefaultRot": new Vector3(0, 0, 0),
         "DefaultScl": new Vector3(1, 1, 1),
+        "DefTextXPos": -0.49,
 
         "monPos": new Vector3(-0.24, -0.185, -1.2),
         "monRot": new Vector3(0, 0, 0),
@@ -89,6 +91,7 @@ export var navButtonOBJs = [
         "DefaultPos": new Vector3(2.65, 4.5, 3),
         "DefaultRot": new Vector3(0, 0, 0),
         "DefaultScl": new Vector3(1, 1, 1),
+        "DefTextXPos": -0.41,
 
         "monPos": new Vector3(0.235, -0.185, -1.2),
         "monRot": new Vector3(0, 0, 0),

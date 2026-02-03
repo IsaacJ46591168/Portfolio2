@@ -56,7 +56,6 @@ canvas {
   height: 120px;
 
   visibility: hidden;
-  border: solid 1px green;
 }
 
 .hoverTextWrapper {

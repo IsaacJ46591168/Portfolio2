@@ -283,7 +283,7 @@ export var contentWindows = document.getElementsByClassName("contentWrapper");
 
 //Adding click events to all buttons
 //Button to go back to the default view
-var backButton = document.getElementById("backNav");
+export var backButton = document.getElementById("backNav");
 backButton.addEventListener('click', ResetNavButtons);
 
 //Button to remove all content from monitor
@@ -654,6 +654,9 @@ function ResetNavButtons() {
       navButtonArray[i].position.set(navButtonOBJs[i].DefaultPos.x, navButtonOBJs[i].DefaultPos.y, navButtonOBJs[i].DefaultPos.z);
       navButtonArray[i].rotation.set(startingRot.x, startingRot.y, startingRot.z);
       navButtonArray[i].scale.set(1, 1, 1);
+
+      navButtonArray[i].children[0].position.setX(navButtonOBJs[i].DefTextXPos);
+      navButtonArray[i].children[0].scale.set(1, 1, 1);
     }
     navButtonOBJs[3].MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML, navButtonArray);
   }
