@@ -241,21 +241,34 @@ scene.add(phoneButton);
 
 export const navButtonArray = new Array(monitorButton, laptopButton, phoneButton);
 
+window.addEventListener('mousemove', (event) => {
+  var raycast = GenerateRayCast(event);
+  var buttonHover = raycast.intersectObjects(navButtonArray, false);
+  if (buttonHover.length > 0) {
+    document.body.style.cursor = "pointer";
+  } else {
+    document.body.style.cursor = "default";
+  }
+})
+
 
 window.addEventListener('click', (event) => {
-  var mouseRayCast = new THREE.Raycaster();
-  var mouseNDC = new THREE.Vector2(
-    (event.clientX / window.innerWidth) * 2 - 1,
-    - (event.clientY / window.innerHeight) * 2 + 1
-  );
-
-  console.log(mouseNDC);
-  mouseRayCast.setFromCamera(mouseNDC, camera);
-  var buttonIntersection = mouseRayCast.intersectObjects(navButtonArray, false);
+  var raycast = GenerateRayCast(event);
+  var buttonIntersection = raycast.intersectObjects(navButtonArray, false);
   if (buttonIntersection.length > 0) {
     NavButtonClick(buttonIntersection[0]);
   }
 })
+
+function GenerateRayCast(event) {
+  var mouseRayCast = new THREE.Raycaster();
+  var coordinates = new THREE.Vector2(
+    (event.clientX / window.innerWidth) * 2 - 1,
+    - (event.clientY / window.innerHeight) * 2 + 1
+  );
+  mouseRayCast.setFromCamera(coordinates, camera);
+  return mouseRayCast;
+}
 
 //camera animations
 const camAnimations = new Group();
@@ -594,7 +607,7 @@ function NavButtonClick(curButton) {
     curButtonOBJ.MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML, activeButtons);
   }
 }
-//TODO: Make more efficient (Long if/else statements are cringe)
+//TODO: Make more efficient (This would get me fired from anywhere but at least it works)
 function ChangeActiveButtons(clickedButton, activeButtonArray) {
   console.log(clickedButton.substring(0, 3));
 
@@ -607,14 +620,23 @@ function ChangeActiveButtons(clickedButton, activeButtonArray) {
           activeButtonArray[i].rotation.set(startingRot.x + navButtonOBJs[k].monRot.x, startingRot.y + navButtonOBJs[k].monRot.y, startingRot.z + navButtonOBJs[k].monRot.z,);
           activeButtonArray[i].scale.set(navButtonOBJs[k].monScl.x, navButtonOBJs[k].monScl.y, navButtonOBJs[k].monScl.z,);
 
+          activeButtonArray[i].children[0].position.setX(navButtonOBJs[k].monTextPos);
+          activeButtonArray[i].children[0].scale.set(navButtonOBJs[k].monTextScl.x, navButtonOBJs[k].monTextScl.y, navButtonOBJs[k].monTextScl.z);
+
         } else if (clickedButton.substring(0, 3) == "lap") {
           activeButtonArray[i].position.set(laptopView.x + navButtonOBJs[k].lapPos.x, laptopView.y + navButtonOBJs[k].lapPos.y, laptopView.z + navButtonOBJs[k].lapPos.z,);
           activeButtonArray[i].rotation.set(laptopRotation.x + navButtonOBJs[k].lapRot.x, laptopRotation.y + navButtonOBJs[k].lapRot.y, laptopRotation.z + navButtonOBJs[k].lapRot.z,);
           activeButtonArray[i].scale.set(navButtonOBJs[k].lapScl.x, navButtonOBJs[k].lapScl.y, navButtonOBJs[k].lapScl.z,);
+
+          activeButtonArray[i].children[0].position.setX(navButtonOBJs[k].lapTextPos);
+          activeButtonArray[i].children[0].scale.set(navButtonOBJs[k].lapTextScl.x, navButtonOBJs[k].lapTextScl.y, navButtonOBJs[k].lapTextScl.z);
         } else {
           activeButtonArray[i].position.set(phoneView.x + navButtonOBJs[k].phnPos.x, phoneView.y + navButtonOBJs[k].phnPos.y, phoneView.z + navButtonOBJs[k].phnPos.z,);
           activeButtonArray[i].rotation.set(phoneRotation.x + navButtonOBJs[k].phnRot.x, phoneRotation.y + navButtonOBJs[k].phnRot.y, phoneRotation.z + navButtonOBJs[k].phnRot.z,);
           activeButtonArray[i].scale.set(navButtonOBJs[k].phnScl.x, navButtonOBJs[k].phnScl.y, navButtonOBJs[k].phnScl.z,);
+
+          activeButtonArray[i].children[0].position.setX(navButtonOBJs[k].phnTextPos);
+          activeButtonArray[i].children[0].scale.set(navButtonOBJs[k].phnTextScl.x, navButtonOBJs[k].phnTextScl.y, navButtonOBJs[k].phnTextScl.z);
         }
       }
     }
