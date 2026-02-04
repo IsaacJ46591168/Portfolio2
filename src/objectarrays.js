@@ -1,5 +1,5 @@
 import { Vector3 } from 'three';
-import { ToDefault, ToTarget } from './cameranimations';
+import { ToDefault, ToTarget } from './tweenanimations';
 import { startingPos, startingRot, monitorView, laptopView, laptopRotation, phoneView, phoneRotation } from './main';
 export var navButtonOBJs = [
     {
@@ -19,19 +19,16 @@ export var navButtonOBJs = [
         "DefaultScl": new Vector3(1, 1, 1),
         "DefTextXPos": -0.42,
 
+        "activeScl": new Vector3(0.07, 0.04, 0.1),
+        "activeTextPos": -0.55,
+        "activeTextScl": new Vector3(1.35, 2.2, 1),
+
         "lapPos": new Vector3(-0.66, 0.18, -1.2),
         "lapRot": new Vector3(0, 0, 0),
-        "lapScl": new Vector3(0.07, 0.04, 0.1),
-
-        "lapTextPos": -0.65,
-        "lapTextScl": new Vector3(1.7, 2.2, 1),
 
         "phnPos": new Vector3(-0.22, -1.2, -0.4),
         "phnRot": new Vector3(0, 0, -0.1),
-        "phnScl": new Vector3(0.05, 0.03, 0.1),
 
-        "phnTextPos": -0.8,
-        "phnTextScl": new Vector3(1.9, 2.5, 1),
 
         "ActiveText": "<",
         "ActiveTextAlt": ">",
@@ -54,20 +51,15 @@ export var navButtonOBJs = [
         "DefaultScl": new Vector3(1, 1, 1),
         "DefTextXPos": -0.49,
 
+        "activeScl": new Vector3(0.12, 0.07, 0.1),
+        "activeTextPos": -0.32,
+        "activeTextScl": new Vector3(0.6, 1, 1),
+
         "monPos": new Vector3(-0.24, -0.185, -1.2),
         "monRot": new Vector3(0, 0, 0),
-        "monScl": new Vector3(0.12, 0.07, 0.1),
-
-        "monTextPos": -0.42,
-        "monTextScl": new Vector3(0.8, 1, 1),
 
         "phnPos": new Vector3(-0.27, -1.2, -0.2),
         "phnRot": new Vector3(0, 0, 0.05),
-        "phnScl": new Vector3(0.115, 0.06, 0.1),
-
-        "phnTextPos": -0.4,
-        "phnTextScl": new Vector3(0.8, 1.2, 1),
-
 
         "ActiveText": "<",
         "DefaultText": "About Me",
@@ -93,19 +85,15 @@ export var navButtonOBJs = [
         "DefaultScl": new Vector3(1, 1, 1),
         "DefTextXPos": -0.41,
 
+        "activeScl": new Vector3(0.18, 0.098, 0.2),
+        "activeTextPos": -0.2,
+        "activeTextScl": new Vector3(0.45, 0.8, 1),
+
         "monPos": new Vector3(0.235, -0.185, -1.2),
         "monRot": new Vector3(0, 0, 0),
-        "monScl": new Vector3(0.18, 0.098, 0.2),
-
-        "monTextPos": -0.25,
-        "monTextScl": new Vector3(0.6, 0.8, 1),
 
         "lapPos": new Vector3(-0.45, -0.185, -1.2),
         "lapRot": new Vector3(0, 0, 0),
-        "lapScl": new Vector3(0.2, 0.1, 0.1),
-
-        "lapTextPos": -0.25,
-        "lapTextScl": new Vector3(0.6, 0.9, 1),
 
         "DefaultText": "Contact",
     },
@@ -124,7 +112,6 @@ export var navButtonOBJs = [
             for (var i = 0; i < lapWindows.length; i++) {
                 lapWindows[i].style.visibility = "hidden";
             }
-
             phnHTML.style.visibility = "hidden";
         }
     }
@@ -251,7 +238,7 @@ export var projectOBJs = [
         "StudioBackground": "rgba(0, 0, 0, 1)",
         "Release": "Finished: 2020",
         "Link": "Not-available-right-now.",
-        "About": "A 3D Game putting your flight skills to the test!. Twist, Turn and soar your way around around the stage, flying through all of the rings in order to make it to the finish line!",
+        "About": "A 3D Game putting your flight skills to the test! Twist, Turn and soar your way around around the stage, flying through all of the rings in order to make it to the finish line!",
         "RoleAct": "My first, and so far only, solo project which I made for my final assignment for my industrial tech class in Year 12. Developing it solo was a huge learning curve, given that I was responsible for almost everything that went into it, and especially as I had never programmed anything before at the time. In general though, I tried to keep the flying mechanics to a more arcade-y level, as my inspiration was Pilotwings on the NES, and trying to make realistic plane physics with no prior progamming experience would not have ended well.",
         "BackgroundCol": "rgba(255, 255, 255, 1)",
         "TextCol": "rgba(0, 0, 0, 1)",

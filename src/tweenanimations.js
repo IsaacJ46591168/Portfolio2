@@ -3,6 +3,7 @@ import { backButton } from './main';
 import { Tween, Group } from '@tweenjs/tween.js'
 export var currentlyAnim = false;
 
+//#region Camera movement functions
 export function ToTarget(targetPosition, targetRotation, camera, animGroup, duration, htmlEnable, activeButtons) {
     var curCamPosition = new THREE.Vector3().copy(camera.position);
     var curCamRotation = new THREE.Vector3().copy(camera.rotation);
@@ -84,3 +85,31 @@ export function ToDefault(targetPosition, targetRotation, camera, animGroup, dur
 
     animGroup.add(toDefaultRot);
 }
+//#end region
+
+//#region Scale Animations
+export function TextGrow(textObject, targetPos, targetScale, duration, animGroup) {
+    const toTargetPos = new Tween(textObject.position)
+        .to(targetPos, duration)
+        .onUpdate(function () {
+            textObject.position.set(textObject.position.x, textObject.position.y, textObject.position.z);
+        })
+        .onComplete(function () {
+            textObject.position.set(targetPos.x, targetPos.y, targetPos.z);
+        })
+        .start();
+    animGroup.add(toTargetPos);
+
+
+    const toTargetScale = new Tween(textObject.scale)
+        .to(targetScale, duration)
+        .onUpdate(function () {
+            textObject.scale.set(textObject.scale.x, textObject.scale.y, textObject.scale.z);
+        })
+        .onComplete(function () {
+            textObject.scale.set(targetScale.x, targetScale.y, targetScale.z);
+        })
+        .start();
+    animGroup.add(toTargetScale);
+}
+

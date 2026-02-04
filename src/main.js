@@ -5,7 +5,7 @@ import { TTFLoader } from 'three/addons/loaders/TTFLoader.js';
 import './style.css'
 import * as THREE from 'three'
 import { Tween, Group } from '@tweenjs/tween.js'
-import { ToTarget, currentlyAnim } from './cameranimations';
+import { ToTarget, currentlyAnim, TextGrow } from './tweenanimations';
 import { projectOBJs, smallProjectOBJs, projectLinkOBJs, aboutWindowsOBJs, funFacts, contactLinkOBJs, windowRatios, navButtonOBJs } from './objectarrays';
 
 //#region ThreeJS Setup
@@ -169,13 +169,13 @@ const projectText = new THREE.Mesh(
     font: font,
     depth: 0
   }),
-  new THREE.MeshStandardMaterial()
-)
+  new THREE.MeshBasicMaterial({ color: 0xababab })
+);
 scene.add(projectText);
 
 const monitorButton = new THREE.Mesh(
-  new THREE.BoxGeometry(2.73, 1.4, 0),
-  new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.FrontSide, wireframe: true, transparent: true })
+  new THREE.BoxGeometry(2.55, 1.4, 0),
+  new THREE.MeshBasicMaterial({ color: 0xffffff, side: THREE.FrontSide, wireframe: true, transparent: true, opacity: 0 })
 );
 monitorButton.name = "monNav";
 monitorButton.attach(projectText);
@@ -196,14 +196,15 @@ const aboutText = new THREE.Mesh(
     font: font,
     depth: 0
   }),
-  new THREE.MeshStandardMaterial()
+  new THREE.MeshBasicMaterial({ color: 0xababab })
 );
 scene.add(aboutText);
 
 const laptopButton = new THREE.Mesh(
-  new THREE.BoxGeometry(1.2, 0.7, 0),
-  new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.FrontSide, wireframe: true })
+  new THREE.BoxGeometry(1.1, 0.7, 0),
+  new THREE.MeshBasicMaterial({ color: 0xffffff, side: THREE.FrontSide, wireframe: true, transparent: true, opacity: 0 })
 );
+
 laptopButton.name = "lapNav";
 laptopButton.attach(aboutText);
 
@@ -222,13 +223,13 @@ const contactText = new THREE.Mesh(
     font: font,
     depth: 0
   }),
-  new THREE.MeshStandardMaterial()
+  new THREE.MeshBasicMaterial({ color: 0xababab })
 );
 scene.add(contactText);
 
 const phoneButton = new THREE.Mesh(
   new THREE.BoxGeometry(0.8, 0.5, 0),
-  new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.BackSide, wireframe: true })
+  new THREE.MeshBasicMaterial({ color: 0xffffff, side: THREE.BackSide, wireframe: true, transparent: true, opacity: 0 })
 );
 phoneButton.name = "phnNav";
 phoneButton.attach(contactText);
@@ -241,13 +242,30 @@ scene.add(phoneButton);
 
 export const navButtonArray = new Array(monitorButton, laptopButton, phoneButton);
 
+// var isHovering = false;
+var prevButton;
 window.addEventListener('mousemove', (event) => {
   var raycast = GenerateRayCast(event);
   var buttonHover = raycast.intersectObjects(navButtonArray, false);
   if (buttonHover.length > 0) {
     document.body.style.cursor = "pointer";
+    var curButton = buttonHover[0];
+    curButton.object.children[0].material.color.setHex(0x3c6080);
+
+    prevButton = curButton;
+
+    // var scaleTarget = new THREE.Vector3(buttonHover[0].object.children[0].scale.x + 0.2, buttonHover[0].object.children[0].scale.y + 0.2, 0);
+    // var posTarget = new THREE.Vector3(buttonHover[0].object.children[0].position.x - 0.12, buttonHover[0].object.children[0].position.y, buttonHover[0].object.children[0].position.z);
+    // if (!isHovering) {
+    //   isHovering = true;
+    //   TextGrow(buttonHover[0].object.children[0], posTarget, scaleTarget, 200, animationsGroup);
+    // }
   } else {
     document.body.style.cursor = "default";
+    if (prevButton) {
+      prevButton.object.children[0].material.color.setHex(0xababab);
+    }
+    // isHovering = false;
   }
 })
 
@@ -270,14 +288,14 @@ function GenerateRayCast(event) {
   return mouseRayCast;
 }
 
-//camera animations
-const camAnimations = new Group();
+//animations
+const animationsGroup = new Group();
+
 //#endregion
 
 
 
 //#region Website Functionality
-
 //Array of each window wrapper to be resized when resizing the actual website (hopefully everything else just falls into place)
 export var contentWindows = document.getElementsByClassName("contentWrapper");
 
@@ -608,7 +626,7 @@ function NavButtonClick(curButton) {
     }
     backButton.style.visibility = "visible";
     ChangeActiveButtons(curButton.object.name, activeButtons);
-    curButtonOBJ.MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML, activeButtons);
+    curButtonOBJ.MoveTo(camera, animationsGroup, 500, monitorHTML, laptopHTML, phoneHTML, activeButtons);
   }
 }
 //TODO: Make more efficient (This would get me fired from anywhere but at least it works)
@@ -622,26 +640,17 @@ function ChangeActiveButtons(clickedButton, activeButtonArray) {
         if (clickedButton.substring(0, 3) == "mon") {
           activeButtonArray[i].position.set(monitorView.x + navButtonOBJs[k].monPos.x, monitorView.y + navButtonOBJs[k].monPos.y, monitorView.z + navButtonOBJs[k].monPos.z,);
           activeButtonArray[i].rotation.set(startingRot.x + navButtonOBJs[k].monRot.x, startingRot.y + navButtonOBJs[k].monRot.y, startingRot.z + navButtonOBJs[k].monRot.z,);
-          activeButtonArray[i].scale.set(navButtonOBJs[k].monScl.x, navButtonOBJs[k].monScl.y, navButtonOBJs[k].monScl.z,);
-
-          activeButtonArray[i].children[0].position.setX(navButtonOBJs[k].monTextPos);
-          activeButtonArray[i].children[0].scale.set(navButtonOBJs[k].monTextScl.x, navButtonOBJs[k].monTextScl.y, navButtonOBJs[k].monTextScl.z);
 
         } else if (clickedButton.substring(0, 3) == "lap") {
           activeButtonArray[i].position.set(laptopView.x + navButtonOBJs[k].lapPos.x, laptopView.y + navButtonOBJs[k].lapPos.y, laptopView.z + navButtonOBJs[k].lapPos.z,);
           activeButtonArray[i].rotation.set(laptopRotation.x + navButtonOBJs[k].lapRot.x, laptopRotation.y + navButtonOBJs[k].lapRot.y, laptopRotation.z + navButtonOBJs[k].lapRot.z,);
-          activeButtonArray[i].scale.set(navButtonOBJs[k].lapScl.x, navButtonOBJs[k].lapScl.y, navButtonOBJs[k].lapScl.z,);
-
-          activeButtonArray[i].children[0].position.setX(navButtonOBJs[k].lapTextPos);
-          activeButtonArray[i].children[0].scale.set(navButtonOBJs[k].lapTextScl.x, navButtonOBJs[k].lapTextScl.y, navButtonOBJs[k].lapTextScl.z);
         } else {
           activeButtonArray[i].position.set(phoneView.x + navButtonOBJs[k].phnPos.x, phoneView.y + navButtonOBJs[k].phnPos.y, phoneView.z + navButtonOBJs[k].phnPos.z,);
           activeButtonArray[i].rotation.set(phoneRotation.x + navButtonOBJs[k].phnRot.x, phoneRotation.y + navButtonOBJs[k].phnRot.y, phoneRotation.z + navButtonOBJs[k].phnRot.z,);
-          activeButtonArray[i].scale.set(navButtonOBJs[k].phnScl.x, navButtonOBJs[k].phnScl.y, navButtonOBJs[k].phnScl.z,);
-
-          activeButtonArray[i].children[0].position.setX(navButtonOBJs[k].phnTextPos);
-          activeButtonArray[i].children[0].scale.set(navButtonOBJs[k].phnTextScl.x, navButtonOBJs[k].phnTextScl.y, navButtonOBJs[k].phnTextScl.z);
         }
+        activeButtonArray[i].scale.set(navButtonOBJs[k].activeScl.x, navButtonOBJs[k].activeScl.y, navButtonOBJs[k].activeScl.z);
+        activeButtonArray[i].children[0].position.setX(navButtonOBJs[k].activeTextPos);
+        activeButtonArray[i].children[0].scale.set(navButtonOBJs[k].activeTextScl.x, navButtonOBJs[k].activeTextScl.y, navButtonOBJs[k].activeTextScl.z);
       }
     }
   }
@@ -658,7 +667,7 @@ function ResetNavButtons() {
       navButtonArray[i].children[0].position.setX(navButtonOBJs[i].DefTextXPos);
       navButtonArray[i].children[0].scale.set(1, 1, 1);
     }
-    navButtonOBJs[3].MoveTo(camera, camAnimations, 500, monitorHTML, laptopHTML, phoneHTML, navButtonArray);
+    navButtonOBJs[3].MoveTo(camera, animationsGroup, 500, monitorHTML, laptopHTML, phoneHTML, navButtonArray);
   }
 }
 
@@ -672,16 +681,16 @@ function OnKeyDown(event) {
   if (!currentlyAnim) {
     if (keyCode == 38) //uarr
     {
-      ToTarget(monitorView, startingRot, camera, camAnimations, 500, monitorHTML);
+      ToTarget(monitorView, startingRot, camera, animationsGroup, 500, monitorHTML);
     } else if (keyCode == 40) //darr
     {
-      ToTarget(startingPos, startingRot, camera, camAnimations, 500, monitorHTML);
+      ToTarget(startingPos, startingRot, camera, animationsGroup, 500, monitorHTML);
     } else if (keyCode == 37) //larr
     {
-      ToTarget(laptopView, laptopRotation, camera, camAnimations, 500, laptopHTML);
+      ToTarget(laptopView, laptopRotation, camera, animationsGroup, 500, laptopHTML);
     } else if (keyCode == 39) //rarr
     {
-      ToTarget(phoneView, phoneRotation, camera, camAnimations, 500, phoneHTML);
+      ToTarget(phoneView, phoneRotation, camera, animationsGroup, 500, phoneHTML);
     } else {
       return;
     }
@@ -759,9 +768,8 @@ function onWindowResize() {
 function animate() {
   requestAnimationFrame(animate);
   // controls.update();
-  camAnimations.update();
+  animationsGroup.update();
   renderer.render(scene, camera);
   // console.log(mouseClicked);
 }
-
 animate();

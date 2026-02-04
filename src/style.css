@@ -43,7 +43,6 @@ canvas {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: solid 1px greenyellow;
 }
 
 #backNav {
@@ -65,13 +64,13 @@ canvas {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.2s ease-in-out;
+  /* transition: transform 0.2s ease-in-out; */
 }
 
-.navButton:hover .hoverTextWrapper {
+/* .navButton:hover .hoverTextWrapper {
   transform: scale(1.4);
   transition: transform 0.2s ease-in-out;
-}
+} */
 
 .hoverText {
   text-align: center;
@@ -82,6 +81,10 @@ canvas {
   padding: 0;
   font-size: clamp(1rem, 2vh + 1rem, 2.2rem);
   /* display: none; */
+}
+
+.navButton:hover .hoverText {
+  color: rgba(60, 96, 128, 1);
 }
 
 .contentWrapper {
