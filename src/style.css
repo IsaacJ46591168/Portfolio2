@@ -128,11 +128,11 @@ canvas {
 }
 
 #desktopMonText h1 {
-  font-size: 60px;
+  font-size: clamp(1rem, 8.5vh - 1rem, 3.75rem);
 }
 
 #desktopMonText h2 {
-  font-size: 30px;
+  font-size: clamp(0.6rem, 4vh - 0.38rem, 1.875rem);
 }
 
 #desktopMonText p {
@@ -239,6 +239,7 @@ canvas {
   color: rgba(255, 255, 255, 1);
 }
 
+
 .projectInfos {
   width: 50%;
   height: 75%;
@@ -253,7 +254,7 @@ canvas {
 #projHeadlines h1 {
   text-align: center;
 
-  font-size: 80px;
+  font-size: clamp(0.625rem, 10vh - 1rem, 5rem);
   margin-bottom: 0;
 }
 
@@ -684,6 +685,7 @@ canvas {
 }
 
 #searchMock p {
+  font-size: clamp(0.313rem, 2.5vh - 0.1rem, 1rem);
   font-style: italic;
 }
 
@@ -714,11 +716,11 @@ canvas {
 }
 
 #desktopLapText h1 {
-  font-size: 40px;
+  font-size: clamp(0.625rem, 7vh - 0.8rem, 2.5rem);
 }
 
 #desktopLapText h2 {
-  font-size: 30px;
+  font-size: clamp(0.438rem, 5vh - 0.5rem, 1.875rem);
 }
 
 #laptopScreen {
@@ -1114,6 +1116,14 @@ canvas {
   padding-top: 4em;
   font-size: 20px;
   flex-grow: 1;
+}
+
+#phoneScreenText h1 {
+  font-size: clamp(0.313rem, 5vh - 0.6rem, 2.5rem);
+}
+
+#phoneScreenText h2 {
+  font-size: clamp(0.188rem, 5vh - 1rem, 1.5rem);
 }
 
 #phoneApps {

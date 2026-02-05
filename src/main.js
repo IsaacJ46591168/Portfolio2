@@ -709,19 +709,6 @@ var startingHeight = window.innerHeight;
 var stWidthChange = defaultWidth - startingWidth;
 var stHeightChange = defaultHeight - startingHeight;
 
-
-// for (i = 0; i < navButtons.length; i++) {
-//   var curButtonWidth = navButtons[i].clientWidth;
-//   var curButtonPos = navButtons[i].getBoundingClientRect().left;
-
-//   curButtonPos -= navButtonOBJs[i].WbPRatio * stWidthChange;
-//   curButtonPos += navButtonOBJs[i].HbPRatio * stHeightChange;
-//   curButtonWidth -= navButtonOBJs[i].HbWRatio * stHeightChange;
-
-//   navButtons[i].style.width = curButtonWidth + "px";
-//   navButtons[i].style.left = curButtonPos + "px";
-// }
-
 for (i = 0; i < contentWindows.length; i++) {
   var curWindowWidth = contentWindows[i].clientWidth;
   var curWindowPos = contentWindows[i].getBoundingClientRect().left;
@@ -743,17 +730,18 @@ function onWindowResize() {
   var widthChange = prevWidth - window.innerWidth;
   var heightChange = prevHeight - window.innerHeight;
 
-  // for (i = 0; i < navButtons.length; i++) {
-  //   var curButtonWidth = navButtons[i].clientWidth;
-  //   var curButtonPos = navButtons[i].getBoundingClientRect().left;
+  for (i = 0; i < contentWindows.length; i++) {
+    var curWindowWidth = contentWindows[i].clientWidth;
+    var curWindowPos = contentWindows[i].getBoundingClientRect().left;
 
-  //   curButtonPos -= navButtonOBJs[i].WbPRatio * widthChange;
-  //   curButtonPos += navButtonOBJs[i].HbPRatio * heightChange;
-  //   curButtonWidth -= navButtonOBJs[i].HbWRatio * heightChange;
+    curWindowPos -= windowRatios[i].WbPRatio * widthChange;
+    curWindowPos += windowRatios[i].HbPRatio * heightChange;
+    curWindowWidth -= windowRatios[i].HbWRatio * heightChange;
 
-  //   navButtons[i].style.width = curButtonWidth + "px";
-  //   navButtons[i].style.left = curButtonPos + "px";
-  // }
+    contentWindows[i].style.width = curWindowWidth + "px";
+    contentWindows[i].style.left = curWindowPos + "px";
+    console.log(curWindowPos);
+  }
 
   // console.log(curButtonHeight);
   camera.aspect = window.innerWidth / window.innerHeight;
