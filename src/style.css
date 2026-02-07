@@ -376,7 +376,6 @@ canvas {
 }
 
 #sProjWindowTopBar {
-  /* height: 15px; */
   background-color: rgba(230, 230, 230, 1);
 }
 
@@ -474,13 +473,13 @@ canvas {
 }
 
 .fListOption h2 {
-  font-size: clamp(0.375rem, 2vh - 0.25rem, 1rem);
+  font-size: clamp(0.625rem, 2vh - 0.1rem, 1rem);
   /* font-size: 15px; */
   margin-left: 5px;
 }
 
 .fListOption p {
-  font-size: clamp(0.375rem, 2vh - 0.25rem, 1rem);
+  font-size: clamp(0.625rem, 2vh - 0.1rem, 1rem);
   margin-left: 15px;
 }
 
@@ -554,12 +553,12 @@ canvas {
 }
 
 .sPText h2 {
-  font-size: 15px;
+  font-size: clamp(0.625rem, 2vh - 0.4rem, 1rem);
   margin-bottom: 0;
 }
 
 .sPText p {
-  font-size: 12px;
+  font-size: clamp(0.625rem, 2vh - 0.4rem, 0.75rem);
   margin-top: 5px;
 }
 
@@ -1168,9 +1167,29 @@ canvas {
 /*Mobile Layout Switches*/
 
 @media (max-height: 768px) {
+  #sProjWindowTopBar {
+    height: 10%;
+  }
+
+  #sProjWindowTopBar p {
+    font-size: clamp(0.438rem, 3vh - 0.1rem, 1rem);
+  }
+
+  #finderContent {
+    height: 87%;
+  }
+
   #smallProjectsList {
     margin-top: 0;
     overflow: auto;
+  }
+
+  #path {
+    height: 8%;
+  }
+
+  #searchFolder {
+    height: 8%;
   }
 
   #listTitle {
@@ -1180,6 +1199,14 @@ canvas {
   .smallProjectContainer {
     width: 40%;
     height: 30%;
+  }
+
+  .sPText h2 {
+    font-size: clamp(0.625rem, 2vh - 0.1rem, 1rem);
+  }
+
+  .sPText p {
+    font-size: clamp(0.625rem, 2vh - 0.1rem, 0.75rem);
   }
 }
 
@@ -1192,6 +1219,7 @@ canvas {
 } */
 
 @media (max-height: 475px) {
+
   #folderList {
     width: 20%;
   }
@@ -1203,7 +1231,15 @@ canvas {
 
 
   .smallProjectContainer {
-    width: 60%;
+    width: 75%;
     height: 50%;
+  }
+
+  .sPText h2 {
+    font-size: clamp(0.688rem, 4vh - 0.1rem, 1rem);
+  }
+
+  .sPText p {
+    font-size: clamp(0.625rem, 4vh - 0.1rem, 0.938rem);
   }
 }
